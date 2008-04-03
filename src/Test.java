@@ -6,16 +6,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class for Servlet: Index
+ * Servlet implementation class for Servlet: Test
  *
  */
- public class Index extends javax.servlet.http.HttpServlet implements javax.servlet.Servlet {
+ public class Test extends javax.servlet.http.HttpServlet implements javax.servlet.Servlet {
    static final long serialVersionUID = 1L;
    
     /* (non-Java-doc)
 	 * @see javax.servlet.http.HttpServlet#HttpServlet()
 	 */
-	public Index() {
+	public Test() {
 		super();
 	}   	
 	
