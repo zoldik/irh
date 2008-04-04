@@ -27,6 +27,6 @@ import javax.servlet.http.HttpServletResponse;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
-		pw.println("Roule ma poule !");
+		pw.println("Roule ma poulette !");
 	}  	  	  	    
 }
