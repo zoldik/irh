@@ -14,7 +14,7 @@ public class HelloWorldController implements Controller {
 	{
 		String aMessage = "Hello World MVC!";
 		 
-		ModelAndView myModelAndView = new ModelAndView("hello_world");
+		ModelAndView myModelAndView = new ModelAndView("helloworld");
 		myModelAndView.addObject("message", aMessage);
  
 		return myModelAndView;
