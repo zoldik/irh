@@ -3,6 +3,9 @@
     <wb-module deploy-name="IRH">
         <wb-resource deploy-path="/" source-path="/WebContent"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/IRH/WebContent/WEB-INF/lib/ojdbc14.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="IRH"/>
         <property name="java-output-path" value="build/classes"/>
     </wb-module>
