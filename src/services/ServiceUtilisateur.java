@@ -6,34 +6,34 @@ import entities.Utilisateur;
 public class ServiceUtilisateur implements IServiceUtilisateur {
 
 	// Couche [dao]
-	private IDaoUtilisateur daoUser;
+	private IDaoUtilisateur daoUtilisateur;
 	
-	public IDaoUtilisateur getDaoUser() {
-		return daoUser;
+	public IDaoUtilisateur getDaoUtilisateur() {
+		return daoUtilisateur;
 	}
 	
-	public void setDaoUser(IDaoUtilisateur daoUser) {
-		this.daoUser = daoUser;
+	public void setDaoUtilisateur(IDaoUtilisateur daoUtilisateur) {
+		this.daoUtilisateur = daoUtilisateur;
 	}
 	
 	@Override
 	public void addUtilisateur(Utilisateur user) {
-		this.daoUser.addOne(user);
+		this.daoUtilisateur.addOne(user);
 	}
 
 	@Override
 	public void deleteUtilisateur(Utilisateur user) {
-		this.daoUser.deleteOne(user);
+		this.daoUtilisateur.deleteOne(user);
 	}
 
 	@Override
 	public Utilisateur getUtilisateur(int id) {
-		return this.daoUser.getOne(id);
+		return this.daoUtilisateur.getOne(id);
 	}
 
 	@Override
 	public void updateUtilisateur(Utilisateur user) {
-		this.daoUser.updateOne(user);
+		this.daoUtilisateur.updateOne(user);
 	}
 
 }
