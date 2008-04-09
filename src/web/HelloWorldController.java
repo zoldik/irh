@@ -19,7 +19,8 @@ public class HelloWorldController implements Controller {
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception
 	{
 		// configuration de l'application
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-servlet.xml");
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-config.xml");
+		
 		// couche service
 		su = (IServiceUtilisateur) ctx.getBean("serviceUtilisateur");
 		
