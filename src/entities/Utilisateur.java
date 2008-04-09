@@ -32,7 +32,7 @@ public class Utilisateur implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name="ID_DROIT")
-	private Droit idDroit;
+	private Droit droit;
 
 	private static final long serialVersionUID = 1L;
 
@@ -72,12 +72,12 @@ public class Utilisateur implements Serializable {
 		this.pass = pass;
 	}
 
-	public Droit getIdDroit() {
-		return this.idDroit;
+	public Droit getDroit() {
+		return this.droit;
 	}
 
-	public void setIdDroit(Droit idDroit) {
-		this.idDroit = idDroit;
+	public void setDroit(Droit idDroit) {
+		this.droit = idDroit;
 	}
 
 }

@@ -18,7 +18,7 @@ public class Droit implements Serializable {
 	@Column(name="LIBELLE")
 	private String libelle;
 
-	@OneToMany(mappedBy="idDroit")
+	@OneToMany(mappedBy="droit")
 	private Set<Utilisateur> utilisateurCollection;
 
 	private static final long serialVersionUID = 1L;

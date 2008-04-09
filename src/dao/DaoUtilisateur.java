@@ -34,7 +34,7 @@ public class DaoUtilisateur implements IDaoUtilisateur {
 			u.setNom(user.getNom());
 			u.setLogin(user.getLogin());
 			u.setPass(user.getPass());
-			u.setIdDroit(user.getIdDroit());
+			u.setDroit(user.getDroit());
 		}
 	}
 
