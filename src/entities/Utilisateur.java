@@ -19,7 +19,7 @@ public class Utilisateur implements Serializable {
 	@Column(name="ID")
 	@GeneratedValue(strategy=SEQUENCE, generator = "SEQ_UTILISATEUR")
 	@SequenceGenerator(name="SEQ_UTILISATEUR", sequenceName = "SEQ_UTILISATEUR")
-	private long id;
+	private int id;
 
 	@Column(name="NOM")
 	private String nom;
@@ -40,11 +40,11 @@ public class Utilisateur implements Serializable {
 		super();
 	}
 
-	public long getId() {
+	public int getId() {
 		return this.id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

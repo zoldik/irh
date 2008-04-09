@@ -13,7 +13,7 @@ import javax.persistence.Column;
 public class Droit implements Serializable {
 	@Id
 	@Column(name="ID")
-	private long id;
+	private int id;
 
 	@Column(name="LIBELLE")
 	private String libelle;
@@ -27,11 +27,11 @@ public class Droit implements Serializable {
 		super();
 	}
 
-	public long getId() {
+	public int getId() {
 		return this.id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

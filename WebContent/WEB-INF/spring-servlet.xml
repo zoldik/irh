@@ -26,8 +26,8 @@
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
 				<property name="showSql" value="true" />
 				<property name="databasePlatform"
-				value="org.hibernate.dialect.OracleDialect" />
-				<property name="generateDdl" value="true" />
+				value="org.hibernate.dialect.Oracle10gDialect" />
+				<property name="generateDdl" value="false" />
 			</bean>
 		</property>
 		<property name="loadTimeWeaver">

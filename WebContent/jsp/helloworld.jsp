@@ -6,6 +6,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-${message}
+Utilisateur : <c:out value="${user.nom}" />
 </body>
 </html>
