@@ -65,7 +65,7 @@ public class IdentificationController extends SimpleFormController {
 		if (su.existeUtilisateur((Utilisateur)command)) {
 			mv = new ModelAndView(new RedirectView(this.getSuccessView()));
 		} else {
-			mv = new ModelAndView(new RedirectView(this.getFormView()));
+			mv = new ModelAndView(new RedirectView("identification.htm"));
 		}
 		
 		return mv;

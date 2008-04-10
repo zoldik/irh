@@ -1,6 +1,9 @@
 package dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
@@ -43,17 +46,42 @@ public class DaoUtilisateur implements IDaoUtilisateur {
 	
 	@Override
 	public boolean existe(Utilisateur user) {
-		Query q = em.createQuery("from Utilisateur " +
-				"where login = :login " +
-				"and pass = :pass");
+		boolean existe = true;
 		
-		q.setParameter("login", user.getLogin());
-		q.setParameter("pass", user.getPass());
+		Query q = em.createQuery("from Utilisateur u " +
+				"where u.login = :login " +
+				"and u.pass = :pass ");
 		
-		Utilisateur u = (Utilisateur) q.getSingleResult();
+		q.setParameter("login", "ajarnoux");//user.getLogin());
+		q.setParameter("pass", "irh");//user.getPass());
+	
+		//System.out.println("## existe: ");
 		
-		System.out.println("## existe: " + u.getLogin() + " trouvé.");
+		/*for (Utilisateur u : (List<Utilisateur>)q.getResultList()) {
+			/*if(u.getLogin().equals(user.getLogin())) {
+				System.out.println("c'est gagné !");
+				existe = true;
+			}*/
+		/*	System.out.println(u.getLogin());
+			System.out.println(u.getDroit().getLibelle());
+		}*/
 		
-		return (u != null) ? true : false;
+		try {
+			Utilisateur u = (Utilisateur) q.getSingleResult();
+		
+			System.out.println("## existe: " + u.getLogin() + " trouvé.");
+		} catch (NoResultException e) {
+			existe = false;
+			System.out.println("existe : dans le catch");
+		}
+		
+		return existe;
+	}
+
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<Utilisateur> listAll() {
+		Query q = em.createQuery("from Utilisateur");
+		return (List<Utilisateur>) q.getResultList();
 	}
 }

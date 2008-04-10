@@ -1,5 +1,7 @@
 package services;
 
+import java.util.List;
+
 import org.springframework.transaction.annotation.Transactional;
 
 import dao.IDaoUtilisateur;
@@ -7,7 +9,6 @@ import entities.Utilisateur;
 
 @Transactional
 public class ServiceUtilisateur implements IServiceUtilisateur {
-
 	// Couche [dao]
 	private IDaoUtilisateur daoUtilisateur;
 	
@@ -42,6 +43,11 @@ public class ServiceUtilisateur implements IServiceUtilisateur {
 	@Override
 	public boolean existeUtilisateur(Utilisateur user) {
 		return this.daoUtilisateur.existe(user);
+	}
+	
+	@Override
+	public List<Utilisateur> listUtilisateurs() {
+		return this.daoUtilisateur.listAll();
 	}
 
 }

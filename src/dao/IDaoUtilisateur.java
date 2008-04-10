@@ -1,5 +1,7 @@
 package dao;
 
+import java.util.List;
+
 import entities.Utilisateur;
 
 public interface IDaoUtilisateur {
@@ -7,5 +9,6 @@ public interface IDaoUtilisateur {
 	void addOne(Utilisateur user);
 	void updateOne(Utilisateur user);
 	void deleteOne(Utilisateur user);
+	List<Utilisateur> listAll();
 	boolean existe(Utilisateur user);
 }

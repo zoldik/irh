@@ -33,6 +33,10 @@ public class HelloWorldController implements Controller {
 		
 		System.out.println("## " + user.getNom());
 		
+		for (Utilisateur u : su.listUtilisateurs()) {
+			System.out.println(u.getLogin());
+		}
+		
 		ModelAndView myModelAndView = new ModelAndView("helloworld");
 		myModelAndView.addObject("user", user);
  
