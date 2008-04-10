@@ -7,10 +7,16 @@
  
  	<!-- couches MVC -->
 	<bean name="/helloworld.htm" class="web.HelloWorldController"/>
+	<bean name="/identification.htm" class="web.consultation.IdentificationController">
+		<property name="commandClass" value="entities.Utilisateur"/>
+		<property name="formView" value="identification"/>
+		<property name="successView" value="accueil_rh.htm"/>
+	</bean>
+	<bean name="/accueil_rh.htm" class="web.consultation.AccueilRHController"/>
  
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-		<property name="prefix" value="/jsp/"/>
+		<property name="prefix" value="/WEB-INF/jsp/"/>
 		<property name="suffix" value=".jsp"/>
 	</bean>
 </beans>

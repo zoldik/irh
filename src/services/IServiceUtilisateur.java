@@ -7,4 +7,5 @@ public interface IServiceUtilisateur {
 	void addUtilisateur(Utilisateur user);
 	void updateUtilisateur(Utilisateur user);
 	void deleteUtilisateur(Utilisateur user);
+	boolean existeUtilisateur(Utilisateur user);
 }

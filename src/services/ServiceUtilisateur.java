@@ -1,8 +1,11 @@
 package services;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import dao.IDaoUtilisateur;
 import entities.Utilisateur;
 
+@Transactional
 public class ServiceUtilisateur implements IServiceUtilisateur {
 
 	// Couche [dao]
@@ -34,6 +37,11 @@ public class ServiceUtilisateur implements IServiceUtilisateur {
 	@Override
 	public void updateUtilisateur(Utilisateur user) {
 		this.daoUtilisateur.updateOne(user);
+	}
+	
+	@Override
+	public boolean existeUtilisateur(Utilisateur user) {
+		return this.daoUtilisateur.existe(user);
 	}
 
 }

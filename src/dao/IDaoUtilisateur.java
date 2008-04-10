@@ -7,4 +7,5 @@ public interface IDaoUtilisateur {
 	void addOne(Utilisateur user);
 	void updateOne(Utilisateur user);
 	void deleteOne(Utilisateur user);
+	boolean existe(Utilisateur user);
 }

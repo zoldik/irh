@@ -28,6 +28,11 @@ public class HelloWorldController implements Controller {
 		
 		System.out.println("## " + user.getNom());
 		
+		user.setNom("test3");
+		su.updateUtilisateur(user);
+		
+		System.out.println("## " + user.getNom());
+		
 		ModelAndView myModelAndView = new ModelAndView("helloworld");
 		myModelAndView.addObject("user", user);
  
