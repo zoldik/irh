@@ -6,7 +6,9 @@
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
  
  	<!-- couches MVC -->
-	<bean name="/helloworld.htm" class="web.HelloWorldController"/>
+	<bean name="/helloworld.htm" class="web.HelloWorldController">
+		<property name="su" ref="serviceUtilisateur" />
+	</bean>
 	<bean name="/identification.htm" class="web.consultation.IdentificationController">
 		<property name="commandClass" value="entities.Utilisateur"/>
 		<property name="formView" value="identification"/>

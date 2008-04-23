@@ -3,8 +3,6 @@ package web;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
@@ -17,19 +15,13 @@ public class HelloWorldController implements Controller {
 	
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception
-	{
-		// configuration de l'application
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-config.xml");
-		
-		// couche service
-		su = (IServiceUtilisateur) ctx.getBean("serviceUtilisateur");
-		
+	{				
 		Utilisateur user = su.getUtilisateur(1);
 		
 		System.out.println("## " + user.getNom());
 		
-		user.setNom("test3");
-		su.updateUtilisateur(user);
+		//user.setNom("test3");
+		//su.updateUtilisateur(user);
 		
 		System.out.println("## " + user.getNom());
 		
@@ -41,6 +33,14 @@ public class HelloWorldController implements Controller {
 		myModelAndView.addObject("user", user);
  
 		return myModelAndView;
+	}
+
+	public IServiceUtilisateur getSu() {
+		return su;
+	}
+
+	public void setSu(IServiceUtilisateur su) {
+		this.su = su;
 	}
 
 }
