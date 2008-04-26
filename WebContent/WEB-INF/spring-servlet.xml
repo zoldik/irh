@@ -5,20 +5,27 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
  
- 	<!-- couches MVC -->
+ 	<!-- Controllers -->
 	<bean name="/helloworld.htm" class="web.HelloWorldController">
 		<property name="su" ref="serviceUtilisateur" />
 	</bean>
 	<bean name="/identification.htm" class="web.consultation.IdentificationController">
-		<property name="commandClass" value="entities.Utilisateur"/>
-		<property name="formView" value="identification"/>
-		<property name="successView" value="accueil_rh.htm"/>
+		<property name="commandClass" value="entities.Utilisateur" />
+		<property name="formView" value="identification" />
+		<property name="successView" value="accueil_rh.htm" />
+		<property name="validator" ref="identificationValidator" />
 	</bean>
 	<bean name="/accueil_rh.htm" class="web.consultation.AccueilRHController"/>
  
+ 	<!-- Validadors -->
+ 	<bean name="identificationValidator" class="web.consultation.IdentificationValidator">
+ 		<property name="su" ref="serviceUtilisateur" />
+ 	</bean>
+ 	
+ 	<!-- View Resolvers -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-		<property name="prefix" value="/WEB-INF/jsp/"/>
-		<property name="suffix" value=".jsp"/>
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
 	</bean>
 </beans>

@@ -4,20 +4,14 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.SimpleFormController;
 import org.springframework.web.servlet.view.RedirectView;
 
-import entities.Utilisateur;
-
-import services.IServiceUtilisateur;
 
 public class IdentificationController extends SimpleFormController {
 	
-	private IServiceUtilisateur su;
 	
 	/* (non-Javadoc)
 	 * @see org.springframework.web.servlet.mvc.AbstractFormController#formBackingObject(javax.servlet.http.HttpServletRequest)
@@ -54,20 +48,6 @@ public class IdentificationController extends SimpleFormController {
 	 */
 	@Override
 	protected ModelAndView onSubmit(Object command) throws Exception {
-		ModelAndView mv = null;
-		
-		// configuration de l'application
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-config.xml");
-		
-		// couche service
-		su = (IServiceUtilisateur) ctx.getBean("serviceUtilisateur");
-		
-		if (su.existeUtilisateur((Utilisateur)command)) {
-			mv = new ModelAndView(new RedirectView(this.getSuccessView()));
-		} else {
-			mv = new ModelAndView(new RedirectView("identification.htm"));
-		}
-		
-		return mv;
+		return new ModelAndView(new RedirectView(this.getSuccessView()));
 	}
 }

@@ -52,8 +52,8 @@ public class DaoUtilisateur implements IDaoUtilisateur {
 				"where u.login = :login " +
 				"and u.pass = :pass ");
 		
-		q.setParameter("login", "ajarnoux");//user.getLogin());
-		q.setParameter("pass", "irh");//user.getPass());
+		q.setParameter("login", user.getLogin());
+		q.setParameter("pass", user.getPass());
 	
 		//System.out.println("## existe: ");
 		

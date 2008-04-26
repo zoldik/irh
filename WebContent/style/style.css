@@ -29,6 +29,11 @@ fieldset legend
 	width:				130px;
 }
 
+.error
+{
+	color: red;	
+}
+
 /** deco **/
 body {
 	font:				90% "Trebuchet MS", sans-serif;
