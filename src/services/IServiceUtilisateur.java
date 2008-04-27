@@ -2,6 +2,7 @@ package services;
 
 import java.util.List;
 
+import entities.Droit;
 import entities.Utilisateur;
 
 public interface IServiceUtilisateur {

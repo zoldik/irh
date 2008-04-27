@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
 
 import dao.IDaoUtilisateur;
+import entities.Droit;
 import entities.Utilisateur;
 
 @Transactional
@@ -49,5 +50,4 @@ public class ServiceUtilisateur implements IServiceUtilisateur {
 	public List<Utilisateur> listUtilisateurs() {
 		return this.daoUtilisateur.listAll();
 	}
-
 }

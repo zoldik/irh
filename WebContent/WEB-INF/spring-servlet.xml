@@ -18,6 +18,14 @@
 	<bean name="/liste_utilisateurs.htm" class="web.administration.ListeUtilisateursController">
 		<property name="su" ref="serviceUtilisateur" />
 	</bean>
+	<bean name="/add_utilisateur.htm" class="web.administration.AddUtilisateurController">
+		<property name="commandClass" value="entities.Utilisateur" />
+		<property name="formView" value="add_modif_utilisateur" />
+		<property name="successView" value="liste_utilisateurs.htm" />
+		<property name="validator" ref="addModifUtilisateurValidator" />
+		<property name="su" ref="serviceUtilisateur" />
+		<property name="sd" ref="serviceDroit" />
+	</bean>
 	<bean name="/suppr_utilisateur.htm" class="web.administration.SupprUtilisateurController">
 		<property name="su" ref="serviceUtilisateur" />
 	</bean>
@@ -27,6 +35,7 @@
  	<bean name="identificationValidator" class="web.consultation.IdentificationValidator">
  		<property name="su" ref="serviceUtilisateur" />
  	</bean>
+ 	<bean name="addModifUtilisateurValidator" class="web.administration.AddModifUtilisateurValidator" />
  	
  	<!-- View Resolvers -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

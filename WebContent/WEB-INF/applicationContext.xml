@@ -10,6 +10,10 @@
 	<bean id="serviceUtilisateur" class="services.ServiceUtilisateur">
 		<property name="daoUtilisateur" ref="daoUtilisateur" />
 	</bean>
+	<bean id="daoDroit" class="dao.DaoDroit" />
+	<bean id="serviceDroit" class="services.ServiceDroit">
+		<property name="daoDroit" ref="daoDroit" />
+	</bean>
 	<!-- couche de persistance JPA -->
 	<bean id="entityManagerFactory"	class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />

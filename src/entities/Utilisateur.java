@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.GeneratedValue;
+import javax.persistence.Transient;
+
 import static javax.persistence.GenerationType.SEQUENCE;
 import javax.persistence.SequenceGenerator;
 
@@ -29,6 +31,9 @@ public class Utilisateur implements Serializable {
 
 	@Column(name="PASS")
 	private String pass;
+	
+	@Transient
+	private String confirmation;
 
 	@ManyToOne
 	@JoinColumn(name="ID_DROIT")
@@ -78,6 +83,14 @@ public class Utilisateur implements Serializable {
 
 	public void setDroit(Droit idDroit) {
 		this.droit = idDroit;
+	}
+
+	public String getConfirmation() {
+		return confirmation;
+	}
+
+	public void setConfirmation(String confirmation) {
+		this.confirmation = confirmation;
 	}
 
 }

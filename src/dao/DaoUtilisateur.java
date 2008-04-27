@@ -7,6 +7,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import entities.Droit;
 import entities.Utilisateur;
 
 public class DaoUtilisateur implements IDaoUtilisateur {
@@ -66,5 +67,5 @@ public class DaoUtilisateur implements IDaoUtilisateur {
 	public List<Utilisateur> listAll() {
 		Query q = em.createQuery("from Utilisateur order by nom");
 		return (List<Utilisateur>) q.getResultList();
-	}
+	}	
 }
