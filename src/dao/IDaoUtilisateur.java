@@ -2,7 +2,6 @@ package dao;
 
 import java.util.List;
 
-import entities.Droit;
 import entities.Utilisateur;
 
 public interface IDaoUtilisateur {

@@ -28,12 +28,12 @@
     </div>
     <div class="ligne">
         <span class="label">Password :</span>
-        <form:password path="pass" />
+        <form:password path="pass" showPassword="true"/>
         <form:errors path="pass" cssClass="error"/>
     </div>
     <div class="ligne">
         <span class="label">Confirmation :</span>
-        <form:password path="confirmation" />
+        <form:password path="confirmation" showPassword="true"/>
         <form:errors path="confirmation" cssClass="error"/>
     </div>
     <div class="ligne">

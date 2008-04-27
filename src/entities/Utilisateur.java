@@ -86,11 +86,12 @@ public class Utilisateur implements Serializable {
 	}
 
 	public String getConfirmation() {
-		return confirmation;
+		if(this.confirmation == null) this.confirmation = this.pass;
+		
+		return this.confirmation;
 	}
 
 	public void setConfirmation(String confirmation) {
 		this.confirmation = confirmation;
 	}
-
 }

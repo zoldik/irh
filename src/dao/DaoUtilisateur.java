@@ -7,7 +7,6 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import entities.Droit;
 import entities.Utilisateur;
 
 public class DaoUtilisateur implements IDaoUtilisateur {

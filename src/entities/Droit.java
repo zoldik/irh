@@ -50,5 +50,10 @@ public class Droit implements Serializable {
 	public void setUtilisateurCollection(Set<Utilisateur> utilisateurCollection) {
 		this.utilisateurCollection = utilisateurCollection;
 	}
+	
+	@Override
+	public String toString() {
+		return this.libelle;
+	}
 
 }
