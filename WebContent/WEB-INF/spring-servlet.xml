@@ -15,6 +15,12 @@
 		<property name="successView" value="accueil_rh.htm" />
 		<property name="validator" ref="identificationValidator" />
 	</bean>
+	<bean name="/liste_utilisateurs.htm" class="web.administration.ListeUtilisateursController">
+		<property name="su" ref="serviceUtilisateur" />
+	</bean>
+	<bean name="/suppr_utilisateur.htm" class="web.administration.SupprUtilisateurController">
+		<property name="su" ref="serviceUtilisateur" />
+	</bean>
 	<bean name="/accueil_rh.htm" class="web.consultation.AccueilRHController"/>
  
  	<!-- Validadors -->

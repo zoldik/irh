@@ -23,7 +23,7 @@ public class DaoUtilisateur implements IDaoUtilisateur {
 	public void deleteOne(Utilisateur user) {
 		Utilisateur u = em.find(Utilisateur.class, user.getId());
 		if (u != null)
-			em.remove(user);
+			em.remove(u);
 	}
 
 	@Override
@@ -54,26 +54,9 @@ public class DaoUtilisateur implements IDaoUtilisateur {
 		
 		q.setParameter("login", user.getLogin());
 		q.setParameter("pass", user.getPass());
-	
-		//System.out.println("## existe: ");
 		
-		/*for (Utilisateur u : (List<Utilisateur>)q.getResultList()) {
-			/*if(u.getLogin().equals(user.getLogin())) {
-				System.out.println("c'est gagné !");
-				existe = true;
-			}*/
-		/*	System.out.println(u.getLogin());
-			System.out.println(u.getDroit().getLibelle());
-		}*/
-		
-		try {
-			Utilisateur u = (Utilisateur) q.getSingleResult();
-		
-			System.out.println("## existe: " + u.getLogin() + " trouvé.");
-		} catch (NoResultException e) {
-			existe = false;
-			System.out.println("existe : dans le catch");
-		}
+		try { q.getSingleResult(); }
+		catch (NoResultException e) { existe = false; }
 		
 		return existe;
 	}
@@ -81,7 +64,7 @@ public class DaoUtilisateur implements IDaoUtilisateur {
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<Utilisateur> listAll() {
-		Query q = em.createQuery("from Utilisateur");
+		Query q = em.createQuery("from Utilisateur order by nom");
 		return (List<Utilisateur>) q.getResultList();
 	}
 }
