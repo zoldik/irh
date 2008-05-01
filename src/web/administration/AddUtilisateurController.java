@@ -56,7 +56,7 @@ public class AddUtilisateurController extends SimpleFormController {
      	
     	Integer droitId = null;
     	try { droitId = Integer.parseInt(request.getParameter("droit")); }
-    	catch (Exception e) { e.printStackTrace(); }
+    	catch (Exception e) {}
     	
 		if (droitId != null) {
 			Droit droit = sd.getDroit(droitId);
