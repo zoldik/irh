@@ -13,10 +13,10 @@
 	<a class="ajout" href="./add_utilisateur.htm">
         Ajouter un utilisateur
     </a>
-	<display:table name="users" class="adminlist" decorator="web.administration.ListeUtilisateursDecorator">
+	<display:table name="users" sort="list" pagesize="2" class="adminlist" decorator="web.administration.ListeUtilisateursDecorator" requestURI="liste_utilisateurs.htm">
 		<display:setProperty name="css.tr.odd" value="row0" />
 		<display:setProperty name="css.tr.even" value="row1" />
-		<display:column property="login" title="Login" />
+		<display:column property="login" title="Login" sortable="true" />
 		<display:column property="nom" title="Nom" />
 		<display:column property="editLink" title="&nbsp;" style="text-align:center" />
 		<display:column property="supprLink" title="&nbsp;" style="text-align:center" />

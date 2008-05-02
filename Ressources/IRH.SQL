@@ -1,12 +1,12 @@
 -- -----------------------------------------------------------------------------
---             Génération d'une base de données pour
+--             Gï¿½nï¿½ration d'une base de donnï¿½es pour
 --                      Oracle Version 9i
 --                        (2/5/2008 9:13:30)
 -- -----------------------------------------------------------------------------
 --      Nom de la base : IRH
 --      Projet : Accueil Win'Design version 7
 --      Auteur : Alex
---      Date de dernière modification : 2/5/2008 9:13:03
+--      Date de derniï¿½re modification : 2/5/2008 9:13:03
 -- -----------------------------------------------------------------------------
 
 DROP TABLE EMPLOI_PRECEDENT CASCADE CONSTRAINTS;
@@ -684,3 +684,12 @@ CREATE SEQUENCE "IRH"."SEQ_COMPETENCE" INCREMENT BY 1 START WITH 1 ;
 -- -----------------------------------------------------------------------------
 --                FIN DE GENERATION
 -- -----------------------------------------------------------------------------
+
+insert into "IRH"."DROIT" values(1, 'drh');
+insert into "IRH"."DROIT" values(2, 'administration');
+insert into "IRH"."DROIT" values(3, 'carrieres');
+insert into "IRH"."DROIT" values(4, 'formations');
+
+insert into "IRH"."UTILISATEUR" values(1, 1, 'Alex JARNOUX', 'ajarnoux', 'test');
+insert into "IRH"."UTILISATEUR" values(2, 1, 'Francois COJEAN', 'fcojean', 'test');
+insert into "IRH"."UTILISATEUR" values(3, 1, 'Leila TAMIM', 'ltamim', 'test');
