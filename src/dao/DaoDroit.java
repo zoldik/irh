@@ -31,15 +31,7 @@ public class DaoDroit implements IDaoDroit {
 	}
 
 	@Override
-	public void updateOne(Droit droit) {
-		/*Utilisateur u = em.find(Utilisateur.class, user.getId());
-		if (u != null) {
-			u.setNom(user.getNom());
-			u.setLogin(user.getLogin());
-			u.setPass(user.getPass());
-			u.setDroit(user.getDroit());
-		}*/
-		
+	public void updateOne(Droit droit) {		
 		em.merge(droit);
 	}
 

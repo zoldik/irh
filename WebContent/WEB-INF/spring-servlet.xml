@@ -37,6 +37,9 @@
 	<bean name="/suppr_utilisateur.htm" class="web.administration.SupprUtilisateurController">
 		<property name="su" ref="serviceUtilisateur" />
 	</bean>
+	<bean name="/liste_themes.htm" class="web.formations.ListeThemesController">
+		<property name="st" ref="serviceTheme" />
+	</bean>
 	<bean name="/accueil_rh.htm" class="web.consultation.AccueilRHController"/>
  
  	<!-- Validadors -->

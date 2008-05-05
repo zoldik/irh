@@ -3,21 +3,20 @@
 
 <html>
 <head>
-    <title>Liste des utilisateurs</title>
+    <title>Liste des th&egrave;mes</title>
     <link href="./style/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 
 <fieldset>
-	<legend>Liste des utilisateurs</legend>
-	<a class="ajout" href="./add_utilisateur.htm">
-        Ajouter un utilisateur
+	<legend>Liste des th&egrave;mes</legend>
+	<a class="ajout" href="./add_theme.htm">
+        Ajouter un th&egrave;me
     </a>
-	<display:table name="users" sort="list" pagesize="10" class="adminlist" decorator="web.administration.ListeUtilisateursDecorator" requestURI="liste_utilisateurs.htm">
+	<display:table name="themes" sort="list" pagesize="10" class="adminlist" decorator="web.formations.ListeThemesDecorator" requestURI="liste_themes.htm">
 		<display:setProperty name="css.tr.odd" value="row0" />
 		<display:setProperty name="css.tr.even" value="row1" />
-		<display:column property="login" title="Login" sortable="true" />
-		<display:column property="nom" title="Nom" sortable="true" />
+		<display:column property="libelle" title="Libellé" sortable="true" />
 		<display:column property="editLink" title="&nbsp;" style="text-align:center" />
 		<display:column property="supprLink" title="&nbsp;" style="text-align:center" />
 	</display:table>

@@ -32,15 +32,7 @@ public class DaoUtilisateur implements IDaoUtilisateur {
 	}
 
 	@Override
-	public void updateOne(Utilisateur user) {
-		/*Utilisateur u = em.find(Utilisateur.class, user.getId());
-		if (u != null) {
-			u.setNom(user.getNom());
-			u.setLogin(user.getLogin());
-			u.setPass(user.getPass());
-			u.setDroit(user.getDroit());
-		}*/
-		
+	public void updateOne(Utilisateur user) {		
 		em.merge(user);
 	}
 	
