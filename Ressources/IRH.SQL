@@ -693,3 +693,7 @@ insert into "IRH"."DROIT" values(4, 'formations');
 insert into "IRH"."UTILISATEUR" values(1, 1, 'Alex JARNOUX', 'ajarnoux', 'test');
 insert into "IRH"."UTILISATEUR" values(2, 1, 'Francois COJEAN', 'fcojean', 'test');
 insert into "IRH"."UTILISATEUR" values(3, 1, 'Leila TAMIM', 'ltamim', 'test');
+
+insert into "IRH"."THEME" values(1, 'Agronomie');
+insert into "IRH"."THEME" values(2, 'Finance');
+insert into "IRH"."THEME" values(3, 'Informatique');

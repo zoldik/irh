@@ -40,6 +40,23 @@
 	<bean name="/liste_themes.htm" class="web.formations.ListeThemesController">
 		<property name="st" ref="serviceTheme" />
 	</bean>
+	<bean name="/add_theme.htm" class="web.formations.AddThemeController">
+		<property name="commandClass" value="entities.Theme" />
+		<property name="formView" value="add_modif_theme" />
+		<property name="successView" value="liste_themes.htm" />
+		<property name="validator" ref="addModifThemeValidator" />
+		<property name="st" ref="serviceTheme" />
+	</bean>
+	<bean name="/modif_theme.htm" class="web.formations.ModifThemeController">
+		<property name="commandClass" value="entities.Theme" />
+		<property name="formView" value="add_modif_theme" />
+		<property name="successView" value="liste_themes.htm" />
+		<property name="validator" ref="addModifThemeValidator" />
+		<property name="st" ref="serviceTheme" />
+	</bean>
+	<bean name="/suppr_theme.htm" class="web.formations.SupprThemeController">
+		<property name="st" ref="serviceTheme" />
+	</bean>
 	<bean name="/accueil_rh.htm" class="web.consultation.AccueilRHController"/>
  
  	<!-- Validadors -->
@@ -47,6 +64,7 @@
  		<property name="su" ref="serviceUtilisateur" />
  	</bean>
  	<bean name="addModifUtilisateurValidator" class="web.administration.AddModifUtilisateurValidator" />
+ 	<bean name="addModifThemeValidator" class="web.formations.AddModifThemeValidator" />
  	
  	<!-- View Resolvers -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
