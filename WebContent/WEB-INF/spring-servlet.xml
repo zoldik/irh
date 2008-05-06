@@ -57,6 +57,28 @@
 	<bean name="/suppr_theme.htm" class="web.formations.SupprThemeController">
 		<property name="st" ref="serviceTheme" />
 	</bean>
+	<bean name="/liste_categories.htm" class="web.formations.ListeCategoriesController">
+		<property name="sc" ref="serviceCategorie" />
+	</bean>
+	<bean name="/add_categorie.htm" class="web.formations.AddCategorieController">
+		<property name="commandClass" value="entities.Categorie" />
+		<property name="formView" value="add_modif_categorie" />
+		<property name="successView" value="liste_categories.htm" />
+		<property name="validator" ref="addModifCategorieValidator" />
+		<property name="sc" ref="serviceCategorie" />
+		<property name="st" ref="serviceTheme" />
+	</bean>
+	<bean name="/modif_categorie.htm" class="web.formations.ModifCategorieController">
+		<property name="commandClass" value="entities.Categorie" />
+		<property name="formView" value="add_modif_categorie" />
+		<property name="successView" value="liste_categories.htm" />
+		<property name="validator" ref="addModifCategorieValidator" />
+		<property name="sc" ref="serviceCategorie" />
+		<property name="st" ref="serviceTheme" />
+	</bean>
+	<bean name="/suppr_categorie.htm" class="web.formations.SupprCategorieController">
+		<property name="sc" ref="serviceCategorie" />
+	</bean>
 	<bean name="/accueil_rh.htm" class="web.consultation.AccueilRHController"/>
  
  	<!-- Validadors -->
@@ -65,6 +87,7 @@
  	</bean>
  	<bean name="addModifUtilisateurValidator" class="web.administration.AddModifUtilisateurValidator" />
  	<bean name="addModifThemeValidator" class="web.formations.AddModifThemeValidator" />
+ 	<bean name="addModifCategorieValidator" class="web.formations.AddModifCategorieValidator" />
  	
  	<!-- View Resolvers -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

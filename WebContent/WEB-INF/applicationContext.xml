@@ -18,6 +18,10 @@
 	<bean id="serviceTheme" class="services.ServiceTheme">
 		<property name="daoTheme" ref="daoTheme" />
 	</bean>
+	<bean id="daoCategorie" class="dao.DaoCategorie" />
+	<bean id="serviceCategorie" class="services.ServiceCategorie">
+		<property name="daoCategorie" ref="daoCategorie" />
+	</bean>
 	<!-- couche de persistance JPA -->
 	<bean id="entityManagerFactory"	class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />

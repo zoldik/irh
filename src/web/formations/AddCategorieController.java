@@ -1,4 +1,4 @@
-package web.administration;
+package web.formations;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,27 +10,25 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.SimpleFormController;
 import org.springframework.web.servlet.view.RedirectView;
 
-import entities.Droit;
-import entities.Utilisateur;
+import entities.Categorie;
+import entities.Theme;
 
-import services.IServiceDroit;
-import services.IServiceUtilisateur;
+import services.IServiceCategorie;
+import services.IServiceTheme;
 
 
-public class ModifUtilisateurController extends SimpleFormController {
+public class AddCategorieController extends SimpleFormController {
 	
-	private IServiceUtilisateur su;
-	private IServiceDroit sd;
+	private IServiceCategorie sc;
+	private IServiceTheme st;
 	/* (non-Javadoc)
 	 * @see org.springframework.web.servlet.mvc.AbstractFormController#formBackingObject(javax.servlet.http.HttpServletRequest)
 	 */
 	@Override
 	protected Object formBackingObject(HttpServletRequest request)
 			throws Exception {
-		int userId = Integer.parseInt(request.getParameter("id"));
-		Utilisateur user = su.getUtilisateur(userId);
-		
-		return user;		
+		// TODO Auto-generated method stub
+		return super.formBackingObject(request);
 	}
 	
 	/* (non-Javadoc)
@@ -40,9 +38,8 @@ public class ModifUtilisateurController extends SimpleFormController {
 	@SuppressWarnings("unchecked")
 	protected Map referenceData(HttpServletRequest request) throws Exception {
 		Map<Object, Object> dataMap = new HashMap<Object, Object>();
-		// Ajoute la liste des droits dans la dataMap
-		dataMap.put("droits", sd.listDroits());
-		
+		// Ajoute la liste des themes dans la dataMap
+		dataMap.put("themes", st.listThemes());
     	return dataMap;
 	}
 	
@@ -53,16 +50,17 @@ public class ModifUtilisateurController extends SimpleFormController {
 	protected void initBinder(HttpServletRequest request,
 			ServletRequestDataBinder binder) throws Exception {
 		
-		binder.setDisallowedFields(new String[] {"droit"});
+		binder.setDisallowedFields(new String[] {"theme"});
 		 
-    	Utilisateur user = (Utilisateur)binder.getTarget();
-    	Integer droitId = null;
-    	try { droitId = Integer.parseInt(request.getParameter("droit")); }
+    	Categorie cat = (Categorie)binder.getTarget();
+     	
+    	Integer id = null;
+    	try { id = Integer.parseInt(request.getParameter("theme")); }
     	catch (Exception e) {}
     	
-		if (droitId != null) {
-			Droit droit = sd.getDroit(droitId);
-			user.setDroit(droit);
+		if (id != null) {
+			Theme theme = st.getTheme(id);
+			cat.setTheme(theme);
 		}
 	}
 	
@@ -71,26 +69,26 @@ public class ModifUtilisateurController extends SimpleFormController {
 	 */
 	@Override
 	protected ModelAndView onSubmit(Object command) throws Exception {
-		Utilisateur user = (Utilisateur)command;
-		// Mise à jour de l'utilisateur
-		su.updateUtilisateur(user);
+		Categorie cat = (Categorie)command;
+		// Ajout de la categorie
+		sc.addCategorie(cat);	
 		
 		return new ModelAndView(new RedirectView(this.getSuccessView()));
 	}
 
-	public IServiceUtilisateur getSu() {
-		return su;
+	public IServiceCategorie getSc() {
+		return sc;
 	}
 
-	public void setSu(IServiceUtilisateur su) {
-		this.su = su;
+	public void setSc(IServiceCategorie sc) {
+		this.sc = sc;
 	}
 
-	public IServiceDroit getSd() {
-		return sd;
+	public IServiceTheme getSt() {
+		return st;
 	}
 
-	public void setSd(IServiceDroit sd) {
-		this.sd = sd;
+	public void setSt(IServiceTheme st) {
+		this.st = st;
 	}
 }

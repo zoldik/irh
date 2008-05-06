@@ -4,5 +4,6 @@
 		<class>entities.Droit</class>
 		<class>entities.Utilisateur</class>
 		<class>entities.Theme</class>
+		<class>entities.Categorie</class>
 	</persistence-unit>
 </persistence>

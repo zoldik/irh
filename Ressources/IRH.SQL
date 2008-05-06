@@ -697,3 +697,10 @@ insert into "IRH"."UTILISATEUR" values(3, 1, 'Leila TAMIM', 'ltamim', 'test');
 insert into "IRH"."THEME" values(1, 'Agronomie');
 insert into "IRH"."THEME" values(2, 'Finance');
 insert into "IRH"."THEME" values(3, 'Informatique');
+
+insert into "IRH"."CATEGORIE" values(1, 1, 'Industrie alimentaire');
+insert into "IRH"."CATEGORIE" values(2, 1, 'Fertilisation des plantes');
+insert into "IRH"."CATEGORIE" values(3, 2, 'Entreprise');
+insert into "IRH"."CATEGORIE" values(4, 2, 'Marchés');
+insert into "IRH"."CATEGORIE" values(5, 3, 'Développement');
+insert into "IRH"."CATEGORIE" values(6, 3, 'Réseau');

@@ -1,4 +1,4 @@
-package web.administration;
+package web.formations;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,7 +17,7 @@ import services.IServiceDroit;
 import services.IServiceUtilisateur;
 
 
-public class ModifUtilisateurController extends SimpleFormController {
+public class AddUtilisateurController extends SimpleFormController {
 	
 	private IServiceUtilisateur su;
 	private IServiceDroit sd;
@@ -27,10 +27,8 @@ public class ModifUtilisateurController extends SimpleFormController {
 	@Override
 	protected Object formBackingObject(HttpServletRequest request)
 			throws Exception {
-		int userId = Integer.parseInt(request.getParameter("id"));
-		Utilisateur user = su.getUtilisateur(userId);
-		
-		return user;		
+		// TODO Auto-generated method stub
+		return super.formBackingObject(request);
 	}
 	
 	/* (non-Javadoc)
@@ -42,7 +40,6 @@ public class ModifUtilisateurController extends SimpleFormController {
 		Map<Object, Object> dataMap = new HashMap<Object, Object>();
 		// Ajoute la liste des droits dans la dataMap
 		dataMap.put("droits", sd.listDroits());
-		
     	return dataMap;
 	}
 	
@@ -56,6 +53,7 @@ public class ModifUtilisateurController extends SimpleFormController {
 		binder.setDisallowedFields(new String[] {"droit"});
 		 
     	Utilisateur user = (Utilisateur)binder.getTarget();
+     	
     	Integer droitId = null;
     	try { droitId = Integer.parseInt(request.getParameter("droit")); }
     	catch (Exception e) {}
@@ -72,8 +70,8 @@ public class ModifUtilisateurController extends SimpleFormController {
 	@Override
 	protected ModelAndView onSubmit(Object command) throws Exception {
 		Utilisateur user = (Utilisateur)command;
-		// Mise à jour de l'utilisateur
-		su.updateUtilisateur(user);
+		// Ajout de l'utilisateur
+		su.addUtilisateur(user);	
 		
 		return new ModelAndView(new RedirectView(this.getSuccessView()));
 	}

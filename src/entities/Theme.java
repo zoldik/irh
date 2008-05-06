@@ -3,9 +3,12 @@ package entities;
 import static javax.persistence.GenerationType.SEQUENCE;
 
 import java.io.Serializable;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Column;
@@ -22,6 +25,9 @@ public class Theme implements Serializable {
 	@Column(name="LIBELLE")
 	private String libelle;
 
+	@OneToMany(mappedBy="theme")
+	private Set<Categorie> categorieCollection;
+	
 	private static final long serialVersionUID = 1L;
 
 	public Theme() {
@@ -47,5 +53,13 @@ public class Theme implements Serializable {
 	@Override
 	public String toString() {
 		return this.libelle;
+	}
+
+	public Set<Categorie> getCategorieCollection() {
+		return categorieCollection;
+	}
+
+	public void setCategorieCollection(Set<Categorie> categorieCollection) {
+		this.categorieCollection = categorieCollection;
 	}
 }
