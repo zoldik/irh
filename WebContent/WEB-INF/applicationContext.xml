@@ -22,6 +22,10 @@
 	<bean id="serviceCategorie" class="services.ServiceCategorie">
 		<property name="daoCategorie" ref="daoCategorie" />
 	</bean>
+	<bean id="daoCivilite" class="dao.DaoCivilite" />
+	<bean id="serviceCivilite" class="services.ServiceCivilite">
+		<property name="daoCivilite" ref="daoCivilite" />
+	</bean>
 	<!-- couche de persistance JPA -->
 	<bean id="entityManagerFactory"	class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />
