@@ -717,3 +717,7 @@ insert into "IRH"."CONTRAT" values(3, 'Stage');
 insert into "IRH"."CIVILITE" values(1, 'Mr');
 insert into "IRH"."CIVILITE" values(2, 'Mme');
 insert into "IRH"."CIVILITE" values(3, 'Melle');
+
+insert into "IRH"."COMPETENCE" values(1, 'Framework Spring');
+insert into "IRH"."COMPETENCE" values(2, 'Java Entreprise Edition (JEE)');
+insert into "IRH"."COMPETENCE" values(3, 'Gestion financière');

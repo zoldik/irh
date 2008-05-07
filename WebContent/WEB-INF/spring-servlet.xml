@@ -101,6 +101,26 @@
 	<bean name="/suppr_metier.htm" class="web.formations.SupprMetierController">
 		<property name="sm" ref="serviceMetier" />
 	</bean>
+	<bean name="/liste_competences.htm" class="web.carrieres.ListeCompetencesController">
+		<property name="sc" ref="serviceCompetence" />
+	</bean>
+	<bean name="/add_competence.htm" class="web.carrieres.AddCompetenceController">
+		<property name="commandClass" value="entities.Competence" />
+		<property name="formView" value="add_modif_competence" />
+		<property name="successView" value="liste_competences.htm" />
+		<property name="validator" ref="addModifCompetenceValidator" />
+		<property name="sc" ref="serviceCompetence" />
+	</bean>
+	<bean name="/modif_competence.htm" class="web.carrieres.ModifCompetenceController">
+		<property name="commandClass" value="entities.Competence" />
+		<property name="formView" value="add_modif_competence" />
+		<property name="successView" value="liste_competences.htm" />
+		<property name="validator" ref="addModifCompetenceValidator" />
+		<property name="sc" ref="serviceCompetence" />
+	</bean>
+	<bean name="/suppr_competence.htm" class="web.carrieres.SupprCompetenceController">
+		<property name="sc" ref="serviceCompetence" />
+	</bean>
 	<bean name="/accueil_rh.htm" class="web.consultation.AccueilRHController"/>
  
  	<!-- Validadors -->
@@ -111,6 +131,7 @@
  	<bean name="addModifThemeValidator" class="web.formations.AddModifThemeValidator" />
  	<bean name="addModifCategorieValidator" class="web.formations.AddModifCategorieValidator" />
  	<bean name="addModifMetierValidator" class="web.formations.AddModifMetierValidator" />
+ 	<bean name="addModifCompetenceValidator" class="web.carrieres.AddModifCompetenceValidator" />
  	
  	<!-- View Resolvers -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

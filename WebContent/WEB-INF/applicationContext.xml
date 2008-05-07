@@ -34,6 +34,11 @@
 	<bean id="serviceContrat" class="services.ServiceContrat">
 		<property name="daoContrat" ref="daoContrat" />
 	</bean>
+	<bean id="daoCompetence" class="dao.DaoCompetence" />
+	<bean id="serviceCompetence" class="services.ServiceCompetence">
+		<property name="daoCompetence" ref="daoCompetence" />
+	</bean>
+	
 	<!-- couche de persistance JPA -->
 	<bean id="entityManagerFactory"	class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />
