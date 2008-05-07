@@ -1,14 +1,12 @@
 package entities;
 
 import java.io.Serializable;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.GeneratedValue;
 
@@ -16,27 +14,24 @@ import static javax.persistence.GenerationType.SEQUENCE;
 import javax.persistence.SequenceGenerator;
 
 @Entity
-@Table(name="CATEGORIE") 
-public class Categorie implements Serializable {
+@Table(name="METIER") 
+public class Metier implements Serializable {
 	@Id
 	@Column(name="ID")
-	@GeneratedValue(strategy=SEQUENCE, generator = "SEQ_CATEGORIE")
-	@SequenceGenerator(name="SEQ_CATEGORIE", sequenceName = "SEQ_CATEGORIE")
+	@GeneratedValue(strategy=SEQUENCE, generator = "SEQ_METIER")
+	@SequenceGenerator(name="SEQ_METIER", sequenceName = "SEQ_METIER")
 	private int id;
 
 	@Column(name="LIBELLE")
 	private String libelle;
 
 	@ManyToOne
-	@JoinColumn(name="ID_THEME")
-	private Theme theme;
+	@JoinColumn(name="ID_CATEGORIE")
+	private Categorie categorie;
 
-	@OneToMany(mappedBy="categorie")
-	private Set<Metier> metierCollection;
-	
 	private static final long serialVersionUID = 1L;
 
-	public Categorie() {
+	public Metier() {
 		super();
 	}
 
@@ -48,14 +43,6 @@ public class Categorie implements Serializable {
 		this.id = id;
 	}
 
-	public Theme getTheme() {
-		return theme;
-	}
-
-	public void setTheme(Theme theme) {
-		this.theme = theme;
-	}
-
 	public String getLibelle() {
 		return libelle;
 	}
@@ -64,16 +51,11 @@ public class Categorie implements Serializable {
 		this.libelle = libelle;
 	}
 
-	public Set<Metier> getMetierCollection() {
-		return metierCollection;
+	public Categorie getCategorie() {
+		return categorie;
 	}
 
-	public void setMetierCollection(Set<Metier> metierCollection) {
-		this.metierCollection = metierCollection;
-	}
-	
-	@Override
-	public String toString() {
-		return this.theme.toString() + " > " + this.libelle;
+	public void setCategorie(Categorie categorie) {
+		this.categorie = categorie;
 	}
 }

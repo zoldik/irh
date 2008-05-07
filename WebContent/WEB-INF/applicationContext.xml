@@ -22,6 +22,10 @@
 	<bean id="serviceCategorie" class="services.ServiceCategorie">
 		<property name="daoCategorie" ref="daoCategorie" />
 	</bean>
+	<bean id="daoMetier" class="dao.DaoMetier" />
+	<bean id="serviceMetier" class="services.ServiceMetier">
+		<property name="daoMetier" ref="daoMetier" />
+	</bean>
 	<bean id="daoCivilite" class="dao.DaoCivilite" />
 	<bean id="serviceCivilite" class="services.ServiceCivilite">
 		<property name="daoCivilite" ref="daoCivilite" />

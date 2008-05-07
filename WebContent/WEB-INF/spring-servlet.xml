@@ -79,6 +79,28 @@
 	<bean name="/suppr_categorie.htm" class="web.formations.SupprCategorieController">
 		<property name="sc" ref="serviceCategorie" />
 	</bean>
+	<bean name="/liste_metiers.htm" class="web.formations.ListeMetiersController">
+		<property name="sm" ref="serviceMetier" />
+	</bean>
+	<bean name="/add_metier.htm" class="web.formations.AddMetierController">
+		<property name="commandClass" value="entities.Metier" />
+		<property name="formView" value="add_modif_metier" />
+		<property name="successView" value="liste_metiers.htm" />
+		<property name="validator" ref="addModifMetierValidator" />
+		<property name="sc" ref="serviceCategorie" />
+		<property name="sm" ref="serviceMetier" />
+	</bean>
+	<bean name="/modif_metier.htm" class="web.formations.ModifMetierController">
+		<property name="commandClass" value="entities.Metier" />
+		<property name="formView" value="add_modif_metier" />
+		<property name="successView" value="liste_metiers.htm" />
+		<property name="validator" ref="addModifMetierValidator" />
+		<property name="sc" ref="serviceCategorie" />
+		<property name="sm" ref="serviceMetier" />
+	</bean>
+	<bean name="/suppr_metier.htm" class="web.formations.SupprMetierController">
+		<property name="sm" ref="serviceMetier" />
+	</bean>
 	<bean name="/accueil_rh.htm" class="web.consultation.AccueilRHController"/>
  
  	<!-- Validadors -->
@@ -88,6 +110,7 @@
  	<bean name="addModifUtilisateurValidator" class="web.administration.AddModifUtilisateurValidator" />
  	<bean name="addModifThemeValidator" class="web.formations.AddModifThemeValidator" />
  	<bean name="addModifCategorieValidator" class="web.formations.AddModifCategorieValidator" />
+ 	<bean name="addModifMetierValidator" class="web.formations.AddModifMetierValidator" />
  	
  	<!-- View Resolvers -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

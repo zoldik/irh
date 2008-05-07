@@ -701,9 +701,14 @@ insert into "IRH"."THEME" values(3, 'Informatique');
 insert into "IRH"."CATEGORIE" values(1, 1, 'Industrie alimentaire');
 insert into "IRH"."CATEGORIE" values(2, 1, 'Fertilisation des plantes');
 insert into "IRH"."CATEGORIE" values(3, 2, 'Entreprise');
-insert into "IRH"."CATEGORIE" values(4, 2, 'Marchï¿½s');
-insert into "IRH"."CATEGORIE" values(5, 3, 'Dï¿½veloppement');
-insert into "IRH"."CATEGORIE" values(6, 3, 'Rï¿½seau');
+insert into "IRH"."CATEGORIE" values(4, 2, 'Marchés');
+insert into "IRH"."CATEGORIE" values(5, 3, 'Développement');
+insert into "IRH"."CATEGORIE" values(6, 3, 'Réseau');
+
+insert into "IRH"."METIER" values(1, 2, 'Laborantin');
+insert into "IRH"."METIER" values(2, 3, 'Comptable');
+insert into "IRH"."METIER" values(3, 5, 'Architecte JEE');
+insert into "IRH"."METIER" values(4, 6, 'Administrateur');
 
 insert into "IRH"."CONTRAT" values(1, 'CDI');
 insert into "IRH"."CONTRAT" values(2, 'CDD');
