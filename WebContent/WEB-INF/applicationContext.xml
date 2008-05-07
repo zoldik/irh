@@ -26,6 +26,10 @@
 	<bean id="serviceCivilite" class="services.ServiceCivilite">
 		<property name="daoCivilite" ref="daoCivilite" />
 	</bean>
+	<bean id="daoContrat" class="dao.DaoContrat" />
+	<bean id="serviceContrat" class="services.ServiceContrat">
+		<property name="daoContrat" ref="daoContrat" />
+	</bean>
 	<!-- couche de persistance JPA -->
 	<bean id="entityManagerFactory"	class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />

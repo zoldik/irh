@@ -8,7 +8,7 @@ import javax.persistence.Query;
 
 import entities.Civilite;
 
-public class DaoCivilte implements IDaoCivilite {
+public class DaoCivilite implements IDaoCivilite {
 
 	@PersistenceContext
 	private EntityManager em;
