@@ -122,7 +122,26 @@
 		<property name="sc" ref="serviceCompetence" />
 	</bean>
 	<bean name="/accueil_rh.htm" class="web.consultation.AccueilRHController"/>
- 
+ 	<bean name="/liste_employes.htm" class="web.administration.ListeEmployesController">
+		<property name="se" ref="serviceEmploye" />
+	</bean>
+	<bean name="/add_employe.htm" class="web.administration.AddEmployeController">
+		<property name="commandClass" value="entities.Employe" />
+		<property name="formView" value="add_modif_employe" />
+		<property name="successView" value="liste_employes.htm" />
+		<property name="se" ref="serviceEmploye" />
+		<property name="sc" ref="serviceCivilite" />
+	</bean>
+	<bean name="/modif_Employe.htm" class="web.administration.ModifEmployeController">
+		<property name="commandClass" value="entities.Employe" />
+		<property name="formView" value="add_modif_employe" />
+		<property name="successView" value="liste_employes.htm" />
+		<property name="se" ref="serviceEmploye" />
+		<property name="sc" ref="serviceCivilite" />
+	</bean>
+	<bean name="/suppr_employe.htm" class="web.administration.SupprEmployeController">
+		<property name="se" ref="serviceEmploye" />
+	</bean>
  	<!-- Validadors -->
  	<bean name="identificationValidator" class="web.consultation.IdentificationValidator">
  		<property name="su" ref="serviceUtilisateur" />

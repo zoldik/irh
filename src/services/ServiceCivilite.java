@@ -2,9 +2,12 @@ package services;
 
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import dao.IDaoCivilite;
 import entities.Civilite;
 
+@Transactional
 public class ServiceCivilite implements IServiceCivilite {
 	// Couche [dao]
 	private IDaoCivilite daoCivilite;

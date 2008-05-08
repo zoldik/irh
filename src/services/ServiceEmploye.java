@@ -2,9 +2,12 @@ package services;
 
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import dao.IDaoEmploye;
 import entities.Employe;
 
+@Transactional
 public class ServiceEmploye implements IServiceEmploye {
 	// Couche [dao]
 	private IDaoEmploye daoEmploye;

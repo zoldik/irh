@@ -2,9 +2,12 @@ package services;
 
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import dao.IDaoNiveauEtude;
 import entities.NiveauEtude;
 
+@Transactional
 public class ServiceNiveauEtude implements IServiceNiveauEtude {
 	// Couche [dao]
 	private IDaoNiveauEtude daoNiveauEtude;

@@ -38,7 +38,7 @@ public class DaoEmploye implements IDaoEmploye {
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<Employe> listAll() {
-		Query q = em.createQuery("from Employe order by libelle");
+		Query q = em.createQuery("from Employe order by nom");
 		return (List<Employe>) q.getResultList();
 	}	
 }

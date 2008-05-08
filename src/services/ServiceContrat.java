@@ -2,9 +2,12 @@ package services;
 
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import dao.IDaoContrat;
 import entities.Contrat;
 
+@Transactional
 public class ServiceContrat implements IServiceContrat {
 	// Couche [dao]
 	private IDaoContrat daoContrat;

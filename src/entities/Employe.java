@@ -126,11 +126,11 @@ public class Employe implements Serializable {
 		this.email = email;
 	}
 
-	public Civilite getIdCivilite() {
+	public Civilite getCivilite() {
 		return this.civilite;
 	}
 
-	public void setIdCivilite(Civilite civilite) {
+	public void setCivilite(Civilite civilite) {
 		this.civilite = civilite;
 	}
 
