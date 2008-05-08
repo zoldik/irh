@@ -16,7 +16,7 @@ public class Contrat implements Serializable {
 	@Column(name="ID")
 	@GeneratedValue(strategy=SEQUENCE, generator = "SEQ_CONTRAT")
 	@SequenceGenerator(name="SEQ_CONTRAT", sequenceName = "SEQ_CONTRAT")
-	private long id;
+	private int id;
 
 	@Column(name="LIBELLE")
 	private String libelle;
@@ -27,11 +27,11 @@ public class Contrat implements Serializable {
 		super();
 	}
 
-	public long getId() {
+	public int getId() {
 		return this.id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

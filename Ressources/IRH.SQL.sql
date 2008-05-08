@@ -701,9 +701,9 @@ insert into "IRH"."THEME" values(3, 'Informatique');
 insert into "IRH"."CATEGORIE" values(1, 1, 'Industrie alimentaire');
 insert into "IRH"."CATEGORIE" values(2, 1, 'Fertilisation des plantes');
 insert into "IRH"."CATEGORIE" values(3, 2, 'Entreprise');
-insert into "IRH"."CATEGORIE" values(4, 2, 'Marchés');
-insert into "IRH"."CATEGORIE" values(5, 3, 'Développement');
-insert into "IRH"."CATEGORIE" values(6, 3, 'Réseau');
+insert into "IRH"."CATEGORIE" values(4, 2, 'Marchï¿½s');
+insert into "IRH"."CATEGORIE" values(5, 3, 'Dï¿½veloppement');
+insert into "IRH"."CATEGORIE" values(6, 3, 'Rï¿½seau');
 
 insert into "IRH"."METIER" values(1, 2, 'Laborantin');
 insert into "IRH"."METIER" values(2, 3, 'Comptable');
@@ -720,4 +720,13 @@ insert into "IRH"."CIVILITE" values(3, 'Melle');
 
 insert into "IRH"."COMPETENCE" values(1, 'Framework Spring');
 insert into "IRH"."COMPETENCE" values(2, 'Java Entreprise Edition (JEE)');
-insert into "IRH"."COMPETENCE" values(3, 'Gestion financière');
+insert into "IRH"."COMPETENCE" values(3, 'Gestion financiï¿½re');
+
+insert into "IRH"."NIVEAU_ETUDE" values(1, 'bepc');
+insert into "IRH"."NIVEAU_ETUDE" values(2, 'cap_bep');
+insert into "IRH"."NIVEAU_ETUDE" values(3, 'bac');
+insert into "IRH"."NIVEAU_ETUDE" values(4, 'bac_2');
+insert into "IRH"."NIVEAU_ETUDE" values(5, 'bac_3');
+insert into "IRH"."NIVEAU_ETUDE" values(6, 'bac_4');
+insert into "IRH"."NIVEAU_ETUDE" values(7, 'bac_5');
+insert into "IRH"."NIVEAU_ETUDE" values(8, 'bac_plus');

@@ -38,6 +38,10 @@
 	<bean id="serviceCompetence" class="services.ServiceCompetence">
 		<property name="daoCompetence" ref="daoCompetence" />
 	</bean>
+	<bean id="daoNiveauEtude" class="dao.DaoNiveauEtude" />
+	<bean id="serviceNiveauEtude" class="services.ServiceNiveauEtude">
+		<property name="daoNiveauEtude" ref="daoNiveauEtude" />
+	</bean>
 	
 	<!-- couche de persistance JPA -->
 	<bean id="entityManagerFactory"	class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">

@@ -1,20 +1,20 @@
 package entities;
+
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.SEQUENCE;
 import javax.persistence.SequenceGenerator;
 
 @Entity
-@Table(name="CIVILITE")
-public class Civilite implements Serializable {
+@Table(name="NIVEAU_ETUDE")
+public class NiveauEtude implements Serializable {
 	@Id
 	@Column(name="ID")
-	@GeneratedValue(strategy=SEQUENCE, generator = "SEQ_CIVILITE")
-	@SequenceGenerator(name="SEQ_CIVILITE", sequenceName = "SEQ_CIVILITE")
+	@GeneratedValue(generator="SEQ_NIVEAU_ETUDE")
+	@SequenceGenerator(name="SEQ_NIVEAU_ETUDE", sequenceName = "SEQ_NIVEAU_ETUDE")
 	private int id;
 
 	@Column(name="LIBELLE")
@@ -22,7 +22,7 @@ public class Civilite implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	public Civilite() {
+	public NiveauEtude() {
 		super();
 	}
 
@@ -41,5 +41,4 @@ public class Civilite implements Serializable {
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
 	}
-
 }
