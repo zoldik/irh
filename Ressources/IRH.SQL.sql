@@ -730,3 +730,13 @@ insert into "IRH"."NIVEAU_ETUDE" values(5, 'bac_3');
 insert into "IRH"."NIVEAU_ETUDE" values(6, 'bac_4');
 insert into "IRH"."NIVEAU_ETUDE" values(7, 'bac_5');
 insert into "IRH"."NIVEAU_ETUDE" values(8, 'bac_plus');
+
+insert into "IRH"."SITUATION_FAMILIALE" values(1, 'Marié');
+insert into "IRH"."SITUATION_FAMILIALE" values(2, 'Concubinage');
+insert into "IRH"."SITUATION_FAMILIALE" values(3, 'Célibataire');
+
+insert into "IRH"."METIER" values(1, 1, 'Professeur HTML + XML + JAVA');
+
+insert into "IRH"."POSTE" values(1, 1, 'Professeur', 1);
+
+insert into "IRH"."EMPLOYE" values(1, 1, 3, 1, 'JARNOUX', 'Alex', '', '', '0674934995', '', '30/04/86', 'alex.jarnoux@gmail.c...', '13 rue St Hermeland', '44200', 'Nantes', 'Personne très agréable, beau physique!', null);

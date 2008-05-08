@@ -81,8 +81,8 @@ public class Utilisateur implements Serializable {
 		return this.droit;
 	}
 
-	public void setDroit(Droit idDroit) {
-		this.droit = idDroit;
+	public void setDroit(Droit droit) {
+		this.droit = droit;
 	}
 
 	public String getConfirmation() {

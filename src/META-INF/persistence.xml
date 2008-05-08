@@ -12,6 +12,8 @@
 		<class>
 		entities.Droit</class>
 		<class>
+		entities.Employe</class>
+		<class>
 		entities.Metier</class>
 		<class>
 		entities.NiveauEtude</class>
