@@ -132,7 +132,7 @@
 		<property name="se" ref="serviceEmploye" />
 		<property name="sc" ref="serviceCivilite" />
 	</bean>
-	<bean name="/modif_Employe.htm" class="web.administration.ModifEmployeController">
+	<bean name="/modif_employe.htm" class="web.administration.ModifEmployeController">
 		<property name="commandClass" value="entities.Employe" />
 		<property name="formView" value="add_modif_employe" />
 		<property name="successView" value="liste_employes.htm" />
