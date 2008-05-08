@@ -124,7 +124,25 @@
 	<bean name="/liste_postes.htm" class="web.carrieres.ListePostesController">
 		<property name="sp" ref="servicePoste" />
 	</bean>
-	<bean name="/accueil_rh.htm" class="web.consultation.AccueilRHController"/>
+	<bean name="/add_poste.htm" class="web.carrieres.AddPosteController">
+		<property name="commandClass" value="entities.Poste" />
+		<property name="formView" value="add_modif_poste" />
+		<property name="successView" value="liste_postes.htm" />
+		<property name="validator" ref="addModifPosteValidator" />
+		<property name="sp" ref="servicePoste" />
+		<property name="sm" ref="serviceMetier" />
+	</bean>
+	<bean name="/modif_poste.htm" class="web.carrieres.ModifPosteController">
+		<property name="commandClass" value="entities.Poste" />
+		<property name="formView" value="add_modif_poste" />
+		<property name="successView" value="liste_postes.htm" />
+		<property name="validator" ref="addModifPosteValidator" />
+		<property name="sp" ref="servicePoste" />
+		<property name="sm" ref="serviceMetier" />
+	</bean>
+	<bean name="/suppr_poste.htm" class="web.carrieres.SupprPosteController">
+		<property name="sp" ref="servicePoste" />
+	</bean>
  	<bean name="/liste_employes.htm" class="web.administration.ListeEmployesController">
 		<property name="se" ref="serviceEmploye" />
 	</bean>
@@ -145,6 +163,8 @@
 	<bean name="/suppr_employe.htm" class="web.administration.SupprEmployeController">
 		<property name="se" ref="serviceEmploye" />
 	</bean>
+	<bean name="/accueil_rh.htm" class="web.consultation.AccueilRHController"/>
+	
  	<!-- Validadors -->
  	<bean name="identificationValidator" class="web.consultation.IdentificationValidator">
  		<property name="su" ref="serviceUtilisateur" />
@@ -154,6 +174,7 @@
  	<bean name="addModifCategorieValidator" class="web.formations.AddModifCategorieValidator" />
  	<bean name="addModifMetierValidator" class="web.formations.AddModifMetierValidator" />
  	<bean name="addModifCompetenceValidator" class="web.carrieres.AddModifCompetenceValidator" />
+ 	<bean name="addModifPosteValidator" class="web.carrieres.AddModifPosteValidator" />
  	
  	<!-- View Resolvers -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

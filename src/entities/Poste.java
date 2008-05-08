@@ -26,7 +26,7 @@ public class Poste implements Serializable {
 	private String libelle;
 
 	@Column(name="ESTOCCUPE")
-	private int estOccupe;
+	private boolean estOccupe;
 	
 	@ManyToOne
 	@JoinColumn(name="ID_METIER")
@@ -67,11 +67,11 @@ public class Poste implements Serializable {
 		this.metier = metier;
 	}
 
-	public int getEstOccupe() {
+	public boolean getEstOccupe() {
 		return estOccupe;
 	}
 
-	public void setEstOccupe(int estOccupe) {
+	public void setEstOccupe(boolean estOccupe) {
 		this.estOccupe = estOccupe;
 	}
 }

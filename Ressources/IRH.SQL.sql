@@ -735,6 +735,8 @@ insert into "IRH"."SITUATION_FAMILIALE" values(1, 'Marie');
 insert into "IRH"."SITUATION_FAMILIALE" values(2, 'Concubinage');
 insert into "IRH"."SITUATION_FAMILIALE" values(3, 'Celibataire');
 
-insert into "IRH"."POSTE" values(1, 1, 'Professeur', 1);
+insert into "IRH"."POSTE" values(1, 2, 'Responsable Comptabilite', 0);
+insert into "IRH"."POSTE" values(2, 1, 'Responsable Laboratoire d''agronomie', 1);
+insert into "IRH"."POSTE" values(3, 3, 'Responsable Projet IRH', 1);
 
 insert into "IRH"."EMPLOYE" values(1, 1, 3, 1, 'JARNOUX', 'Alex', '', '', '0674934995', '', '30/04/86', 'alex.jarnoux@gmail.com', '13 rue St Hermeland', '44200', 'Nantes', 'Personne tres agreable, beau physique!', null);

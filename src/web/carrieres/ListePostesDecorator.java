@@ -24,4 +24,14 @@ public class ListePostesDecorator extends TableDecorator {
         			"<img src=\"./images/delete.png\" alt=\"Supprimer le poste\"/>" +
         			"</a>";
     }
+	
+	public String getEstOccupeHumanReadable()
+    {
+		Poste poste = (Poste)this.getCurrentRowObject();
+		String text = "";
+		if(poste.getEstOccupe()) text = "Oui";
+		else text = "Non";
+		
+        return  text;
+    }
 }

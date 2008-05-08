@@ -10,14 +10,14 @@
 
 <fieldset>
 	<legend>Liste des postes</legend>
-	<a class="ajout" href="./add_categorie.htm">
+	<a class="ajout" href="./add_poste.htm">
         Ajouter un poste
     </a>
 	<display:table name="postes" sort="list" pagesize="10" class="adminlist" decorator="web.carrieres.ListePostesDecorator" requestURI="liste_postes.htm">
 		<display:setProperty name="css.tr.odd" value="row0" />
 		<display:setProperty name="css.tr.even" value="row1" />
 		<display:column property="libelle" title="Libellé" sortable="true" />
-		<display:column property="estOccupe" title="Est occupé" sortable="true" />
+		<display:column property="estOccupeHumanReadable" title="Est occupé" sortable="true" />
 		<display:column property="metier" title="Métier" sortable="true" />
 		<display:column property="editLink" title="&nbsp;" style="text-align:center" />
 		<display:column property="supprLink" title="&nbsp;" style="text-align:center" />
