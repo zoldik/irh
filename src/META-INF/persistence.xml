@@ -18,6 +18,8 @@
 		<class>
 		entities.NiveauEtude</class>
 		<class>
+		entities.Poste</class>
+		<class>
 		entities.Theme</class>
 		<class>
 		entities.Utilisateur</class>

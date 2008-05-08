@@ -121,6 +121,9 @@
 	<bean name="/suppr_competence.htm" class="web.carrieres.SupprCompetenceController">
 		<property name="sc" ref="serviceCompetence" />
 	</bean>
+	<bean name="/liste_postes.htm" class="web.carrieres.ListePostesController">
+		<property name="sp" ref="servicePoste" />
+	</bean>
 	<bean name="/accueil_rh.htm" class="web.consultation.AccueilRHController"/>
  	<bean name="/liste_employes.htm" class="web.administration.ListeEmployesController">
 		<property name="se" ref="serviceEmploye" />

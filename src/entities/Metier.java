@@ -1,12 +1,14 @@
 package entities;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.GeneratedValue;
 
@@ -28,6 +30,9 @@ public class Metier implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="ID_CATEGORIE")
 	private Categorie categorie;
+	
+	@OneToMany(mappedBy="metier")
+	private Set<Poste> posteCollection;
 
 	private static final long serialVersionUID = 1L;
 
@@ -58,4 +63,19 @@ public class Metier implements Serializable {
 	public void setCategorie(Categorie categorie) {
 		this.categorie = categorie;
 	}
+
+	public Set<Poste> getPosteCollection() {
+		return posteCollection;
+	}
+
+	public void setPosteCollection(Set<Poste> posteCollection) {
+		this.posteCollection = posteCollection;
+	}
+
+	@Override
+	public String toString() {
+		return this.categorie.toString() + " > " + this.libelle;
+	}
+	
+	
 }

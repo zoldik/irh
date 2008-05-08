@@ -701,9 +701,9 @@ insert into "IRH"."THEME" values(3, 'Informatique');
 insert into "IRH"."CATEGORIE" values(1, 1, 'Industrie alimentaire');
 insert into "IRH"."CATEGORIE" values(2, 1, 'Fertilisation des plantes');
 insert into "IRH"."CATEGORIE" values(3, 2, 'Entreprise');
-insert into "IRH"."CATEGORIE" values(4, 2, 'March�s');
-insert into "IRH"."CATEGORIE" values(5, 3, 'D�veloppement');
-insert into "IRH"."CATEGORIE" values(6, 3, 'R�seau');
+insert into "IRH"."CATEGORIE" values(4, 2, 'Marches');
+insert into "IRH"."CATEGORIE" values(5, 3, 'Developpement');
+insert into "IRH"."CATEGORIE" values(6, 3, 'Reseau');
 
 insert into "IRH"."METIER" values(1, 2, 'Laborantin');
 insert into "IRH"."METIER" values(2, 3, 'Comptable');
@@ -720,7 +720,7 @@ insert into "IRH"."CIVILITE" values(3, 'Melle');
 
 insert into "IRH"."COMPETENCE" values(1, 'Framework Spring');
 insert into "IRH"."COMPETENCE" values(2, 'Java Entreprise Edition (JEE)');
-insert into "IRH"."COMPETENCE" values(3, 'Gestion financi�re');
+insert into "IRH"."COMPETENCE" values(3, 'Gestion financiere');
 
 insert into "IRH"."NIVEAU_ETUDE" values(1, 'bepc');
 insert into "IRH"."NIVEAU_ETUDE" values(2, 'cap_bep');
@@ -731,10 +731,10 @@ insert into "IRH"."NIVEAU_ETUDE" values(6, 'bac_4');
 insert into "IRH"."NIVEAU_ETUDE" values(7, 'bac_5');
 insert into "IRH"."NIVEAU_ETUDE" values(8, 'bac_plus');
 
-insert into "IRH"."SITUATION_FAMILIALE" values(1, 'Marié');
+insert into "IRH"."SITUATION_FAMILIALE" values(1, 'Marie');
 insert into "IRH"."SITUATION_FAMILIALE" values(2, 'Concubinage');
-insert into "IRH"."SITUATION_FAMILIALE" values(3, 'Célibataire');
+insert into "IRH"."SITUATION_FAMILIALE" values(3, 'Celibataire');
 
 insert into "IRH"."POSTE" values(1, 1, 'Professeur', 1);
 
-insert into "IRH"."EMPLOYE" values(1, 1, 3, 1, 'JARNOUX', 'Alex', '', '', '0674934995', '', '30/04/86', 'alex.jarnoux@gmail.c...', '13 rue St Hermeland', '44200', 'Nantes', 'Personne très agréable, beau physique!', null);
+insert into "IRH"."EMPLOYE" values(1, 1, 3, 1, 'JARNOUX', 'Alex', '', '', '0674934995', '', '30/04/86', 'alex.jarnoux@gmail.com', '13 rue St Hermeland', '44200', 'Nantes', 'Personne tres agreable, beau physique!', null);
