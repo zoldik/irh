@@ -14,9 +14,13 @@
 		<class>
 		entities.Employe</class>
 		<class>
+		entities.Formation</class>
+		<class>
 		entities.Metier</class>
 		<class>
 		entities.NiveauEtude</class>
+		<class>
+		entities.Organisme</class>
 		<class>
 		entities.Poste</class>
 		<class>

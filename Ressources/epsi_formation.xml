@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<organisme>
+	<nom>EPSI</nom>
+	<description>
+		1 ecole, 6 sites.
+		Liens fort avec l'entreprise.
+		Titre certifie au niveau 1 (Ingenieur).
+		Encadrement et suivi des eleves.
+		Remunerations elevees.
+		Ouverture internationale.
+	</description>
+	<formations_a_ajouter_modifier>
+		<formation>
+			<libelle>
+				Programmation web
+			</libelle>
+			<prix_par_personne>
+				200
+			</prix_par_personne>
+			<duree>
+				20
+			</duree>
+		</formation>
+		<formation>
+			<libelle>
+				Programmation .Net
+			</libelle>
+			<prix_par_personne>
+				400
+			</prix_par_personne>
+			<duree>
+				16
+			</duree>
+		</formation>
+	</formations_a_ajouter_modifier>
+	<formations_a_supprimer>
+	</formations_a_supprimer>
+</organisme>

@@ -50,6 +50,14 @@
 	<bean id="servicePoste" class="services.ServicePoste">
 		<property name="daoPoste" ref="daoPoste" />
 	</bean>
+	<bean id="daoOrganisme" class="dao.DaoOrganisme" />
+	<bean id="serviceOrganisme" class="services.ServiceOrganisme">
+		<property name="daoOrganisme" ref="daoOrganisme" />
+	</bean>
+	<bean id="daoFormation" class="dao.DaoFormation" />
+	<bean id="serviceFormation" class="services.ServiceFormation">
+		<property name="daoFormation" ref="daoFormation" />
+	</bean>
 	
 	<!-- couche de persistance JPA -->
 	<bean id="entityManagerFactory"	class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">

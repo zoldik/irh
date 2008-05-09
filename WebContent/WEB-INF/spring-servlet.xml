@@ -163,6 +163,9 @@
 	<bean name="/suppr_employe.htm" class="web.administration.SupprEmployeController">
 		<property name="se" ref="serviceEmploye" />
 	</bean>
+	<bean name="/liste_formations.htm" class="web.formations.ListeFormationsController">
+		<property name="sf" ref="serviceFormation" />
+	</bean>
 	<bean name="/accueil_rh.htm" class="web.consultation.AccueilRHController"/>
 	
  	<!-- Validadors -->

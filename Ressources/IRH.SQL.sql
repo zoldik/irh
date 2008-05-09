@@ -162,6 +162,7 @@ CREATE TABLE SITUATION_FAMILIALE
 CREATE TABLE SESSIONS
    (
     ID NUMBER  NOT NULL,
+	ID_FORMATION NUMBER  NOT NULL,
     ANNEE NUMBER(4)  NOT NULL,
     DATE_DEBUT DATE  NOT NULL,
     DATE_FIN DATE  NOT NULL
@@ -217,7 +218,6 @@ CREATE TABLE FORMATION
    (
     ID NUMBER  NOT NULL,
     ID_ORGANISME NUMBER  NOT NULL,
-    ID_SESSION NUMBER  NOT NULL,
     LIBELLE VARCHAR2(128)  NOT NULL,
     PRIX_PAR_PERSONNE NUMBER(7,2)  NOT NULL,
     DUREE CHAR(32)  NOT NULL
@@ -740,3 +740,5 @@ insert into "IRH"."POSTE" values(2, 1, 'Responsable Laboratoire d''agronomie', 1
 insert into "IRH"."POSTE" values(3, 3, 'Responsable Projet IRH', 1);
 
 insert into "IRH"."EMPLOYE" values(1, 1, 3, 1, 'JARNOUX', 'Alex', '', '', '0674934995', '', '30/04/86', 'alex.jarnoux@gmail.com', '13 rue St Hermeland', '44200', 'Nantes', 'Personne tres agreable, beau physique!', null);
+
+insert into "IRH"."ORGANISME" values(1, 'EPSI', '1 ecole, 6 site. Liens fort avec l''entreprise. Titre certifie au niveau 1 (Ingenieur). Encadrement et suivi des eleves. Remunerations elevees. Ouverture internationale.');
