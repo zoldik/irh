@@ -166,6 +166,13 @@
 	<bean name="/liste_formations.htm" class="web.formations.ListeFormationsController">
 		<property name="sf" ref="serviceFormation" />
 	</bean>
+	<bean name="/add_sync_formations.htm" class="web.formations.AddSyncFormationsController">
+		<property name="commandClass" value="entities.TextFileUploadBean" />
+		<property name="formView" value="add_sync_formations" />
+		<property name="successView" value="liste_formations.htm" />
+		<property name="validator" ref="addSyncFormationsValidator" />
+		<property name="sf" ref="serviceFormation" />
+	</bean>
 	<bean name="/accueil_rh.htm" class="web.consultation.AccueilRHController"/>
 	
  	<!-- Validadors -->
@@ -178,6 +185,7 @@
  	<bean name="addModifMetierValidator" class="web.formations.AddModifMetierValidator" />
  	<bean name="addModifCompetenceValidator" class="web.carrieres.AddModifCompetenceValidator" />
  	<bean name="addModifPosteValidator" class="web.carrieres.AddModifPosteValidator" />
+ 	<bean name="addSyncFormationsValidator" class="web.formations.AddSyncFormationsValidator" />
  	
  	<!-- View Resolvers -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -185,4 +193,7 @@
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+	
+	<!-- Multipart Resolver -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
 </beans>

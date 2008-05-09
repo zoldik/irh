@@ -10,7 +10,7 @@
 
 <fieldset>
 	<legend>Liste des formations</legend>
-	<a class="ajout" href="./add_sync_formation.htm">
+	<a class="ajout" href="./add_sync_formations.htm">
         Ajouter/Synchroniser des formations
     </a>
 	<display:table name="formations" sort="list" pagesize="10" class="adminlist" decorator="web.formations.ListeFormationsDecorator" requestURI="liste_formations.htm">
