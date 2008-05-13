@@ -172,6 +172,7 @@
 		<property name="successView" value="liste_formations.htm" />
 		<property name="validator" ref="addSyncFormationsValidator" />
 		<property name="sf" ref="serviceFormation" />
+		<property name="so" ref="serviceOrganisme" />
 	</bean>
 	<bean name="/accueil_rh.htm" class="web.consultation.AccueilRHController"/>
 	

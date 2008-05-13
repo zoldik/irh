@@ -12,13 +12,24 @@
 	<formations_a_ajouter_modifier>
 		<formation>
 			<libelle>
-				Programmation web
+				Proggrammation Web
 			</libelle>
 			<prix_par_personne>
-				200
+				2000
 			</prix_par_personne>
 			<duree>
-				20
+				200
+			</duree>
+		</formation>
+		<formation>
+			<libelle>
+				Programmation Web
+			</libelle>
+			<prix_par_personne>
+				210
+			</prix_par_personne>
+			<duree>
+				21
 			</duree>
 		</formation>
 		<formation>
@@ -26,10 +37,10 @@
 				Programmation .Net
 			</libelle>
 			<prix_par_personne>
-				400
+				300
 			</prix_par_personne>
 			<duree>
-				16
+				15
 			</duree>
 		</formation>
 	</formations_a_ajouter_modifier>
