@@ -27,7 +27,6 @@ public class AddMetierController extends SimpleFormController {
 	@Override
 	protected Object formBackingObject(HttpServletRequest request)
 			throws Exception {
-		// TODO Auto-generated method stub
 		return super.formBackingObject(request);
 	}
 	

@@ -15,13 +15,4 @@ public class ListeFormationsDecorator extends TableDecorator {
         			"<img src=\"./images/details.png\" alt=\"D&eacute;tails sur la formation\"/>" +
         			"</a>";
     }
-	
-	public String getSupprLink()
-    {
-		Formation formation= (Formation)this.getCurrentRowObject();
-        
-        return "<a href=\"suppr_formation.htm?id=" + formation.getId() + "\" onclick=\"javascript: return confirm('Voulez-vous supprimer cette formation ?');\">" +
-        			"<img src=\"./images/delete.png\" alt=\"Supprimer la formation\"/>" +
-        			"</a>";
-    }
 }

@@ -25,7 +25,6 @@ public class AddThemeController extends SimpleFormController {
 	@Override
 	protected Object formBackingObject(HttpServletRequest request)
 			throws Exception {
-		// TODO Auto-generated method stub
 		return super.formBackingObject(request);
 	}
 	
@@ -35,7 +34,6 @@ public class AddThemeController extends SimpleFormController {
 	@Override
 	@SuppressWarnings("unchecked")
 	protected Map referenceData(HttpServletRequest request) throws Exception {
-		// TODO Auto-generated method stub
 		return super.referenceData(request);
 	}
 	
@@ -45,7 +43,6 @@ public class AddThemeController extends SimpleFormController {
 	@Override
 	protected void initBinder(HttpServletRequest request,
 			ServletRequestDataBinder binder) throws Exception {
-		// TODO Auto-generated method stub
 	}
 	
 	/* (non-Javadoc)

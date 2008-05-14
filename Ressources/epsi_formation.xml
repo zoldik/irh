@@ -9,41 +9,32 @@
 		Remunerations elevees.
 		Ouverture internationale.
 	</description>
-	<formations_a_ajouter_modifier>
+	<formations>
 		<formation>
-			<libelle>
-				Proggrammation Web
-			</libelle>
-			<prix_par_personne>
-				2000
-			</prix_par_personne>
-			<duree>
-				200
-			</duree>
+			<libelle>Programmation Web</libelle>
+			<prix_par_personne>2100</prix_par_personne>
+			<duree>500</duree>
+			<competences>
+				<competence>
+					<libelle>PHP</libelle>
+					<niveau>3</niveau>
+				</competence>
+				<competence>
+					<libelle>HTML</libelle>
+					<niveau>1</niveau>
+				</competence>
+			</competences>
 		</formation>
 		<formation>
-			<libelle>
-				Programmation Web
-			</libelle>
-			<prix_par_personne>
-				210
-			</prix_par_personne>
-			<duree>
-				21
-			</duree>
+			<libelle>Programmation .Net</libelle>
+			<prix_par_personne>300</prix_par_personne>
+			<duree>15</duree>
+			<competences>
+				<competence>
+					<libelle>.NET</libelle>
+					<niveau>5</niveau>
+				</competence>
+			</competences>
 		</formation>
-		<formation>
-			<libelle>
-				Programmation .Net
-			</libelle>
-			<prix_par_personne>
-				300
-			</prix_par_personne>
-			<duree>
-				15
-			</duree>
-		</formation>
-	</formations_a_ajouter_modifier>
-	<formations_a_supprimer>
-	</formations_a_supprimer>
+	</formations>
 </organisme>

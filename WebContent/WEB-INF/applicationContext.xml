@@ -62,6 +62,10 @@
 	<bean id="serviceFormation" class="services.ServiceFormation">
 		<property name="daoFormation" ref="daoFormation" />
 	</bean>
+	<bean id="daoNiveauForm" class="dao.DaoNiveauForm" />
+	<bean id="serviceNiveauForm" class="services.ServiceNiveauForm">
+		<property name="daoNiveauForm" ref="daoNiveauForm" />
+	</bean>
 	
 	
 	<!-- couche de persistance JPA -->

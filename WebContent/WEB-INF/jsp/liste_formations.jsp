@@ -17,10 +17,10 @@
 		<display:setProperty name="css.tr.odd" value="row0" />
 		<display:setProperty name="css.tr.even" value="row1" />
 		<display:column property="libelle" title="Libellé" sortable="true" />
+		<display:column property="organisme" title="Organisme" sortable="true" />
 		<display:column property="prixParPersonne" title="Prix par pers. (En &euro;)" sortable="true" />
 		<display:column property="duree" title="Durée (En H)" sortable="true" />
 		<display:column property="detailsLink" title="Détails" style="text-align:center" />
-		<display:column property="supprLink" title="&nbsp;" style="text-align:center" />
 	</display:table>
 </fieldset>
 

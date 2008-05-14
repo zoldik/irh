@@ -17,9 +17,14 @@ import org.springframework.web.multipart.support.StringMultipartFileEditor;
 import entities.TextFileUploadBean;
 
 import entities.Formation;
+import entities.NiveauForm;
+import entities.NiveauFormPK;
 import entities.Organisme;
+import entities.Competence;
 
+import services.IServiceCompetence;
 import services.IServiceFormation;
+import services.IServiceNiveauForm;
 import services.IServiceOrganisme;
 
 
@@ -28,6 +33,8 @@ public class AddSyncFormationsController extends SimpleFormController {
 	
 	private IServiceFormation sf;
 	private IServiceOrganisme so;
+	private IServiceCompetence sc;
+	private IServiceNiveauForm snf;
 
 	/* (non-Javadoc)
 	 * @see org.springframework.web.servlet.mvc.AbstractFormController#formBackingObject(javax.servlet.http.HttpServletRequest)
@@ -35,7 +42,6 @@ public class AddSyncFormationsController extends SimpleFormController {
 	@Override
 	protected Object formBackingObject(HttpServletRequest request)
 			throws Exception {
-		// TODO Auto-generated method stub
 		return super.formBackingObject(request);
 	}
 	
@@ -45,7 +51,6 @@ public class AddSyncFormationsController extends SimpleFormController {
 	@Override
 	@SuppressWarnings("unchecked")
 	protected Map referenceData(HttpServletRequest request) throws Exception {
-		// TODO Auto-generated method stub
 		return super.referenceData(request);
 	}
 	
@@ -74,7 +79,8 @@ public class AddSyncFormationsController extends SimpleFormController {
         }
         else
         {
-        	// TODO : Verifier la validité du fichier
+        	// TODO : Faisable : Verifier la validité du fichier
+        	// TODO : Difficile : Supprimer les formations et competences de l'organisme qui sont non utilisees par le systeme.
         	
         	// Chargement du fichierXml dans le parseur xml
             Document document = DocumentHelper.parseText(fichierXml);
@@ -117,8 +123,8 @@ public class AddSyncFormationsController extends SimpleFormController {
             	so.updateOrganisme(orga);
             }
             
-        	// On recupere la collection de formation a ajouter ou modifier
-            List<Node> nodes = document.selectNodes( "//organisme/formations_a_ajouter_modifier/formation" );
+        	// On recupere la collection de formation
+            List<Node> nodes = document.selectNodes( "//organisme/formations/formation" );
     
         	// Pour chaque noeud xml de formation,
             for (Node n : nodes)
@@ -127,7 +133,8 @@ public class AddSyncFormationsController extends SimpleFormController {
             	String libelleFormation = n.selectSingleNode("./libelle").getText();
             	double prixParPersonneFormation = Double.parseDouble(n.selectSingleNode("./prix_par_personne").getText());
             	double dureeFormation = Double.parseDouble(n.selectSingleNode("./duree").getText());
-            	// Verification la presence de la formation
+           
+                // Verification la presence de la formation
             	boolean formationPresente = false;
             	int idFormation = -1;
             	List<Formation> formations = sf.listFormations();
@@ -148,6 +155,15 @@ public class AddSyncFormationsController extends SimpleFormController {
             		f.setPrixParPersonne(prixParPersonneFormation);
             		
             		sf.addFormation(f);
+            		
+            		// Recuperation de l'id de la formation ajoutee
+            		for (Formation formation : sf.listFormations())
+            		{
+            			if(formation.getLibelle().equals(libelleFormation))
+    					{
+    						idFormation = formation.getId();
+    					}
+            		}
             	}
         		// Sinon, on la modifie
             	else
@@ -159,18 +175,74 @@ public class AddSyncFormationsController extends SimpleFormController {
             		
             		sf.updateFormation(f);
             	}
+            	
+            	// On recupere la collection des competences
+                List<Node> nodesCompetence = n.selectNodes( "./competences/competence" );
+                // Pour chaque noeud xml de competences,
+                for (Node nc : nodesCompetence)
+                {
+                	String libelleCompetence = nc.selectSingleNode("./libelle").getText();
+                	int niveauCompetence = Integer.parseInt(nc.selectSingleNode("./niveau").getText());
+                	
+                	// Verification la presence de la competence
+                	boolean competencePresente = false;
+                	int idCompetence = -1;
+                	List<Competence> competences = sc.listCompetences();
+                	for (Competence competence : competences) {
+    					if(competence.getLibelle().equals(libelleCompetence))
+    					{
+    						competencePresente = true;
+    						idCompetence = competence.getId();
+    					}
+    				}
+                	// Si, elle n'est pas presente, on l'ajoute.
+                	if(!competencePresente)
+                	{
+                		// Ajout de la competence dans la Table COMPETENCE.
+                		Competence c = new Competence();
+                		c.setLibelle(libelleCompetence);
+                		sc.addCompetence(c);                		
+                		
+                		// Recuperation de l'id de la competence ajoute
+                		for (Competence competence : sc.listCompetences())
+                		{
+                			if(competence.getLibelle().equals(libelleCompetence))
+        					{
+        						idCompetence = competence.getId();
+        					}
+                		}
+                		
+                		// Preparation de la cle primaire composee
+                		NiveauFormPK nfPK = new NiveauFormPK();                		
+                		nfPK.setIdCompetence(idCompetence);
+                		nfPK.setIdFormation(idFormation);
+                		// Ajout du niveau dans la Table NIVEAU_FORM.
+                		NiveauForm nf = new NiveauForm();
+                		nf.setPk(nfPK);
+                		nf.setNiveau(niveauCompetence);
+                		snf.addNiveauForm(nf);
+                		
+                		System.out.println("DEBUG : Competence ajoutee : " + c.getLibelle());
+                	}
+            		// Sinon, on la modifie
+                	else
+                	{	
+                		// Preparation de la cle primaire composee
+                		NiveauFormPK nfPK = new NiveauFormPK();                		
+                		nfPK.setIdCompetence(idCompetence);
+                		nfPK.setIdFormation(idFormation);
+                		// Modification du niveau dans la Table NIVEAU_FORM.
+                		NiveauForm nf = new NiveauForm();
+                		nf.setPk(nfPK);
+                		nf.setNiveau(niveauCompetence);
+                		snf.updateNiveauForm(nf);
+                		
+                		System.out.println("DEBUG : Competence Modifiee");
+                	}
+                }
 			}
-        		
-        		
-        
-	         // On recupere la collection de formation a supprimer       
-	        	// Pour chaque formation
-	        		// Verification la presence de la formation
-	        		// Si, elle est presente, on la supprime.
 		   
            //TODO : gerer les competences associees a chaque formation.
-            
-            
         }		
 		
 		return new ModelAndView(new RedirectView(this.getSuccessView()));
@@ -190,5 +262,21 @@ public class AddSyncFormationsController extends SimpleFormController {
 
 	public void setSo(IServiceOrganisme so) {
 		this.so = so;
+	}
+
+	public IServiceCompetence getSc() {
+		return sc;
+	}
+
+	public void setSc(IServiceCompetence sc) {
+		this.sc = sc;
+	}
+
+	public IServiceNiveauForm getSnf() {
+		return snf;
+	}
+
+	public void setSnf(IServiceNiveauForm snf) {
+		this.snf = snf;
 	}
 }
