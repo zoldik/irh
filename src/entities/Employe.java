@@ -1,16 +1,18 @@
 package entities;
+import static javax.persistence.GenerationType.SEQUENCE;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.SEQUENCE;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 @Entity
 @Table(name="EMPLOYE")
@@ -64,9 +66,9 @@ public class Employe implements Serializable {
 	@JoinColumn(name="ID_CIVILITE")
 	private Civilite civilite;
 	
-	// TODO : Implementer situationFamiliale
-	//@Column(name="ID_SITUATION_FAMILIALE")
-	//private BigDecimal idSituationFamiliale;
+	@ManyToOne
+	@JoinColumn(name="ID_SITUATION_FAMILIALE")
+	private SituationFamiliale situationFamiliale;
 	
 	// TODO : Implementer poste
 	//@Column(name="ID_POSTE")
@@ -133,6 +135,14 @@ public class Employe implements Serializable {
 	public void setCivilite(Civilite civilite) {
 		this.civilite = civilite;
 	}
+	
+	public SituationFamiliale getSituationFamiliale() {
+		return this.situationFamiliale;
+	}
+
+	public void setSituationFamiliale(SituationFamiliale situationFamiliale) {
+		this.situationFamiliale = situationFamiliale;
+	}
 
 	public String getPrenom() {
 		return this.prenom;
@@ -149,14 +159,6 @@ public class Employe implements Serializable {
 	public void setDateNaissance(Date dateNaissance) {
 		this.dateNaissance = dateNaissance;
 	}
-
-	/*public BigDecimal getIdSituationFamiliale() {
-		return this.idSituationFamiliale;
-	}
-
-	public void setIdSituationFamiliale(BigDecimal idSituationFamiliale) {
-		this.idSituationFamiliale = idSituationFamiliale;
-	}*/
 
 	public String getTelephonePerso() {
 		return this.telephonePerso;

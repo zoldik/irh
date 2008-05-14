@@ -9,8 +9,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="CIVILITE")
-public class Civilite implements Serializable {
+@Table(name="SITUATION_FAMILIALE")
+public class SituationFamiliale implements Serializable {
 	@Id
 	@Column(name="ID")
 	private int id;
@@ -18,12 +18,12 @@ public class Civilite implements Serializable {
 	@Column(name="LIBELLE")
 	private String libelle;
 	
-	@OneToMany(mappedBy="civilite")
+	@OneToMany(mappedBy="situationFamiliale")
 	private Set<Employe> employeCollection;
 
 	private static final long serialVersionUID = 1L;
 
-	public Civilite() {
+	public SituationFamiliale() {
 		super();
 	}
 
@@ -55,5 +55,5 @@ public class Civilite implements Serializable {
 	public String toString() {
 		return this.libelle;
 	}
-	
+
 }

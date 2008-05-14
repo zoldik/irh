@@ -16,7 +16,7 @@
             <div class="ligne">
                 <span class="label">Civilité :</span>
                 <form:select path="civilite">
-        			<form:options items="${civilite}" itemLabel="libelle" itemValue="id" />
+        			<form:options items="${civilites}" itemLabel="libelle" itemValue="id" />
         		</form:select>
             </div>
             <div class="ligne">
@@ -31,8 +31,8 @@
             </div>
             <div class="ligne">
                 <span class="label">Date de naissance :</span>
-                <form:input path="nom" />
-				<form:errors path="nom" cssClass="error"/>
+                <form:input path="dateNaissance" />
+				<form:errors path="dateNaissance" cssClass="error"/>
             </div>
         </div>
         <div id="mail_tel">
@@ -173,31 +173,24 @@
     
     <fieldset>
     <legend>Divers</legend>
-    <table>
-    <tr>
-        <td>
-            <div class="ligne">
-                <span class="label">Situation :</span>
-                <select>
-                    <option>&nbsp;</option>
-                    <option>Célibataire</option>
-                </select>
-            </div>
-            <div class="ligne">
-                <span class="label">Nombre d'enfants :</span>
-                <select>
-                    <option>&nbsp;</option>
-                    <option>0</option>
-                </select>
-            </div>
-            <div class="ligne">
-                <span class="label">Description :</span>
-                <form:textarea path="description" />
-				<form:errors path="description" cssClass="error"/>
-            </div>
-        </td>
-    </tr>
-    </table>     
+		<div class="ligne">
+		    <span class="label">Situation familiale :</span>
+		    <form:select path="situationFamiliale">
+       			<form:options items="${situationsFamiliale}" itemLabel="libelle" itemValue="id" />
+       		</form:select>
+		</div>
+		<div class="ligne">
+		    <span class="label">Nombre d'enfants :</span>
+		    <select>
+		        <option>&nbsp;</option>
+		        <option>0</option>
+		    </select>
+		</div>
+		<div class="ligne">
+		    <span class="label">Description :</span>
+		    <form:textarea path="description" />
+		    <form:errors path="description" cssClass="error"/>
+		</div>    
     </fieldset>
 
     <div class="ligne">

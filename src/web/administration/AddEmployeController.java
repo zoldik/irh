@@ -1,10 +1,12 @@
 package web.administration;
 
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.SimpleFormController;
@@ -12,14 +14,18 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import services.IServiceCivilite;
 import services.IServiceEmploye;
+import services.IServiceSituationFamiliale;
 import entities.Civilite;
 import entities.Employe;
+import entities.SituationFamiliale;
 
 
 public class AddEmployeController extends SimpleFormController {
 	
 	private IServiceEmploye se;
 	private IServiceCivilite sc;
+	private IServiceSituationFamiliale ssf;
+	
 	/* (non-Javadoc)
 	 * @see org.springframework.web.servlet.mvc.AbstractFormController#formBackingObject(javax.servlet.http.HttpServletRequest)
 	 */
@@ -34,11 +40,14 @@ public class AddEmployeController extends SimpleFormController {
 	 * @see org.springframework.web.servlet.mvc.SimpleFormController#referenceData(javax.servlet.http.HttpServletRequest)
 	 */
 	@Override
-	@SuppressWarnings("unchecked")
-	protected Map referenceData(HttpServletRequest request) throws Exception {
+	protected Map<Object, Object> referenceData(HttpServletRequest request) throws Exception {
 		Map<Object, Object> dataMap = new HashMap<Object, Object>();
 		// Ajoute la liste des civilites dans la dataMap
 		dataMap.put("civilites", sc.listCivilites());
+		
+		// Ajoute la liste des situations familiales dans la dataMap
+		dataMap.put("situationsFamiliale", ssf.listSituationsFamiliale());
+		
     	return dataMap;
 	}
 	
@@ -49,10 +58,19 @@ public class AddEmployeController extends SimpleFormController {
 	protected void initBinder(HttpServletRequest request,
 			ServletRequestDataBinder binder) throws Exception {
 		
-		binder.setDisallowedFields(new String[] {"civilite"});
+		// format (dd/MM/yyyy) attendu pour les dates
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		// format strict
+		dateFormat.setLenient(false);
+		// on enregistre un éditeur de propriétés String (dd/MM/yyyy) -> Date
+		binder.registerCustomEditor(java.util.Date.class, new CustomDateEditor(dateFormat, false));
+		
+		// Gestion des listes deroulantes
+		binder.setDisallowedFields(new String[] {"civilite", "situationFamiliale"});
 		 
     	Employe employe = (Employe)binder.getTarget();
      	
+    	// Gestion de la civilité
     	Integer civiliteId = null;
     	try { civiliteId = Integer.parseInt(request.getParameter("civilite")); }
     	catch (Exception e) {}
@@ -61,6 +79,18 @@ public class AddEmployeController extends SimpleFormController {
 			Civilite civilite = sc.getCivilite(civiliteId);
 			employe.setCivilite(civilite);
 		}
+		
+		// Gestion de la situationFamiliale
+    	Integer situationFamilialeId = null;
+    	try { situationFamilialeId = Integer.parseInt(request.getParameter("situationFamiliale")); }
+    	catch (Exception e) {}
+    	
+		if (situationFamilialeId != null) {
+			SituationFamiliale situationFamiliale = ssf.getSituationFamiliale(civiliteId);
+			employe.setSituationFamiliale(situationFamiliale);
+		}
+		
+		
 	}
 	
 	/* (non-Javadoc)
@@ -89,5 +119,13 @@ public class AddEmployeController extends SimpleFormController {
 
 	public void setSc(IServiceCivilite sc) {
 		this.sc = sc;
+	}
+	
+	public IServiceSituationFamiliale getSsf() {
+		return ssf;
+	}
+
+	public void setSsf(IServiceSituationFamiliale ssf) {
+		this.ssf = ssf;
 	}
 }

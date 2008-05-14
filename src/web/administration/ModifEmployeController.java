@@ -1,10 +1,12 @@
 package web.administration;
 
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.SimpleFormController;
@@ -63,6 +65,13 @@ public class ModifEmployeController extends SimpleFormController {
 			Civilite civilite = sc.getCivilite(civiliteId);
 			employe.setCivilite(civilite);
 		}
+		
+		// format attendu pour la date de naissance
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		// format strict
+		dateFormat.setLenient(false);
+		// on enregistre un éditeur de propriétés String (dd/MM/yyyy) -> Date
+		binder.registerCustomEditor(java.util.Date.class, new CustomDateEditor(dateFormat, false));
 	}
 	
 	/* (non-Javadoc)
