@@ -20,6 +20,8 @@
 		<class>
 		entities.NiveauEtude</class>
 		<class>
+		entities.SituationFamiliale</class>
+		<class>
 		entities.Organisme</class>
 		<class>
 		entities.Poste</class>

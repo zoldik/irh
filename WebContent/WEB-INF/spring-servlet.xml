@@ -121,6 +121,7 @@
 	<bean name="/suppr_competence.htm" class="web.carrieres.SupprCompetenceController">
 		<property name="sc" ref="serviceCompetence" />
 	</bean>
+	<bean name="/accueil_rh.htm" class="web.consultation.AccueilRHController"/>
 	<bean name="/liste_postes.htm" class="web.carrieres.ListePostesController">
 		<property name="sp" ref="servicePoste" />
 	</bean>
@@ -150,13 +151,16 @@
 		<property name="commandClass" value="entities.Employe" />
 		<property name="formView" value="add_modif_employe" />
 		<property name="successView" value="liste_employes.htm" />
+		<property name="validator" ref="addModifEmployeValidator" />
 		<property name="se" ref="serviceEmploye" />
 		<property name="sc" ref="serviceCivilite" />
+		<property name="ssf" ref="serviceSituationFamiliale" />
 	</bean>
 	<bean name="/modif_employe.htm" class="web.administration.ModifEmployeController">
 		<property name="commandClass" value="entities.Employe" />
 		<property name="formView" value="add_modif_employe" />
 		<property name="successView" value="liste_employes.htm" />
+		<property name="validator" ref="addModifEmployeValidator" />
 		<property name="se" ref="serviceEmploye" />
 		<property name="sc" ref="serviceCivilite" />
 	</bean>
@@ -185,6 +189,7 @@
  	<bean name="addModifCategorieValidator" class="web.formations.AddModifCategorieValidator" />
  	<bean name="addModifMetierValidator" class="web.formations.AddModifMetierValidator" />
  	<bean name="addModifCompetenceValidator" class="web.carrieres.AddModifCompetenceValidator" />
+ 	<bean name="addModifEmployeValidator" class="web.administration.AddModifEmployeValidator" />
  	<bean name="addModifPosteValidator" class="web.carrieres.AddModifPosteValidator" />
  	<bean name="addSyncFormationsValidator" class="web.formations.AddSyncFormationsValidator" />
  	
@@ -197,4 +202,6 @@
 	
 	<!-- Multipart Resolver -->
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+	
+	
 </beans>

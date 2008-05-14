@@ -46,6 +46,10 @@
 	<bean id="serviceEmploye" class="services.ServiceEmploye">
 		<property name="daoEmploye" ref="daoEmploye" />
 	</bean>
+	<bean id="daoSituationFamiliale" class="dao.DaoSituationFamiliale" />
+	<bean id="serviceSituationFamiliale" class="services.ServiceSituationFamiliale">
+		<property name="daoSituationFamiliale" ref="daoSituationFamiliale" />
+	</bean>
 	<bean id="daoPoste" class="dao.DaoPoste" />
 	<bean id="servicePoste" class="services.ServicePoste">
 		<property name="daoPoste" ref="daoPoste" />
@@ -58,6 +62,7 @@
 	<bean id="serviceFormation" class="services.ServiceFormation">
 		<property name="daoFormation" ref="daoFormation" />
 	</bean>
+	
 	
 	<!-- couche de persistance JPA -->
 	<bean id="entityManagerFactory"	class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
