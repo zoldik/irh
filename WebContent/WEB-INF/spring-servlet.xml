@@ -9,6 +9,7 @@
 	<bean name="/helloworld.htm" class="web.HelloWorldController">
 		<property name="su" ref="serviceUtilisateur" />
 	</bean>
+	<bean name="/accueil_rh.htm" class="web.consultation.AccueilRHController"/>
 	<bean name="/identification.htm" class="web.consultation.IdentificationController">
 		<property name="commandClass" value="entities.Utilisateur" />
 		<property name="formView" value="identification" />
@@ -162,6 +163,7 @@
 		<property name="validator" ref="addModifEmployeValidator" />
 		<property name="se" ref="serviceEmploye" />
 		<property name="sc" ref="serviceCivilite" />
+		<property name="ssf" ref="serviceSituationFamiliale" />
 	</bean>
 	<bean name="/suppr_employe.htm" class="web.administration.SupprEmployeController">
 		<property name="se" ref="serviceEmploye" />
@@ -179,7 +181,6 @@
 		<property name="sc" ref="serviceCompetence" />
 		<property name="snf" ref="serviceNiveauForm" />
 	</bean>
-	<bean name="/accueil_rh.htm" class="web.consultation.AccueilRHController"/>
 	
  	<!-- Validadors -->
  	<bean name="identificationValidator" class="web.consultation.IdentificationValidator">

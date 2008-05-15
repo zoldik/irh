@@ -48,6 +48,10 @@ public class AddEmployeController extends SimpleFormController {
 		// Ajoute la liste des situations familiales dans la dataMap
 		dataMap.put("situationsFamiliale", ssf.listSituationsFamiliale());
 		
+		// Ajoute les valeurs pour le nombre d'enfants dans la dataMap
+		int tabNbsEnfants[] = {0, 1, 2, 3, 4, 5, 6, 7, 8};
+		dataMap.put("nbsEnfants", tabNbsEnfants);
+		
     	return dataMap;
 	}
 	
@@ -89,8 +93,6 @@ public class AddEmployeController extends SimpleFormController {
 			SituationFamiliale situationFamiliale = ssf.getSituationFamiliale(civiliteId);
 			employe.setSituationFamiliale(situationFamiliale);
 		}
-		
-		
 	}
 	
 	/* (non-Javadoc)
@@ -99,7 +101,8 @@ public class AddEmployeController extends SimpleFormController {
 	@Override
 	protected ModelAndView onSubmit(Object command) throws Exception {
 		Employe employe = (Employe)command;
-		// Ajout de l'utilisateur
+		
+		// Ajout de l'employe
 		se.addEmploye(employe);	
 		
 		return new ModelAndView(new RedirectView(this.getSuccessView()));

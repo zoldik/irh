@@ -181,10 +181,9 @@
 		</div>
 		<div class="ligne">
 		    <span class="label">Nombre d'enfants :</span>
-		    <select>
-		        <option>&nbsp;</option>
-		        <option>0</option>
-		    </select>
+		    <form:select path="nbEnfants">
+       			<form:options items="${nbsEnfants}" />
+       		</form:select>
 		</div>
 		<div class="ligne">
 		    <span class="label">Description :</span>
