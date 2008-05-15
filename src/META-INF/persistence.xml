@@ -2,10 +2,6 @@
 <persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
 	<persistence-unit name="IRH">
 		<class>
-		entities.NiveauForm</class>
-		<class>
-		entities.NiveauFormPK</class>
-		<class>
 		entities.Categorie</class>
 		<class>
 		entities.Civilite</class>
@@ -13,6 +9,8 @@
 		entities.Competence</class>
 		<class>
 		entities.Contrat</class>
+		<class>
+		entities.Diplome</class>
 		<class>
 		entities.Droit</class>
 		<class>
@@ -24,11 +22,15 @@
 		<class>
 		entities.NiveauEtude</class>
 		<class>
-		entities.SituationFamiliale</class>
+		entities.NiveauForm</class>
+		<class>
+		entities.NiveauFormPK</class>
 		<class>
 		entities.Organisme</class>
 		<class>
 		entities.Poste</class>
+		<class>
+		entities.SituationFamiliale</class>
 		<class>
 		entities.Theme</class>
 		<class>

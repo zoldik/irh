@@ -722,14 +722,14 @@ insert into "IRH"."COMPETENCE" values(1, 'Framework Spring');
 insert into "IRH"."COMPETENCE" values(2, 'Java Entreprise Edition (JEE)');
 insert into "IRH"."COMPETENCE" values(3, 'Gestion financiere');
 
-insert into "IRH"."NIVEAU_ETUDE" values(1, 'bepc');
-insert into "IRH"."NIVEAU_ETUDE" values(2, 'cap_bep');
-insert into "IRH"."NIVEAU_ETUDE" values(3, 'bac');
-insert into "IRH"."NIVEAU_ETUDE" values(4, 'bac_2');
-insert into "IRH"."NIVEAU_ETUDE" values(5, 'bac_3');
-insert into "IRH"."NIVEAU_ETUDE" values(6, 'bac_4');
-insert into "IRH"."NIVEAU_ETUDE" values(7, 'bac_5');
-insert into "IRH"."NIVEAU_ETUDE" values(8, 'bac_plus');
+insert into "IRH"."NIVEAU_ETUDE" values(1, 'BEPC');
+insert into "IRH"."NIVEAU_ETUDE" values(2, 'CAP/BEP');
+insert into "IRH"."NIVEAU_ETUDE" values(3, 'Bac');
+insert into "IRH"."NIVEAU_ETUDE" values(4, 'Bac +2');
+insert into "IRH"."NIVEAU_ETUDE" values(5, 'bac +3');
+insert into "IRH"."NIVEAU_ETUDE" values(6, 'bac +4');
+insert into "IRH"."NIVEAU_ETUDE" values(7, 'bac +5');
+insert into "IRH"."NIVEAU_ETUDE" values(8, 'bac >5');
 
 insert into "IRH"."SITUATION_FAMILIALE" values(1, 'Marie');
 insert into "IRH"."SITUATION_FAMILIALE" values(2, 'Concubinage');
@@ -742,3 +742,6 @@ insert into "IRH"."POSTE" values(3, 3, 'Responsable Projet IRH', 1);
 insert into "IRH"."EMPLOYE" values(1, 1, 3, 1, 'JARNOUX', 'Alex', '', '', '0674934995', '', '30/04/86', 'alex.jarnoux@gmail.com', '13 rue St Hermeland', '44200', 'Nantes', 'Personne tres agreable, beau physique!', null);
 
 insert into "IRH"."ORGANISME" values(1, 'EPSI', '1 ecole, 6 site. Liens fort avec l''entreprise. Titre certifie au niveau 1 (Ingenieur). Encadrement et suivi des eleves. Remunerations elevees. Ouverture internationale.');
+
+insert into "IRH"."DIPLOME" values(1, 2, 1, 'Bac STT IG Option DA', 'Notre Dame du Roc', 2004);
+insert into "IRH"."DIPLOME" values(2, 4, 1, 'BTS IG Option DA', 'Notre Dame du Roc', 2006)

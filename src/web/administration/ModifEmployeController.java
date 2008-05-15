@@ -13,6 +13,7 @@ import org.springframework.web.servlet.mvc.SimpleFormController;
 import org.springframework.web.servlet.view.RedirectView;
 
 import services.IServiceCivilite;
+import services.IServiceDiplome;
 import services.IServiceEmploye;
 import services.IServiceSituationFamiliale;
 import entities.Civilite;
@@ -25,6 +26,7 @@ public class ModifEmployeController extends SimpleFormController {
 	private IServiceEmploye se;
 	private IServiceCivilite sc;
 	private IServiceSituationFamiliale ssf;
+	private IServiceDiplome sd;
 	
 	/* (non-Javadoc)
 	 * @see org.springframework.web.servlet.mvc.AbstractFormController#formBackingObject(javax.servlet.http.HttpServletRequest)
@@ -48,6 +50,10 @@ public class ModifEmployeController extends SimpleFormController {
 	protected Map referenceData(HttpServletRequest request) throws Exception {
 		Map<Object, Object> dataMap = new HashMap<Object, Object>();
 		
+		// Recupère l'employé en modification
+		int employeId = Integer.parseInt(request.getParameter("id"));
+		Employe employe = se.getEmploye(employeId);
+		
 		// Ajoute la liste des civilites dans la dataMap
 		dataMap.put("civilites", sc.listCivilites());
 		
@@ -57,6 +63,9 @@ public class ModifEmployeController extends SimpleFormController {
 		// Ajoute les valeurs pour le nombre d'enfants dans la dataMap
 		int tabNbsEnfants[] = {0, 1, 2, 3, 4, 5, 6, 7, 8};
 		dataMap.put("nbsEnfants", tabNbsEnfants);
+		
+		// Liste des diplomes de l'employé
+		dataMap.put("diplomes", sd.listDiplomesEmploye(employe));
 		
     	return dataMap;
 	}
@@ -135,5 +144,13 @@ public class ModifEmployeController extends SimpleFormController {
 
 	public void setSsf(IServiceSituationFamiliale ssf) {
 		this.ssf = ssf;
+	}
+
+	public IServiceDiplome getSd() {
+		return sd;
+	}
+
+	public void setSd(IServiceDiplome sd) {
+		this.sd = sd;
 	}
 }

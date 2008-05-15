@@ -4,6 +4,7 @@ import static javax.persistence.GenerationType.SEQUENCE;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -69,6 +71,9 @@ public class Employe implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="ID_SITUATION_FAMILIALE")
 	private SituationFamiliale situationFamiliale;
+	
+	@OneToMany(mappedBy="employe")
+	private Set<Diplome> diplomeCollection;
 	
 	// TODO : Implementer poste
 	//@Column(name="ID_POSTE")
@@ -214,6 +219,14 @@ public class Employe implements Serializable {
 
 	public void setAdrCp(String adrCp) {
 		this.adrCp = adrCp;
+	}
+
+	public Set<Diplome> getDiplomeCollection() {
+		return diplomeCollection;
+	}
+
+	public void setDiplomeCollection(Set<Diplome> diplomeCollection) {
+		this.diplomeCollection = diplomeCollection;
 	}
 
 }

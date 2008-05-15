@@ -1,8 +1,11 @@
 package entities;
 
 import java.io.Serializable;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -19,6 +22,9 @@ public class NiveauEtude implements Serializable {
 
 	@Column(name="LIBELLE")
 	private String libelle;
+	
+	@OneToMany(mappedBy="niveau")
+	private Set<Diplome> diplomeCollection;
 
 	private static final long serialVersionUID = 1L;
 
@@ -40,5 +46,18 @@ public class NiveauEtude implements Serializable {
 
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
+	}
+
+	public Set<Diplome> getDiplomeCollection() {
+		return diplomeCollection;
+	}
+
+	public void setDiplomeCollection(Set<Diplome> diplomeCollection) {
+		this.diplomeCollection = diplomeCollection;
+	}
+	
+	@Override
+	public String toString() {
+		return this.libelle;
 	}
 }

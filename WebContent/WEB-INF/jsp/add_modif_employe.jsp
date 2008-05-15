@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri="http://displaytag.sf.net" prefix="display" %>
 
 <html>
 <head>
@@ -12,7 +13,7 @@
 <legend>Employé</legend>
     <fieldset>
         <legend>Informations</legend>
-        <div id="nom">
+        <div id="bloc_nom">
             <div class="ligne">
                 <span class="label">Civilité :</span>
                 <form:select path="civilite">
@@ -35,7 +36,7 @@
 				<form:errors path="dateNaissance" cssClass="error"/>
             </div>
         </div>
-        <div id="mail_tel">
+        <div id="bloc_mail_tel">
             <div class="ligne">
                 <span class="label">Email :</span>
                 <form:input path="email" />
@@ -123,52 +124,16 @@
         <a class="ajout" href="./gestion_diplomes_ajout.htm">
             Ajouter un dimplome
         </a>
-        <table class="adminlist">
-            <thead>
-                <tr>
-                    <th>Année</th>
-                    <th>Dénomination</th>
-                    <th>Etablissement</th>
-                    <th>Niveau</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="row0">
-                    <td>2006</td>
-                    <td>BTS Communication</td>
-                    <td>Notre Dame du Roc</td>
-                    <td>Bac +2</td>
-                    <td align="center">
-                        <a href="./gestion_diplomes_modif.htm?id=1">
-                            <img src="./images/edit.png" alt="Modifier l'utilisateur"/>
-                        </a>
-                    </td>
-                    <td align="center">
-                        <a href="./gestion_diplomes_suppr?id=1"  onclick="javascript: return confirm('Voulez-vous supprimer cet utilisateur?');">
-                            <img src="./images/delete.png" alt="Supprimer l'utilisateur"/>
-                        </a>
-                    </td>
-                </tr>
-                <tr class="row1">
-                    <td>2004</td>
-                    <td>Bac STT Communication</td>
-                    <td>Notre Dame du Roc</td>
-                    <td>Bac</td>
-                    <td align="center">
-                        <a href="./gestion_diplomes_modif.htm?id=1">
-                            <img src="./images/edit.png" alt="Modifier l'utilisateur"/>
-                        </a>
-                    </td>
-                    <td align="center">
-                        <a href="./gestion_diplomes_suppr?id=1"  onclick="javascript: return confirm('Voulez-vous supprimer cet utilisateur?');">
-                            <img src="./images/delete.png" alt="Supprimer l'utilisateur"/>
-                        </a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <display:table name="diplomes" sort="list" pagesize="5" class="adminlist" decorator="web.administration.ListeDiplomesDecorator" requestURI="liste_employes.htm">
+			<display:setProperty name="css.tr.odd" value="row0" />
+			<display:setProperty name="css.tr.even" value="row1" />
+			<display:column property="annee" title="Année" sortable="true" />
+			<display:column property="denomination" title="Dénomination" />
+			<display:column property="etablissement" title="Établissemnt" />
+			<display:column property="niveau" title="Niveau" sortable="true" />
+			<display:column property="editLink" title="&nbsp;" style="text-align:center" />
+			<display:column property="supprLink" title="&nbsp;" style="text-align:center" />
+		</display:table>
     </fieldset>
     
     <fieldset>

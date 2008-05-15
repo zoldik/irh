@@ -164,6 +164,7 @@
 		<property name="se" ref="serviceEmploye" />
 		<property name="sc" ref="serviceCivilite" />
 		<property name="ssf" ref="serviceSituationFamiliale" />
+		<property name="sd" ref="serviceDiplome" />
 	</bean>
 	<bean name="/suppr_employe.htm" class="web.administration.SupprEmployeController">
 		<property name="se" ref="serviceEmploye" />

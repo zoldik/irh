@@ -1,4 +1,4 @@
-/** Général **/
+/** Gï¿½nï¿½ral **/
 
 img {
 	border:				none;
@@ -92,4 +92,15 @@ table.adminlist tfoot td, table.adminlist tfoot th {
 	background-color:	#F3F3F3;
 	border-top:			1px solid #999999;
 	text-align:			center;
+}
+
+/** EmployÃ© **/
+#bloc_nom, #bloc_mail_tel, #bloc_adresse
+{
+	float:				left;
+}
+
+#bloc_mail_tel
+{
+	margin-top:			32px;
 }
