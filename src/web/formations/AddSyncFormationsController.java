@@ -113,6 +113,14 @@ public class AddSyncFormationsController extends SimpleFormController {
             	orga.setDescription(descriptionOrganisme);
             	
             	so.addOrganisme(orga);
+            	
+            	// On recupere l'id de l'organisme ajoute
+                for (Organisme organisme : so.listOrganismes()) {
+    				if(organisme.getNom().equals(nomOrganisme))
+    				{
+    					idOrganisme = organisme.getId();
+    				}
+    			}
             }            
             // Sinon, on le modifie
             else
@@ -139,7 +147,7 @@ public class AddSyncFormationsController extends SimpleFormController {
             	int idFormation = -1;
             	List<Formation> formations = sf.listFormations();
             	for (Formation formation : formations) {
-					if(formation.getLibelle().equals(libelleFormation))
+					if((formation.getLibelle().equals(libelleFormation)) && (formation.getOrganisme().getId() == idOrganisme))
 					{
 						formationPresente = true;
 						idFormation = formation.getId();
@@ -170,7 +178,7 @@ public class AddSyncFormationsController extends SimpleFormController {
             	{
             		Formation f = sf.getFormation(idFormation);
             		f.setDuree(dureeFormation);
-            		f.setOrganisme(so.getOrganisme(idOrganisme));
+            		//f.setOrganisme(so.getOrganisme(idOrganisme));
             		f.setPrixParPersonne(prixParPersonneFormation);
             		
             		sf.updateFormation(f);
@@ -221,28 +229,50 @@ public class AddSyncFormationsController extends SimpleFormController {
                 		nf.setPk(nfPK);
                 		nf.setNiveau(niveauCompetence);
                 		snf.addNiveauForm(nf);
-                		
-                		System.out.println("DEBUG : Competence ajoutee : " + c.getLibelle());
                 	}
             		// Sinon, on la modifie
                 	else
-                	{	
+                	{
                 		// Preparation de la cle primaire composee
                 		NiveauFormPK nfPK = new NiveauFormPK();                		
                 		nfPK.setIdCompetence(idCompetence);
                 		nfPK.setIdFormation(idFormation);
-                		// Modification du niveau dans la Table NIVEAU_FORM.
-                		NiveauForm nf = new NiveauForm();
-                		nf.setPk(nfPK);
-                		nf.setNiveau(niveauCompetence);
-                		snf.updateNiveauForm(nf);
-                		
-                		System.out.println("DEBUG : Competence Modifiee");
+                	
+                		// Verification de la presence du niveau asssocie a la competence
+                		// dans la table NIVEAU_FORM
+                		boolean niveauFormPresent = false;
+                    	
+                    	for (NiveauForm niveauForm : snf.listNiveauForms()) {
+        					if(niveauForm.getPk().equals(nfPK))
+        					{
+        						System.out.println("DEBUG : Coucou");
+        						niveauFormPresent = true;
+        					}
+        				}
+                    	// Si, il n'est pas presente, on l'ajoute.
+                    	if(!niveauFormPresent)
+                    	{
+                    		NiveauForm nf = new NiveauForm();
+                    		nf.setPk(nfPK);
+                    		nf.setNiveau(niveauCompetence);
+                    		snf.addNiveauForm(nf);
+                    		
+                    		System.out.println("DEBUG : NiveauForm ajoute");
+                    	}
+                    	// Sinon, on modifie.
+                    	else
+                    	{
+                    		// Modification du niveau dans la Table NIVEAU_FORM.
+                    		NiveauForm nf = new NiveauForm();
+                    		nf.setPk(nfPK);
+                    		nf.setNiveau(niveauCompetence);
+                    		snf.updateNiveauForm(nf);
+                    		
+                    		System.out.println("DEBUG : NiveauForm modifie");
+                    	}
                 	}
                 }
 			}
-		   
-           //TODO : gerer les competences associees a chaque formation.
         }		
 		
 		return new ModelAndView(new RedirectView(this.getSuccessView()));

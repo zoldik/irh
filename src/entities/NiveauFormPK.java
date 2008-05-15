@@ -6,10 +6,10 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class NiveauFormPK implements Serializable {
 	@Column(name="ID_COMPETENCE")
-	private Integer idCompetence;
+	private int idCompetence;
 
 	@Column(name="ID_FORMATION")
-	private Integer idFormation;
+	private int idFormation;
 
 	private static final long serialVersionUID = 1L;
 
@@ -17,19 +17,19 @@ public class NiveauFormPK implements Serializable {
 		super();
 	}
 
-	public Integer getIdCompetence() {
+	public int getIdCompetence() {
 		return idCompetence;
 	}
 
-	public void setIdCompetence(Integer idCompetence) {
+	public void setIdCompetence(int idCompetence) {
 		this.idCompetence = idCompetence;
 	}
 
-	public Integer getIdFormation() {
+	public int getIdFormation() {
 		return idFormation;
 	}
 
-	public void setIdFormation(Integer idFormation) {
+	public void setIdFormation(int idFormation) {
 		this.idFormation = idFormation;
 	}
 
@@ -42,13 +42,13 @@ public class NiveauFormPK implements Serializable {
 			return false;
 		}
 		NiveauFormPK other = (NiveauFormPK) o;
-		return this.idCompetence.equals(other.idCompetence)
-			&& this.idFormation.equals(other.idFormation);
+		return (this.idCompetence == other.idCompetence)
+			&& (this.idFormation == other.idFormation);
 	}
 
 	@Override
 	public int hashCode() {
-		return this.idCompetence.hashCode()
-			^ this.idFormation.hashCode();
+		return (((Integer)this.idCompetence).hashCode()
+			^ ((Integer)this.idFormation).hashCode());
 	}
 }

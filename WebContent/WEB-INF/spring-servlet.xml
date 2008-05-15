@@ -182,6 +182,12 @@
 		<property name="sc" ref="serviceCompetence" />
 		<property name="snf" ref="serviceNiveauForm" />
 	</bean>
+	<bean name="/details_formation.htm" class="web.formations.DetailsFormationController">
+		<property name="sf" ref="serviceFormation" />
+		<property name="so" ref="serviceOrganisme" />
+		<property name="sc" ref="serviceCompetence" />
+		<property name="snf" ref="serviceNiveauForm" />
+	</bean>
 	
  	<!-- Validadors -->
  	<bean name="identificationValidator" class="web.consultation.IdentificationValidator">

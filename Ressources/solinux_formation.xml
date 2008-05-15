@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<organisme>
+	<nom>SOLINUX</nom>
+	<description>
+		Specialiste de l'infogerance de systemes et de l'integration d'outils "middleware" (serveurs, bases de donnees, groupware, securite), Solinux est un acteur historique du Logiciel Libre.
+		Grace a une expertise reconnue, elle s'est construit une clientele diversifee, composee de grands comptes, d'administrations, de collectivites locales et de PME/PMI.
+	</description>
+	<formations>
+		<formation>
+			<libelle>Programmation Web</libelle>
+			<prix_par_personne>100</prix_par_personne>
+			<duree>50</duree>
+			<competences>
+				<competence>
+					<libelle>PHP</libelle>
+					<niveau>5</niveau>
+				</competence>
+				<competence>
+					<libelle>HTML</libelle>
+					<niveau>2</niveau>
+				</competence>
+				<competence>
+					<libelle>XML</libelle>
+					<niveau>3</niveau>
+				</competence>
+			</competences>
+		</formation>
+		<formation>
+			<libelle>Introduction a Samba</libelle>
+			<prix_par_personne>400</prix_par_personne>
+			<duree>16</duree>
+			<competences>
+				<competence>
+					<libelle>Shell Bash</libelle>
+					<niveau>3</niveau>
+				</competence>
+				<competence>
+					<libelle>Protocole NetBIOS</libelle>
+					<niveau>3</niveau>
+				</competence>
+			</competences>
+		</formation>
+	</formations>
+</organisme>
