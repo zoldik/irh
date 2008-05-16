@@ -24,9 +24,9 @@ public class IdentificationValidator implements Validator {
 		
 		/* Verifie que les champs sont remplis */
 		// Champs login
-		ValidationUtils.rejectIfEmptyOrWhitespace(arg1, "login", "field.required", "Ne doit pas être vide");
+		ValidationUtils.rejectIfEmptyOrWhitespace(arg1, "login", "field.required", "Ne doit pas etre vide");
 		// Champs password
-		ValidationUtils.rejectIfEmptyOrWhitespace(arg1, "pass", "field.required", "Ne doit pas être vide");
+		ValidationUtils.rejectIfEmptyOrWhitespace(arg1, "pass", "field.required", "Ne doit pas etre vide");
 		
 		/* Si pas d'erreur de saisie, on verifie que le login 
 		 * et le mot de passe sont correct

@@ -188,6 +188,26 @@
 		<property name="sc" ref="serviceCompetence" />
 		<property name="snf" ref="serviceNiveauForm" />
 	</bean>
+	<bean name="/liste_plan_formations.htm" class="web.formations.ListePlanFormationsController">
+		<property name="spf" ref="servicePlanFormation" />
+	</bean>
+	<bean name="/add_plan_formation.htm" class="web.formations.AddPlanFormationController">
+		<property name="commandClass" value="entities.PlanFormation" />
+		<property name="formView" value="add_modif_plan_formation" />
+		<property name="successView" value="liste_plan_formations.htm" />
+		<property name="validator" ref="addModifPlanFormationValidator" />
+		<property name="spf" ref="servicePlanFormation" />
+	</bean>
+	<bean name="/modif_plan_formation.htm" class="web.formations.ModifPlanFormationController">
+		<property name="commandClass" value="entities.PlanFormation" />
+		<property name="formView" value="add_modif_plan_formation" />
+		<property name="successView" value="liste_plan_formations.htm" />
+		<property name="validator" ref="addModifPlanFormationValidator" />
+		<property name="spf" ref="servicePlanFormation" />
+	</bean>
+	<bean name="/suppr_plan_formation.htm" class="web.formations.SupprPlanFormationController">
+		<property name="spf" ref="servicePlanFormation" />
+	</bean>
 	
  	<!-- Validadors -->
  	<bean name="identificationValidator" class="web.consultation.IdentificationValidator">
@@ -201,6 +221,9 @@
  	<bean name="addModifEmployeValidator" class="web.administration.AddModifEmployeValidator" />
  	<bean name="addModifPosteValidator" class="web.carrieres.AddModifPosteValidator" />
  	<bean name="addSyncFormationsValidator" class="web.formations.AddSyncFormationsValidator" />
+ 	<bean name="addModifPlanFormationValidator" class="web.formations.AddModifPlanFormationValidator">
+ 		<property name="spf" ref="servicePlanFormation" />
+ 	</bean>
  	
  	<!-- View Resolvers -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

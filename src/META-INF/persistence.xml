@@ -28,6 +28,8 @@
 		<class>
 		entities.Organisme</class>
 		<class>
+		entities.PlanFormation</class>
+		<class>
 		entities.Poste</class>
 		<class>
 		entities.SituationFamiliale</class>

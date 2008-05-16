@@ -70,6 +70,10 @@
 	<bean id="serviceDiplome" class="services.ServiceDiplome">
 		<property name="daoDiplome" ref="daoDiplome" />
 	</bean>
+	<bean id="daoPlanFormation" class="dao.DaoPlanFormation" />
+	<bean id="servicePlanFormation" class="services.ServicePlanFormation">
+		<property name="daoPlanFormation" ref="daoPlanFormation" />
+	</bean>
 	
 	
 	<!-- couche de persistance JPA -->

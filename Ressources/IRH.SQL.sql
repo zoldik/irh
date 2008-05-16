@@ -129,8 +129,9 @@ CREATE  INDEX I_FK_UTILISATEUR_DROIT
 
 CREATE TABLE PLAN_FORMATION
    (
+	ID NUMBER  NOT NULL,
     ANNEE NUMBER(4)  NOT NULL
-,   CONSTRAINT PK_PLAN_FORMATION PRIMARY KEY (ANNEE)  
+,   CONSTRAINT PK_PLAN_FORMATION PRIMARY KEY (ID)  
    ) ;
 
 -- -----------------------------------------------------------------------------
@@ -655,6 +656,8 @@ DROP SEQUENCE "IRH"."SEQ_FORMATION" ;
 DROP SEQUENCE "IRH"."SEQ_ORGANISME" ;
 
 DROP SEQUENCE "IRH"."SEQ_COMPETENCE" ;
+
+DROP SEQUENCE "IRH"."SEQ_PLAN_FORMATION" ;
 	       
 
 CREATE SEQUENCE "IRH"."SEQ_THEME" INCREMENT BY 1 START WITH 1 ;
@@ -680,6 +683,8 @@ CREATE SEQUENCE "IRH"."SEQ_FORMATION" INCREMENT BY 1 START WITH 1 ;
 CREATE SEQUENCE "IRH"."SEQ_ORGANISME" INCREMENT BY 1 START WITH 1 ;
 
 CREATE SEQUENCE "IRH"."SEQ_COMPETENCE" INCREMENT BY 1 START WITH 1 ;
+
+CREATE SEQUENCE "IRH"."SEQ_PLAN_FORMATION" INCREMENT BY 1 START WITH 1 ;
 
 -- -----------------------------------------------------------------------------
 --                FIN DE GENERATION
@@ -745,3 +750,6 @@ insert into "IRH"."ORGANISME" values(1, 'EPSI', '1 ecole, 6 site. Liens fort ave
 
 insert into "IRH"."DIPLOME" values(1, 2, 1, 'Bac STT IG Option DA', 'Notre Dame du Roc', 2004);
 insert into "IRH"."DIPLOME" values(2, 4, 1, 'BTS IG Option DA', 'Notre Dame du Roc', 2006)
+
+insert into "IRH"."PLAN_FORMATION" values(1, 2008);
+insert into "IRH"."PLAN_FORMATION" values(2, 2009);
