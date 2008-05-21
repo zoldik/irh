@@ -1,6 +1,5 @@
-package web.formations;
+package web.carrieres;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,24 +9,24 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.SimpleFormController;
 import org.springframework.web.servlet.view.RedirectView;
 
-import entities.Categorie;
-import entities.Metier;
+import entities.Theme;
 
-import services.IServiceCategorie;
-import services.IServiceMetier;
+import services.IServiceTheme;
 
 
-public class AddMetierController extends SimpleFormController {
+public class ModifThemeController extends SimpleFormController {
 	
-	private IServiceCategorie sc;
-	private IServiceMetier sm;
+	private IServiceTheme st;
 	/* (non-Javadoc)
 	 * @see org.springframework.web.servlet.mvc.AbstractFormController#formBackingObject(javax.servlet.http.HttpServletRequest)
 	 */
 	@Override
 	protected Object formBackingObject(HttpServletRequest request)
 			throws Exception {
-		return super.formBackingObject(request);
+		int Id = Integer.parseInt(request.getParameter("id"));
+		Theme theme = st.getTheme(Id);
+		
+		return theme;		
 	}
 	
 	/* (non-Javadoc)
@@ -36,11 +35,7 @@ public class AddMetierController extends SimpleFormController {
 	@Override
 	@SuppressWarnings("unchecked")
 	protected Map referenceData(HttpServletRequest request) throws Exception {
-		Map<Object, Object> dataMap = new HashMap<Object, Object>();
-		// Ajoute la liste des categories dans la dataMap
-		dataMap.put("categories", sc.listCategories());
-		
-    	return dataMap;
+		return super.referenceData(request);
 	}
 	
 	/* (non-Javadoc)
@@ -49,19 +44,6 @@ public class AddMetierController extends SimpleFormController {
 	@Override
 	protected void initBinder(HttpServletRequest request,
 			ServletRequestDataBinder binder) throws Exception {
-		
-		binder.setDisallowedFields(new String[] {"categorie"});
-		 
-		Metier metier = (Metier)binder.getTarget();
-     	
-    	Integer id = null;
-    	try { id = Integer.parseInt(request.getParameter("categorie")); }
-    	catch (Exception e) {}
-    	
-		if (id != null) {
-			Categorie cat = sc.getCategorie(id);
-			metier.setCategorie(cat);
-		}
 	}
 	
 	/* (non-Javadoc)
@@ -69,26 +51,19 @@ public class AddMetierController extends SimpleFormController {
 	 */
 	@Override
 	protected ModelAndView onSubmit(Object command) throws Exception {
-		Metier metier = (Metier)command;
-		// Ajout de la categorie
-		sm.addMetier(metier);	
+		Theme theme = (Theme)command;
+		// Mise � jour
+		st.updateTheme(theme);
 		
 		return new ModelAndView(new RedirectView(this.getSuccessView()));
 	}
 
-	public IServiceCategorie getSc() {
-		return sc;
+	public IServiceTheme getSt() {
+		return st;
 	}
 
-	public void setSc(IServiceCategorie sc) {
-		this.sc = sc;
+	public void setSt(IServiceTheme st) {
+		this.st = st;
 	}
 
-	public IServiceMetier getSm() {
-		return sm;
-	}
-
-	public void setSm(IServiceMetier sm) {
-		this.sm = sm;
-	}
 }

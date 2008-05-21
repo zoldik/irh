@@ -1,5 +1,6 @@
-package web.formations;
+package web.carrieres;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,16 +10,17 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.SimpleFormController;
 import org.springframework.web.servlet.view.RedirectView;
 
-import entities.Theme;
+import entities.Categorie;
+import entities.Metier;
 
-import services.IServiceTheme;
+import services.IServiceCategorie;
+import services.IServiceMetier;
 
 
-
-public class AddThemeController extends SimpleFormController {
+public class AddMetierController extends SimpleFormController {
 	
-	private IServiceTheme st;
-
+	private IServiceCategorie sc;
+	private IServiceMetier sm;
 	/* (non-Javadoc)
 	 * @see org.springframework.web.servlet.mvc.AbstractFormController#formBackingObject(javax.servlet.http.HttpServletRequest)
 	 */
@@ -34,7 +36,11 @@ public class AddThemeController extends SimpleFormController {
 	@Override
 	@SuppressWarnings("unchecked")
 	protected Map referenceData(HttpServletRequest request) throws Exception {
-		return super.referenceData(request);
+		Map<Object, Object> dataMap = new HashMap<Object, Object>();
+		// Ajoute la liste des categories dans la dataMap
+		dataMap.put("categories", sc.listCategories());
+		
+    	return dataMap;
 	}
 	
 	/* (non-Javadoc)
@@ -43,6 +49,19 @@ public class AddThemeController extends SimpleFormController {
 	@Override
 	protected void initBinder(HttpServletRequest request,
 			ServletRequestDataBinder binder) throws Exception {
+		
+		binder.setDisallowedFields(new String[] {"categorie"});
+		 
+		Metier metier = (Metier)binder.getTarget();
+     	
+    	Integer id = null;
+    	try { id = Integer.parseInt(request.getParameter("categorie")); }
+    	catch (Exception e) {}
+    	
+		if (id != null) {
+			Categorie cat = sc.getCategorie(id);
+			metier.setCategorie(cat);
+		}
 	}
 	
 	/* (non-Javadoc)
@@ -50,20 +69,26 @@ public class AddThemeController extends SimpleFormController {
 	 */
 	@Override
 	protected ModelAndView onSubmit(Object command) throws Exception {
-		Theme theme = (Theme)command;
-		// Ajout du theme
-		st.addTheme(theme);	
+		Metier metier = (Metier)command;
+		// Ajout de la categorie
+		sm.addMetier(metier);	
 		
 		return new ModelAndView(new RedirectView(this.getSuccessView()));
 	}
 
-	public IServiceTheme getSt() {
-		return st;
+	public IServiceCategorie getSc() {
+		return sc;
 	}
 
-	public void setSt(IServiceTheme st) {
-		this.st = st;
+	public void setSc(IServiceCategorie sc) {
+		this.sc = sc;
 	}
 
-	
+	public IServiceMetier getSm() {
+		return sm;
+	}
+
+	public void setSm(IServiceMetier sm) {
+		this.sm = sm;
+	}
 }

@@ -3,12 +3,14 @@ package entities;
 import static javax.persistence.GenerationType.SEQUENCE;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Column;
@@ -34,6 +36,9 @@ public class Formation implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="ID_ORGANISME")
 	private Organisme organisme;
+	
+	@OneToMany(mappedBy="formation")
+	private Set<SessionFormation> sessionFormationCollection;
 	
 	private static final long serialVersionUID = 1L;
 
@@ -75,7 +80,7 @@ public class Formation implements Serializable {
 	
 	@Override
 	public String toString() {
-		return this.libelle;
+		return this.organisme.getNom() + " > " + this.libelle;
 	}
 
 	public Organisme getOrganisme() {
@@ -84,5 +89,14 @@ public class Formation implements Serializable {
 
 	public void setOrganisme(Organisme organisme) {
 		this.organisme = organisme;
+	}
+
+	public Set<SessionFormation> getSessionFormationCollection() {
+		return sessionFormationCollection;
+	}
+
+	public void setSessionFormationCollection(
+			Set<SessionFormation> sessionFormationCollection) {
+		this.sessionFormationCollection = sessionFormationCollection;
 	}
 }

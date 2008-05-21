@@ -1,5 +1,6 @@
-package web.formations;
+package web.carrieres;
 
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,7 +12,7 @@ import entities.Categorie;
 
 import services.IServiceCategorie;
 
-public class SupprCategorieController implements Controller {
+public class ListeCategoriesController implements Controller {
 
 	private IServiceCategorie sc;
 	
@@ -19,18 +20,13 @@ public class SupprCategorieController implements Controller {
 	public ModelAndView handleRequest(HttpServletRequest arg0,
 			HttpServletResponse arg1) throws Exception
 	{
-		// Recupere l'element à supprimer
-		Categorie cat = new Categorie();
-		cat.setId(Integer.parseInt(arg0.getParameter("id")));
-		// Supprime l'element
-		sc.deleteCategorie(cat);
-		// Redirige vers la liste des utilisateurs
-		/* TO FIX : il y a peut etre plus propre a faire avec Spring, mais bon
-		 * ca marche !
-		 */
-		arg1.sendRedirect("liste_categories.htm");
-		
-		return null;
+		// Recupere la liste
+		List<Categorie> categories = sc.listCategories();
+		// Ajoute la liste au Model
+		ModelAndView myModelAndView = new ModelAndView("liste_categories");
+		myModelAndView.addObject("categories", categories);
+ 
+		return myModelAndView;
 	}
 
 	public IServiceCategorie getSc() {
@@ -40,5 +36,4 @@ public class SupprCategorieController implements Controller {
 	public void setSc(IServiceCategorie sc) {
 		this.sc = sc;
 	}
-
 }

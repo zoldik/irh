@@ -1,4 +1,4 @@
-package web.formations;
+package web.carrieres;
 
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +19,7 @@ public class SupprMetierController implements Controller {
 	public ModelAndView handleRequest(HttpServletRequest arg0,
 			HttpServletResponse arg1) throws Exception
 	{
-		// Recupere l'element à supprimer
+		// Recupere l'element ï¿½ supprimer
 		Metier metier = new Metier();
 		metier.setId(Integer.parseInt(arg0.getParameter("id")));
 		// Supprime l'element

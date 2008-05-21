@@ -3,10 +3,12 @@ package entities;
 import static javax.persistence.GenerationType.SEQUENCE;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Column;
@@ -22,6 +24,9 @@ public class PlanFormation implements Serializable {
 	
 	@Column(name="ANNEE")
 	private int annee;
+	
+	@OneToMany(mappedBy="planFormation")
+	private Set<SessionFormation> sessionFormationCollection;
 	
 	private static final long serialVersionUID = 1L;
 
@@ -48,5 +53,14 @@ public class PlanFormation implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public Set<SessionFormation> getSessionFormationCollection() {
+		return sessionFormationCollection;
+	}
+
+	public void setSessionFormationCollection(
+			Set<SessionFormation> sessionFormationCollection) {
+		this.sessionFormationCollection = sessionFormationCollection;
 	}
 }

@@ -38,30 +38,30 @@
 	<bean name="/suppr_utilisateur.htm" class="web.administration.SupprUtilisateurController">
 		<property name="su" ref="serviceUtilisateur" />
 	</bean>
-	<bean name="/liste_themes.htm" class="web.formations.ListeThemesController">
+	<bean name="/liste_themes.htm" class="web.carrieres.ListeThemesController">
 		<property name="st" ref="serviceTheme" />
 	</bean>
-	<bean name="/add_theme.htm" class="web.formations.AddThemeController">
+	<bean name="/add_theme.htm" class="web.carrieres.AddThemeController">
 		<property name="commandClass" value="entities.Theme" />
 		<property name="formView" value="add_modif_theme" />
 		<property name="successView" value="liste_themes.htm" />
 		<property name="validator" ref="addModifThemeValidator" />
 		<property name="st" ref="serviceTheme" />
 	</bean>
-	<bean name="/modif_theme.htm" class="web.formations.ModifThemeController">
+	<bean name="/modif_theme.htm" class="web.carrieres.ModifThemeController">
 		<property name="commandClass" value="entities.Theme" />
 		<property name="formView" value="add_modif_theme" />
 		<property name="successView" value="liste_themes.htm" />
 		<property name="validator" ref="addModifThemeValidator" />
 		<property name="st" ref="serviceTheme" />
 	</bean>
-	<bean name="/suppr_theme.htm" class="web.formations.SupprThemeController">
+	<bean name="/suppr_theme.htm" class="web.carrieres.SupprThemeController">
 		<property name="st" ref="serviceTheme" />
 	</bean>
-	<bean name="/liste_categories.htm" class="web.formations.ListeCategoriesController">
+	<bean name="/liste_categories.htm" class="web.carrieres.ListeCategoriesController">
 		<property name="sc" ref="serviceCategorie" />
 	</bean>
-	<bean name="/add_categorie.htm" class="web.formations.AddCategorieController">
+	<bean name="/add_categorie.htm" class="web.carrieres.AddCategorieController">
 		<property name="commandClass" value="entities.Categorie" />
 		<property name="formView" value="add_modif_categorie" />
 		<property name="successView" value="liste_categories.htm" />
@@ -69,7 +69,7 @@
 		<property name="sc" ref="serviceCategorie" />
 		<property name="st" ref="serviceTheme" />
 	</bean>
-	<bean name="/modif_categorie.htm" class="web.formations.ModifCategorieController">
+	<bean name="/modif_categorie.htm" class="web.carrieres.ModifCategorieController">
 		<property name="commandClass" value="entities.Categorie" />
 		<property name="formView" value="add_modif_categorie" />
 		<property name="successView" value="liste_categories.htm" />
@@ -77,13 +77,13 @@
 		<property name="sc" ref="serviceCategorie" />
 		<property name="st" ref="serviceTheme" />
 	</bean>
-	<bean name="/suppr_categorie.htm" class="web.formations.SupprCategorieController">
+	<bean name="/suppr_categorie.htm" class="web.carrieres.SupprCategorieController">
 		<property name="sc" ref="serviceCategorie" />
 	</bean>
-	<bean name="/liste_metiers.htm" class="web.formations.ListeMetiersController">
+	<bean name="/liste_metiers.htm" class="web.carrieres.ListeMetiersController">
 		<property name="sm" ref="serviceMetier" />
 	</bean>
-	<bean name="/add_metier.htm" class="web.formations.AddMetierController">
+	<bean name="/add_metier.htm" class="web.carrieres.AddMetierController">
 		<property name="commandClass" value="entities.Metier" />
 		<property name="formView" value="add_modif_metier" />
 		<property name="successView" value="liste_metiers.htm" />
@@ -91,7 +91,7 @@
 		<property name="sc" ref="serviceCategorie" />
 		<property name="sm" ref="serviceMetier" />
 	</bean>
-	<bean name="/modif_metier.htm" class="web.formations.ModifMetierController">
+	<bean name="/modif_metier.htm" class="web.carrieres.ModifMetierController">
 		<property name="commandClass" value="entities.Metier" />
 		<property name="formView" value="add_modif_metier" />
 		<property name="successView" value="liste_metiers.htm" />
@@ -99,7 +99,7 @@
 		<property name="sc" ref="serviceCategorie" />
 		<property name="sm" ref="serviceMetier" />
 	</bean>
-	<bean name="/suppr_metier.htm" class="web.formations.SupprMetierController">
+	<bean name="/suppr_metier.htm" class="web.carrieres.SupprMetierController">
 		<property name="sm" ref="serviceMetier" />
 	</bean>
 	<bean name="/liste_competences.htm" class="web.carrieres.ListeCompetencesController">
@@ -208,15 +208,18 @@
 	<bean name="/suppr_plan_formation.htm" class="web.formations.SupprPlanFormationController">
 		<property name="spf" ref="servicePlanFormation" />
 	</bean>
+	<bean name="/liste_session_formations.htm" class="web.formations.ListeSessionFormationsController">
+		<property name="ssf" ref="serviceSessionFormation" />
+	</bean>
 	
  	<!-- Validadors -->
  	<bean name="identificationValidator" class="web.consultation.IdentificationValidator">
  		<property name="su" ref="serviceUtilisateur" />
  	</bean>
  	<bean name="addModifUtilisateurValidator" class="web.administration.AddModifUtilisateurValidator" />
- 	<bean name="addModifThemeValidator" class="web.formations.AddModifThemeValidator" />
- 	<bean name="addModifCategorieValidator" class="web.formations.AddModifCategorieValidator" />
- 	<bean name="addModifMetierValidator" class="web.formations.AddModifMetierValidator" />
+ 	<bean name="addModifThemeValidator" class="web.carrieres.AddModifThemeValidator" />
+ 	<bean name="addModifCategorieValidator" class="web.carrieres.AddModifCategorieValidator" />
+ 	<bean name="addModifMetierValidator" class="web.carrieres.AddModifMetierValidator" />
  	<bean name="addModifCompetenceValidator" class="web.carrieres.AddModifCompetenceValidator" />
  	<bean name="addModifEmployeValidator" class="web.administration.AddModifEmployeValidator" />
  	<bean name="addModifPosteValidator" class="web.carrieres.AddModifPosteValidator" />

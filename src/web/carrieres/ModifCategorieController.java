@@ -1,5 +1,6 @@
-package web.formations;
+package web.carrieres;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,13 +10,16 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.SimpleFormController;
 import org.springframework.web.servlet.view.RedirectView;
 
+import entities.Categorie;
 import entities.Theme;
 
+import services.IServiceCategorie;
 import services.IServiceTheme;
 
 
-public class ModifThemeController extends SimpleFormController {
+public class ModifCategorieController extends SimpleFormController {
 	
+	private IServiceCategorie sc;
 	private IServiceTheme st;
 	/* (non-Javadoc)
 	 * @see org.springframework.web.servlet.mvc.AbstractFormController#formBackingObject(javax.servlet.http.HttpServletRequest)
@@ -23,10 +27,10 @@ public class ModifThemeController extends SimpleFormController {
 	@Override
 	protected Object formBackingObject(HttpServletRequest request)
 			throws Exception {
-		int Id = Integer.parseInt(request.getParameter("id"));
-		Theme theme = st.getTheme(Id);
+		int id = Integer.parseInt(request.getParameter("id"));
+		Categorie cat = sc.getCategorie(id);
 		
-		return theme;		
+		return cat;		
 	}
 	
 	/* (non-Javadoc)
@@ -35,7 +39,11 @@ public class ModifThemeController extends SimpleFormController {
 	@Override
 	@SuppressWarnings("unchecked")
 	protected Map referenceData(HttpServletRequest request) throws Exception {
-		return super.referenceData(request);
+		Map<Object, Object> dataMap = new HashMap<Object, Object>();
+		// Ajoute la liste des themes dans la dataMap
+		dataMap.put("themes", st.listThemes());
+		
+    	return dataMap;
 	}
 	
 	/* (non-Javadoc)
@@ -44,6 +52,18 @@ public class ModifThemeController extends SimpleFormController {
 	@Override
 	protected void initBinder(HttpServletRequest request,
 			ServletRequestDataBinder binder) throws Exception {
+		
+		binder.setDisallowedFields(new String[] {"theme"});
+		 
+		Categorie cat = (Categorie)binder.getTarget();
+    	Integer id = null;
+    	try { id = Integer.parseInt(request.getParameter("theme")); }
+    	catch (Exception e) {}
+    	
+		if (id != null) {
+			Theme theme = st.getTheme(id);
+			cat.setTheme(theme);
+		}
 	}
 	
 	/* (non-Javadoc)
@@ -51,11 +71,19 @@ public class ModifThemeController extends SimpleFormController {
 	 */
 	@Override
 	protected ModelAndView onSubmit(Object command) throws Exception {
-		Theme theme = (Theme)command;
-		// Mise à jour
-		st.updateTheme(theme);
+		Categorie cat = (Categorie)command;
+		// Mise ï¿½ jour de l'utilisateur
+		sc.updateCategorie(cat);
 		
 		return new ModelAndView(new RedirectView(this.getSuccessView()));
+	}
+
+	public IServiceCategorie getSc() {
+		return sc;
+	}
+
+	public void setSc(IServiceCategorie sc) {
+		this.sc = sc;
 	}
 
 	public IServiceTheme getSt() {

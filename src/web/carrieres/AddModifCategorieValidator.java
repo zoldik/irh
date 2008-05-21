@@ -1,4 +1,4 @@
-package web.formations;
+package web.carrieres;
 
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
@@ -19,6 +19,6 @@ public class AddModifCategorieValidator implements Validator {
 		
 		/* Verifie que les champs sont remplis */
 		// Champs libelle
-		ValidationUtils.rejectIfEmptyOrWhitespace(arg1, "libelle", "field.required", "Ne doit pas être vide");
+		ValidationUtils.rejectIfEmptyOrWhitespace(arg1, "libelle", "field.required", "Ne doit pas ï¿½tre vide");
 	}
 }

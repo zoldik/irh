@@ -32,6 +32,8 @@
 		<class>
 		entities.Poste</class>
 		<class>
+		entities.SessionFormation</class>
+		<class>
 		entities.SituationFamiliale</class>
 		<class>
 		entities.Theme</class>

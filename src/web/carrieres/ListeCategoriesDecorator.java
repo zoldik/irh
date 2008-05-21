@@ -1,4 +1,4 @@
-package web.formations;
+package web.carrieres;
 
 import org.displaytag.decorator.TableDecorator;
 

@@ -1,17 +1,17 @@
-package web.formations;
+package web.carrieres;
 
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 import org.springframework.validation.ValidationUtils;
 
-import entities.Metier;
+import entities.Theme;
 
-public class AddModifMetierValidator implements Validator {
+public class AddModifThemeValidator implements Validator {
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public boolean supports(Class arg0) {
-		return Metier.class.isAssignableFrom(arg0);
+		return Theme.class.isAssignableFrom(arg0);
 	}
 
 	@Override
@@ -19,6 +19,6 @@ public class AddModifMetierValidator implements Validator {
 		
 		/* Verifie que les champs sont remplis */
 		// Champs libelle
-		ValidationUtils.rejectIfEmptyOrWhitespace(arg1, "libelle", "field.required", "Ne doit pas être vide");
+		ValidationUtils.rejectIfEmptyOrWhitespace(arg1, "libelle", "field.required", "Ne doit pas ï¿½tre vide");
 	}
 }

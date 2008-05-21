@@ -1,4 +1,4 @@
-package web.formations;
+package web.carrieres;
 
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +19,7 @@ public class SupprThemeController implements Controller {
 	public ModelAndView handleRequest(HttpServletRequest arg0,
 			HttpServletResponse arg1) throws Exception
 	{
-		// Recupere le theme à supprimer
+		// Recupere le theme ï¿½ supprimer
 		Theme theme = new Theme();
 		theme.setId(Integer.parseInt(arg0.getParameter("id")));
 		// Supprime
