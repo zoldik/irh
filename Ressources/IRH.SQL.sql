@@ -1,5 +1,5 @@
 -- -----------------------------------------------------------------------------
---             G�n�ration d'une base de donn�es pour
+--             Generation d'une base de donn�es pour
 --                      Oracle Version 9i
 --                        (2/5/2008 9:13:30)
 -- -----------------------------------------------------------------------------
@@ -175,7 +175,11 @@ CREATE TABLE SESSIONS
 -- -----------------------------------------------------------------------------
 
 CREATE  INDEX I_FK_SESSIONS_PLAN_FORMATION
-     ON SESSIONS (ANNEE ASC)
+     ON SESSIONS (ID_PLAN_FORMATION ASC)
+    ;
+
+CREATE  INDEX I_FK_SESSIONS_FORMATION
+     ON SESSIONS (ID_FORMATION ASC)
     ;
 
 -- -----------------------------------------------------------------------------
@@ -231,10 +235,6 @@ CREATE TABLE FORMATION
 
 CREATE  INDEX I_FK_FORMATION_ORGANISME
      ON FORMATION (ID_ORGANISME ASC)
-    ;
-
-CREATE  INDEX I_FK_FORMATION_SESSIONS
-     ON FORMATION (ID_SESSION ASC)
     ;
 
 -- -----------------------------------------------------------------------------
@@ -749,7 +749,7 @@ insert into "IRH"."EMPLOYE" values(1, 1, 3, 1, 'JARNOUX', 'Alex', '', '', '06749
 insert into "IRH"."ORGANISME" values(1, 'EPSI', '1 ecole, 6 site. Liens fort avec l''entreprise. Titre certifie au niveau 1 (Ingenieur). Encadrement et suivi des eleves. Remunerations elevees. Ouverture internationale.');
 
 insert into "IRH"."DIPLOME" values(1, 2, 1, 'Bac STT IG Option DA', 'Notre Dame du Roc', 2004);
-insert into "IRH"."DIPLOME" values(2, 4, 1, 'BTS IG Option DA', 'Notre Dame du Roc', 2006)
+insert into "IRH"."DIPLOME" values(2, 4, 1, 'BTS IG Option DA', 'Notre Dame du Roc', 2006);
 
 insert into "IRH"."PLAN_FORMATION" values(1, 2008);
 insert into "IRH"."PLAN_FORMATION" values(2, 2009);
