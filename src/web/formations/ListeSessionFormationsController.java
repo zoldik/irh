@@ -1,5 +1,6 @@
 package web.formations;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,8 +21,20 @@ public class ListeSessionFormationsController implements Controller {
 	public ModelAndView handleRequest(HttpServletRequest arg0,
 			HttpServletResponse arg1) throws Exception
 	{
-		// Recupere la liste
-		List<SessionFormation> session_formations = ssf.listSessionFormations();
+		// Recupere l'id du plan de formation
+		int idPlanFormation = -1;
+		try { idPlanFormation = Integer.parseInt(arg0.getParameter("id")); }
+    	catch (Exception e) { e.printStackTrace(); }
+    	
+    	// Recupere la liste et selectionne celle qui correspond au plan
+    	List<SessionFormation> session_formations = new ArrayList<SessionFormation>();
+    	if(idPlanFormation != -1)
+    	{	
+			for (SessionFormation sessionFormation : ssf.listSessionFormations()) {
+				if(sessionFormation.getPlanFormation().getId() == idPlanFormation)
+					session_formations.add(sessionFormation);
+			}
+    	}
 		// Ajoute la liste au Model
 		ModelAndView myModelAndView = new ModelAndView("liste_session_formations");
 		myModelAndView.addObject("session_formations", session_formations);

@@ -16,8 +16,8 @@
 	<display:table name="session_formations" sort="list" pagesize="10" class="adminlist" decorator="web.formations.ListeSessionFormationsDecorator" requestURI="liste_session_formations.htm">
 		<display:setProperty name="css.tr.odd" value="row0" />
 		<display:setProperty name="css.tr.even" value="row1" />
-		<display:column property="dateDebut" title="D&eacute;but" sortable="true" />
-		<display:column property="dateFin" title="Fin" sortable="true" />
+		<display:column property="dateDebutShortFormat" title="D&eacute;but" sortable="true" />
+		<display:column property="dateFinShortFormat" title="Fin" sortable="true" />
 		<display:column property="formation" title="Formation" sortable="true" />
 		<display:column property="nbParticipants" title="Nombre de participants" sortable="true" />
 		<display:column property="prixTotal" title="Prix total (En &euro)" sortable="true" />

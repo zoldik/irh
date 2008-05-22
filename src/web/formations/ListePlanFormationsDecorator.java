@@ -24,4 +24,25 @@ public class ListePlanFormationsDecorator extends TableDecorator {
         			"<img src=\"./images/delete.png\" alt=\"Supprimer le plan de formation\"/>" +
         			"</a>";
     }
+	
+	public String getPlanningLink()
+    {
+        PlanFormation plan= (PlanFormation)this.getCurrentRowObject();
+        
+        return "<a href=\"liste_session_formations.htm?id=" + plan.getId() + "\">" +
+        			"<img src=\"./images/calendar.png\" alt=\"Voir le planning\"/>" +
+        			"</a>";
+    }
+	
+	public String getVolumeHoraire()
+	{
+		// TODO : Calculer le volume horaire du plan de formation
+		return "200";
+	}
+	
+	public String getBudgetTotal()
+	{
+		// TODO : Calculer le budget total du plan de formation
+		return "2000";
+	}
 }

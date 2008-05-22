@@ -211,6 +211,15 @@
 	<bean name="/liste_session_formations.htm" class="web.formations.ListeSessionFormationsController">
 		<property name="ssf" ref="serviceSessionFormation" />
 	</bean>
+	<bean name="/add_session_formation.htm" class="web.formations.AddSessionFormationController">
+		<property name="commandClass" value="entities.SessionFormation" />
+		<property name="formView" value="add_modif_session_formation" />
+		<property name="successView" value="liste_session_formations.htm" />
+		<property name="validator" ref="addModifSessionFormationValidator" />
+		<property name="ssf" ref="serviceSessionFormation" />
+		<property name="spf" ref="servicePlanFormation" />
+		<property name="sf" ref="serviceFormation" />
+	</bean>
 	
  	<!-- Validadors -->
  	<bean name="identificationValidator" class="web.consultation.IdentificationValidator">
@@ -227,6 +236,7 @@
  	<bean name="addModifPlanFormationValidator" class="web.formations.AddModifPlanFormationValidator">
  		<property name="spf" ref="servicePlanFormation" />
  	</bean>
+ 	<bean name="addModifSessionFormationValidator" class="web.formations.AddModifSessionFormationValidator" />
  	
  	<!-- View Resolvers -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

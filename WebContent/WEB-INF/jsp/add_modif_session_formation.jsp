@@ -12,7 +12,7 @@
 <legend>Session de formation</legend>
     <div class="ligne">
         <span class="label">Plan de formation :</span>
-        <form:select path="plan_de_formation">
+        <form:select path="planFormation">
         	<form:options items="${plan_de_formations}" itemLabel="annee" itemValue="id" />
         </form:select>
     </div> 
@@ -29,7 +29,7 @@
 	<div class="ligne">
         <span class="label">Formation :</span>
         <form:select path="formation">
-        	<form:options items="${formations}" itemLabel="libelle" itemValue="id" />
+        	<form:options items="${formations}" itemValue="id" />
         </form:select>
     </div>
     

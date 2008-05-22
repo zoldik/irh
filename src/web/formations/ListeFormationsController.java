@@ -20,8 +20,9 @@ public class ListeFormationsController implements Controller {
 	public ModelAndView handleRequest(HttpServletRequest arg0,
 			HttpServletResponse arg1) throws Exception
 	{
-		// Recupere la liste
+		// Recupere la liste des formations
 		List<Formation> formations = sf.listFormations();
+		
 		// Ajoute la liste au Model
 		ModelAndView myModelAndView = new ModelAndView("liste_formations");
 		myModelAndView.addObject("formations", formations);

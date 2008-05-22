@@ -1,5 +1,7 @@
 package web.formations;
 
+import java.text.SimpleDateFormat;
+
 import org.displaytag.decorator.TableDecorator;
 
 import entities.SessionFormation;
@@ -47,5 +49,21 @@ public class ListeSessionFormationsDecorator extends TableDecorator {
 		//TODO : Calculer le prix total de la session
 		
 		return "600";
+	}
+	
+	public String getDateDebutShortFormat()
+	{
+		SessionFormation session = (SessionFormation)this.getCurrentRowObject();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		
+		return dateFormat.format(session.getDateDebut());
+	}
+	
+	public String getDateFinShortFormat()
+	{
+		SessionFormation session = (SessionFormation)this.getCurrentRowObject();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		
+		return dateFormat.format(session.getDateFin());
 	}
 }

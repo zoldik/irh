@@ -12,8 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.SimpleFormController;
 import org.springframework.web.servlet.view.RedirectView;
 
-import entities.Civilite;
-import entities.Employe;
 import entities.Formation;
 import entities.PlanFormation;
 import entities.SessionFormation;
@@ -71,13 +69,13 @@ public class AddSessionFormationController extends SimpleFormController {
 		binder.registerCustomEditor(java.util.Date.class, new CustomDateEditor(dateFormat, false));
 		
 		// Gestion des listes deroulantes
-		binder.setDisallowedFields(new String[] {"plan_de_formation", "formation"});
+		binder.setDisallowedFields(new String[] {"planFormation", "formation"});
 		 
     	SessionFormation session = (SessionFormation)binder.getTarget();
     	
     	// Gestion du plan de formation
     	Integer planFormationId = null;
-    	try { planFormationId = Integer.parseInt(request.getParameter("plan_de_formation")); }
+    	try { planFormationId = Integer.parseInt(request.getParameter("planFormation")); }
     	catch (Exception e) {}
     	
 		if (planFormationId != null) {
