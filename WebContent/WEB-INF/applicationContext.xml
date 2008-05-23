@@ -78,6 +78,10 @@
 	<bean id="serviceSessionFormation" class="services.ServiceSessionFormation">
 		<property name="daoSessionFormation" ref="daoSessionFormation" />
 	</bean>
+	<bean id="daoInscription" class="dao.DaoInscription" />
+	<bean id="serviceInscription" class="services.ServiceInscription">
+		<property name="daoInscription" ref="daoInscription" />
+	</bean>
 	
 	
 	<!-- couche de persistance JPA -->

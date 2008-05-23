@@ -752,4 +752,9 @@ insert into "IRH"."DIPLOME" values(1, 2, 1, 'Bac STT IG Option DA', 'Notre Dame 
 insert into "IRH"."DIPLOME" values(2, 4, 1, 'BTS IG Option DA', 'Notre Dame du Roc', 2006);
 
 insert into "IRH"."PLAN_FORMATION" values(1, 2008);
-insert into "IRH"."PLAN_FORMATION" values(2, 2009);
+
+insert into "IRH"."FORMATION" values(1, 1, 'Initiation au framework Spring', 100, 20);
+
+insert into "IRH"."NIVEAU_FORM" values(1, 1, 1);
+
+insert into "IRH"."SESSIONS" values(1, 1, 1, '02/04/08', '23/04/08');

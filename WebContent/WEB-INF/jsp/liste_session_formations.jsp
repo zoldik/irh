@@ -10,8 +10,8 @@
 
 <fieldset>
 	<legend>Liste des sessions de formation</legend>
-	<a class="ajout" href="./add_session_formation.htm">
-        Ajouter une sessions de formation
+	<a class="ajout" href="./add_session_formation.htm?id_plan_formation=${id_plan_formation}">
+        Ajouter une session de formation
     </a>
 	<display:table name="session_formations" sort="list" pagesize="10" class="adminlist" decorator="web.formations.ListeSessionFormationsDecorator" requestURI="liste_session_formations.htm">
 		<display:setProperty name="css.tr.odd" value="row0" />
@@ -26,6 +26,8 @@
 		<display:column property="supprLink" title="&nbsp;" style="text-align:center" />
 	</display:table>
 </fieldset>
+<br />
+<a href="liste_plan_formations.htm">Retour</a>
 
 </body>
 </html>

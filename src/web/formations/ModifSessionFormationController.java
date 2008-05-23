@@ -23,20 +23,22 @@ import services.IServicePlanFormation;
 import services.IServiceSessionFormation;
 
 
-
-public class AddSessionFormationController extends SimpleFormController {
+public class ModifSessionFormationController extends SimpleFormController {
 	
 	private IServiceSessionFormation ssf;
 	private IServicePlanFormation spf;
 	private IServiceFormation sf;
-
+	
 	/* (non-Javadoc)
 	 * @see org.springframework.web.servlet.mvc.AbstractFormController#formBackingObject(javax.servlet.http.HttpServletRequest)
 	 */
 	@Override
 	protected Object formBackingObject(HttpServletRequest request)
 			throws Exception {
-		return super.formBackingObject(request);
+		int sessionId = Integer.parseInt(request.getParameter("id"));
+		SessionFormation session = ssf.getSessionFormation(sessionId);
+		
+		return session;		
 	}
 	
 	/* (non-Javadoc)
@@ -115,8 +117,8 @@ public class AddSessionFormationController extends SimpleFormController {
 	@Override
 	protected ModelAndView onSubmit(Object command) throws Exception {
 		SessionFormation session = (SessionFormation)command;
-		// Ajout
-		ssf.addSessionFormation(session);	
+		// Mise a jour
+		ssf.updateSessionFormation(session);
 		
 		return new ModelAndView(new RedirectView(this.getSuccessView() + "?id=" + session.getPlanFormation().getId()));
 	}

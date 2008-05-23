@@ -38,6 +38,7 @@ public class ListeSessionFormationsController implements Controller {
 		// Ajoute la liste au Model
 		ModelAndView myModelAndView = new ModelAndView("liste_session_formations");
 		myModelAndView.addObject("session_formations", session_formations);
+		myModelAndView.addObject("id_plan_formation", idPlanFormation);
  
 		return myModelAndView;
 	}

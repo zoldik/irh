@@ -37,12 +37,12 @@ public class ListePlanFormationsDecorator extends TableDecorator {
 	public String getVolumeHoraire()
 	{
 		// TODO : Calculer le volume horaire du plan de formation
-		return "200";
+		return "TODO";
 	}
 	
 	public String getBudgetTotal()
 	{
 		// TODO : Calculer le budget total du plan de formation
-		return "2000";
+		return "TODO";
 	}
 }

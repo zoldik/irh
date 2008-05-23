@@ -13,7 +13,7 @@ public class ListeSessionFormationsDecorator extends TableDecorator {
     {
         SessionFormation session = (SessionFormation)this.getCurrentRowObject();
         
-        return "<a href=\"modif_session_formation.htm?id=" + session.getId() + "\">" +
+        return "<a href=\"modif_session_formation.htm?id=" + session.getId() + "&id_plan_formation=" + session.getPlanFormation().getId() + "\">" +
         			"<img src=\"./images/edit.png\" alt=\"Modifier la session de formation\"/>" +
         			"</a>";
     }
@@ -22,7 +22,7 @@ public class ListeSessionFormationsDecorator extends TableDecorator {
     {
 		SessionFormation session = (SessionFormation)this.getCurrentRowObject();
         
-        return "<a href=\"suppr_session_formation.htm?id=" + session.getId() + "\" onclick=\"javascript: return confirm('Voulez-vous supprimer cette session de formation ?');\">" +
+        return "<a href=\"suppr_session_formation.htm?id=" + session.getId() + "&id_plan_formation=" + session.getPlanFormation().getId() + "\" onclick=\"javascript: return confirm('Voulez-vous supprimer cette session de formation ?');\">" +
         			"<img src=\"./images/delete.png\" alt=\"Supprimer la session de formation\"/>" +
         			"</a>";
     }
@@ -40,7 +40,7 @@ public class ListeSessionFormationsDecorator extends TableDecorator {
 	{
 		//SessionFormation session = (SessionFormation)this.getCurrentRowObject();
 		//TODO : Calculer le nombre de participant a la session
-		return "3";
+		return "TODO";
 	}
 	
 	public String getprixTotal()
@@ -48,7 +48,7 @@ public class ListeSessionFormationsDecorator extends TableDecorator {
 		//SessionFormation session = (SessionFormation)this.getCurrentRowObject();
 		//TODO : Calculer le prix total de la session
 		
-		return "600";
+		return "TODO";
 	}
 	
 	public String getDateDebutShortFormat()

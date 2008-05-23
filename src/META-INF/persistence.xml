@@ -18,6 +18,10 @@
 		<class>
 		entities.Formation</class>
 		<class>
+		entities.Inscription</class>
+		<class>
+		entities.InscriptionPK</class>
+		<class>
 		entities.Metier</class>
 		<class>
 		entities.NiveauEtude</class>
