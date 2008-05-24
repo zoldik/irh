@@ -1,11 +1,15 @@
 package entities;
 
-import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.SEQUENCE;
+
+import java.io.Serializable;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -20,6 +24,9 @@ public class Contrat implements Serializable {
 
 	@Column(name="LIBELLE")
 	private String libelle;
+	
+	@OneToMany(mappedBy="contrat")
+	private Set<EmploiPrecedent> EmploiPrecedentCollection;
 
 	private static final long serialVersionUID = 1L;
 
@@ -41,6 +48,15 @@ public class Contrat implements Serializable {
 
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
+	}
+
+	public Set<EmploiPrecedent> getEmploiPrecedentCollection() {
+		return EmploiPrecedentCollection;
+	}
+
+	public void setEmploiPrecedentCollection(
+			Set<EmploiPrecedent> emploiPrecedentCollection) {
+		EmploiPrecedentCollection = emploiPrecedentCollection;
 	}
 
 }

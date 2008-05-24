@@ -82,8 +82,11 @@
 	<bean id="serviceInscription" class="services.ServiceInscription">
 		<property name="daoInscription" ref="daoInscription" />
 	</bean>
-	
-	
+	<bean id="daoEmploiPrecedent" class="dao.DaoEmploiPrecedent" />
+	<bean id="serviceEmploiPrecedent" class="services.ServiceEmploiPrecedent">
+		<property name="daoEmploiPrecedent" ref="daoEmploiPrecedent" />
+	</bean>
+
 	<!-- couche de persistance JPA -->
 	<bean id="entityManagerFactory"	class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />

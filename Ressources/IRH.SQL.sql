@@ -758,3 +758,5 @@ insert into "IRH"."FORMATION" values(1, 1, 'Initiation au framework Spring', 100
 insert into "IRH"."NIVEAU_FORM" values(1, 1, 1);
 
 insert into "IRH"."SESSIONS" values(1, 1, 1, '02/04/08', '23/04/08');
+
+insert into "IRH"."EMPLOI_PRECEDENT" values(1, 3, 1, '01/06/07', '31/08/07', 'Propriétés-Privées', 'Ingénieur Web', 'Creation du site internet www.proprietes-privees.com')

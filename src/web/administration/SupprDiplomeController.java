@@ -23,7 +23,8 @@ public class SupprDiplomeController implements Controller {
 		
 		// Supprime l'utilisateur
 		sd.deleteDiplome(diplome);
-		// Redirige vers la liste des utilisateurs
+		
+		// Redirige vers l'employe
 		arg1.sendRedirect("modif_employe.htm?id=" + diplome.getEmploye().getId());
 		
 		return null;

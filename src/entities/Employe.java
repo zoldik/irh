@@ -75,6 +75,9 @@ public class Employe implements Serializable {
 	@OneToMany(mappedBy="employe")
 	private Set<Diplome> diplomeCollection;
 	
+	@OneToMany(mappedBy="employe")
+	private Set<EmploiPrecedent> emploiPrecedentCollection;
+	
 	// TODO : Implementer poste
 	//@Column(name="ID_POSTE")
 	//private BigDecimal idPoste;
@@ -86,139 +89,131 @@ public class Employe implements Serializable {
 	}
 
 	public int getId() {
-		return this.id;
+		return id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
-	public String getTelephonePro() {
-		return this.telephonePro;
-	}
-
-	public void setTelephonePro(String telephonePro) {
-		this.telephonePro = telephonePro;
-	}
-
-	public String getDescription() {
-		return this.description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public String getFax() {
-		return this.fax;
-	}
-
-	public void setFax(String fax) {
-		this.fax = fax;
-	}
-
 	public String getNom() {
-		return this.nom;
+		return nom;
 	}
 
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
 
-	public String getEmail() {
-		return this.email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public Civilite getCivilite() {
-		return this.civilite;
-	}
-
-	public void setCivilite(Civilite civilite) {
-		this.civilite = civilite;
-	}
-	
-	public SituationFamiliale getSituationFamiliale() {
-		return this.situationFamiliale;
-	}
-
-	public void setSituationFamiliale(SituationFamiliale situationFamiliale) {
-		this.situationFamiliale = situationFamiliale;
-	}
-
 	public String getPrenom() {
-		return this.prenom;
+		return prenom;
 	}
 
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
 
-	public Date getDateNaissance() {
-		return this.dateNaissance;
+	public String getTelephonePro() {
+		return telephonePro;
 	}
 
-	public void setDateNaissance(Date dateNaissance) {
-		this.dateNaissance = dateNaissance;
-	}
-
-	public String getTelephonePerso() {
-		return this.telephonePerso;
-	}
-
-	public void setTelephonePerso(String telephonePerso) {
-		this.telephonePerso = telephonePerso;
-	}
-
-	public BigDecimal getNbEnfants() {
-		return this.nbEnfants;
-	}
-
-	public void setNbEnfants(BigDecimal nbEnfants) {
-		this.nbEnfants = nbEnfants;
-	}
-
-	public String getAdrRue() {
-		return this.adrRue;
-	}
-
-	public void setAdrRue(String adrRue) {
-		this.adrRue = adrRue;
-	}
-
-	/*public BigDecimal getIdPoste() {
-		return this.idPoste;
-	}
-
-	public void setIdPoste(BigDecimal idPoste) {
-		this.idPoste = idPoste;
-	}*/
-
-	public String getAdrVille() {
-		return this.adrVille;
-	}
-
-	public void setAdrVille(String adrVille) {
-		this.adrVille = adrVille;
+	public void setTelephonePro(String telephonePro) {
+		this.telephonePro = telephonePro;
 	}
 
 	public String getTelephoneMobile() {
-		return this.telephoneMobile;
+		return telephoneMobile;
 	}
 
 	public void setTelephoneMobile(String telephoneMobile) {
 		this.telephoneMobile = telephoneMobile;
 	}
 
+	public String getTelephonePerso() {
+		return telephonePerso;
+	}
+
+	public void setTelephonePerso(String telephonePerso) {
+		this.telephonePerso = telephonePerso;
+	}
+
+	public String getFax() {
+		return fax;
+	}
+
+	public void setFax(String fax) {
+		this.fax = fax;
+	}
+
+	public Date getDateNaissance() {
+		return dateNaissance;
+	}
+
+	public void setDateNaissance(Date dateNaissance) {
+		this.dateNaissance = dateNaissance;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getAdrRue() {
+		return adrRue;
+	}
+
+	public void setAdrRue(String adrRue) {
+		this.adrRue = adrRue;
+	}
+
 	public String getAdrCp() {
-		return this.adrCp;
+		return adrCp;
 	}
 
 	public void setAdrCp(String adrCp) {
 		this.adrCp = adrCp;
+	}
+
+	public String getAdrVille() {
+		return adrVille;
+	}
+
+	public void setAdrVille(String adrVille) {
+		this.adrVille = adrVille;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public BigDecimal getNbEnfants() {
+		return nbEnfants;
+	}
+
+	public void setNbEnfants(BigDecimal nbEnfants) {
+		this.nbEnfants = nbEnfants;
+	}
+
+	public Civilite getCivilite() {
+		return civilite;
+	}
+
+	public void setCivilite(Civilite civilite) {
+		this.civilite = civilite;
+	}
+
+	public SituationFamiliale getSituationFamiliale() {
+		return situationFamiliale;
+	}
+
+	public void setSituationFamiliale(SituationFamiliale situationFamiliale) {
+		this.situationFamiliale = situationFamiliale;
 	}
 
 	public Set<Diplome> getDiplomeCollection() {
@@ -227,6 +222,15 @@ public class Employe implements Serializable {
 
 	public void setDiplomeCollection(Set<Diplome> diplomeCollection) {
 		this.diplomeCollection = diplomeCollection;
+	}
+
+	public Set<EmploiPrecedent> getEmploiPrecedentCollection() {
+		return emploiPrecedentCollection;
+	}
+
+	public void setEmploiPrecedentCollection(
+			Set<EmploiPrecedent> emploiPrecedentCollection) {
+		this.emploiPrecedentCollection = emploiPrecedentCollection;
 	}
 
 }
