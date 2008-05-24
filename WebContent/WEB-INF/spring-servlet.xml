@@ -169,6 +169,27 @@
 	<bean name="/suppr_employe.htm" class="web.administration.SupprEmployeController">
 		<property name="se" ref="serviceEmploye" />
 	</bean>
+	<bean name="/add_diplome.htm" class="web.administration.AddDiplomeController">
+		<property name="commandClass" value="entities.Diplome" />
+		<property name="formView" value="add_modif_diplome" />
+		<property name="successView" value="modif_employe.htm" />
+		<property name="validator" ref="addModifDiplomeValidator" />
+		<property name="sd" ref="serviceDiplome" />
+		<property name="sne" ref="serviceNiveauEtude" />
+		<property name="se" ref="serviceEmploye" />
+	</bean>
+	<bean name="/modif_diplome.htm" class="web.administration.ModifDiplomeController">
+		<property name="commandClass" value="entities.Diplome" />
+		<property name="formView" value="add_modif_diplome" />
+		<property name="successView" value="modif_employe.htm" />
+		<property name="validator" ref="addModifDiplomeValidator" />
+		<property name="sd" ref="serviceDiplome" />
+		<property name="sne" ref="serviceNiveauEtude" />
+		<property name="se" ref="serviceEmploye" />
+	</bean>
+	<bean name="/suppr_diplome.htm" class="web.administration.SupprDiplomeController">
+		<property name="sd" ref="serviceDiplome" />
+	</bean>
 	<bean name="/liste_formations.htm" class="web.formations.ListeFormationsController">
 		<property name="sf" ref="serviceFormation" />
 	</bean>
@@ -249,6 +270,7 @@
  		<property name="spf" ref="servicePlanFormation" />
  	</bean>
  	<bean name="addModifSessionFormationValidator" class="web.formations.AddModifSessionFormationValidator" />
+ 	<bean name="addModifDiplomeValidator" class="web.administration.AddModifDiplomeValidator" />
  	
  	<!-- View Resolvers -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

@@ -121,16 +121,16 @@
     
     <fieldset>
         <legend>Diplomes</legend>
-        <a class="ajout" href="./gestion_diplomes_ajout.htm">
+        <a class="ajout" href="./add_diplome.htm?employe=${employe}">
             Ajouter un dimplome
         </a>
-        <display:table name="diplomes" sort="list" pagesize="5" class="adminlist" decorator="web.administration.ListeDiplomesDecorator" requestURI="liste_employes.htm">
+        <display:table name="diplomes" sort="list" class="adminlist" decorator="web.administration.ListeDiplomesDecorator">
 			<display:setProperty name="css.tr.odd" value="row0" />
 			<display:setProperty name="css.tr.even" value="row1" />
-			<display:column property="annee" title="Année" sortable="true" />
+			<display:column property="annee" title="Année" />
 			<display:column property="denomination" title="Dénomination" />
 			<display:column property="etablissement" title="Établissemnt" />
-			<display:column property="niveau" title="Niveau" sortable="true" />
+			<display:column property="niveauEtude" title="Niveau" />
 			<display:column property="editLink" title="&nbsp;" style="text-align:center" />
 			<display:column property="supprLink" title="&nbsp;" style="text-align:center" />
 		</display:table>
@@ -159,7 +159,7 @@
 
     <div class="ligne">
         <span class="label">&nbsp;</span>
-        <a href="gestion_employes.htm">Retour</a>&nbsp;-&nbsp;<input type="submit" value="Valider" />
+        <a href="liste_employes.htm">Retour</a>&nbsp;-&nbsp;<input type="submit" value="Valider" />
     </div>
 </fieldset>
 </form:form>

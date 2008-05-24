@@ -11,8 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="DIPLOME")
 public class Diplome implements Serializable {
 	@Id
 	@Column(name="ID")
@@ -26,7 +28,7 @@ public class Diplome implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name="ID_NIVEAU")
-	private NiveauEtude niveau;
+	private NiveauEtude niveauEtude;
 
 	@Column(name="DENOMINATION")
 	private String denomination;
@@ -59,12 +61,12 @@ public class Diplome implements Serializable {
 		this.employe = employe;
 	}
 
-	public NiveauEtude getNiveau() {
-		return niveau;
+	public NiveauEtude getNiveauEtude() {
+		return niveauEtude;
 	}
 
-	public void setNiveau(NiveauEtude niveau) {
-		this.niveau = niveau;
+	public void setNiveauEtude(NiveauEtude niveauEtude) {
+		this.niveauEtude = niveauEtude;
 	}
 
 	public String getDenomination() {
@@ -91,5 +93,4 @@ public class Diplome implements Serializable {
 		this.annee = annee;
 	}
 
-	
 }

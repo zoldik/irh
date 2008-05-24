@@ -46,7 +46,7 @@ public class DaoDiplome implements IDaoDiplome {
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<Diplome> listAllEmploye(Employe employe) {
-		Query q = em.createQuery("from Diplome where employe.id = :employeId order by annee");
+		Query q = em.createQuery("from Diplome where employe.id = :employeId order by annee desc");
 		q.setParameter("employeId", employe.getId());
 		return (List<Diplome>) q.getResultList();
 	}

@@ -51,8 +51,13 @@ public class ModifEmployeController extends SimpleFormController {
 		Map<Object, Object> dataMap = new HashMap<Object, Object>();
 		
 		// Recupère l'employé en modification
-		int employeId = Integer.parseInt(request.getParameter("id"));
+		Integer employeId = Integer.parseInt(request.getParameter("id"));
 		Employe employe = se.getEmploye(employeId);
+		
+		// Ajoute l'id de l'employé à la dataMap
+    	if (employeId != null) {
+    		dataMap.put("employe", employeId);
+    	}
 		
 		// Ajoute la liste des civilites dans la dataMap
 		dataMap.put("civilites", sc.listCivilites());
@@ -66,6 +71,8 @@ public class ModifEmployeController extends SimpleFormController {
 		
 		// Liste des diplomes de l'employé
 		dataMap.put("diplomes", sd.listDiplomesEmploye(employe));
+		
+    	
 		
     	return dataMap;
 	}

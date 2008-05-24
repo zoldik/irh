@@ -23,7 +23,7 @@ public class NiveauEtude implements Serializable {
 	@Column(name="LIBELLE")
 	private String libelle;
 	
-	@OneToMany(mappedBy="niveau")
+	@OneToMany(mappedBy="niveauEtude")
 	private Set<Diplome> diplomeCollection;
 
 	private static final long serialVersionUID = 1L;
