@@ -233,4 +233,9 @@ public class Employe implements Serializable {
 		this.emploiPrecedentCollection = emploiPrecedentCollection;
 	}
 
+	@Override
+	public String toString() {
+		return this.nom + " " + this.prenom;
+	}
+
 }

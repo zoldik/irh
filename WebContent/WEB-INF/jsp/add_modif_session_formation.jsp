@@ -35,7 +35,7 @@
     
     <div class="ligne">
         <span class="label">&nbsp;</span>
-        <a href="liste_session_formations.htm?id=${id_plan_formation}">Retour</a>&nbsp;-&nbsp;<input type="submit" value="Valider" />
+        <a href="liste_session_formations.htm?id_plan_formation=${id_plan_formation}">Retour</a>&nbsp;-&nbsp;<input type="submit" value="Valider" />
     </div>
 </fieldset>
 </form:form>

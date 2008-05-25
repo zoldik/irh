@@ -118,7 +118,7 @@ public class AddSessionFormationController extends SimpleFormController {
 		// Ajout
 		ssf.addSessionFormation(session);	
 		
-		return new ModelAndView(new RedirectView(this.getSuccessView() + "?id=" + session.getPlanFormation().getId()));
+		return new ModelAndView(new RedirectView(this.getSuccessView() + "?id_plan_formation=" + session.getPlanFormation().getId()));
 	}
 
 	public IServiceSessionFormation getSsf() {

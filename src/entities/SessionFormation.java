@@ -3,6 +3,7 @@ package entities;
 import static javax.persistence.GenerationType.SEQUENCE;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -81,5 +82,12 @@ public class SessionFormation implements Serializable {
 
 	public void setPlanFormation(PlanFormation planFormation) {
 		this.planFormation = planFormation;
+	}
+
+	@Override
+	public String toString() {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		
+		return this.formation + " du " + dateFormat.format(this.dateDebut) + " au " + dateFormat.format(this.dateFin);
 	}
 }

@@ -21,7 +21,7 @@
 		<display:column property="formation" title="Formation" sortable="true" />
 		<display:column property="nbParticipants" title="Nombre de participants" sortable="true" />
 		<display:column property="prixTotal" title="Prix total (En &euro)" sortable="true" />
-		<display:column property="subscribeLink" title="Inscription" style="text-align:center" />
+		<display:column property="subscribeLink" title="Inscription(s)" style="text-align:center" />
 		<display:column property="editLink" title="&nbsp;" style="text-align:center" />
 		<display:column property="supprLink" title="&nbsp;" style="text-align:center" />
 	</display:table>

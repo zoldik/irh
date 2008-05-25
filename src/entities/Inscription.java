@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="INSCRIPTION")
@@ -18,6 +19,12 @@ public class Inscription implements Serializable {
 	
 	@Column(name="PRESENCE")
 	private boolean presence;
+	
+	@Transient
+	private Employe employe;
+	
+	@Transient
+	private SessionFormation sessionFormation;
 
 	private static final long serialVersionUID = 1L;
 
@@ -47,5 +54,21 @@ public class Inscription implements Serializable {
 
 	public void setPresence(boolean presence) {
 		this.presence = presence;
+	}
+
+	public Employe getEmploye() {
+		return employe;
+	}
+
+	public void setEmploye(Employe employe) {
+		this.employe = employe;
+	}
+
+	public SessionFormation getSessionFormation() {
+		return sessionFormation;
+	}
+
+	public void setSessionFormation(SessionFormation sessionFormation) {
+		this.sessionFormation = sessionFormation;
 	}
 }

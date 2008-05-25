@@ -35,7 +35,7 @@ public class ModifSessionFormationController extends SimpleFormController {
 	@Override
 	protected Object formBackingObject(HttpServletRequest request)
 			throws Exception {
-		int sessionId = Integer.parseInt(request.getParameter("id"));
+		int sessionId = Integer.parseInt(request.getParameter("id_session_formation"));
 		SessionFormation session = ssf.getSessionFormation(sessionId);
 		
 		return session;		
@@ -120,7 +120,7 @@ public class ModifSessionFormationController extends SimpleFormController {
 		// Mise a jour
 		ssf.updateSessionFormation(session);
 		
-		return new ModelAndView(new RedirectView(this.getSuccessView() + "?id=" + session.getPlanFormation().getId()));
+		return new ModelAndView(new RedirectView(this.getSuccessView() + "?id_plan_formation=" + session.getPlanFormation().getId()));
 	}
 
 	public IServiceSessionFormation getSsf() {

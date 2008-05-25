@@ -1,12 +1,12 @@
 -- -----------------------------------------------------------------------------
---             Generation d'une base de donn�es pour
+--             Generation d'une base de donnees pour
 --                      Oracle Version 9i
 --                        (2/5/2008 9:13:30)
 -- -----------------------------------------------------------------------------
 --      Nom de la base : IRH
 --      Projet : Accueil Win'Design version 7
 --      Auteur : Alex
---      Date de derni�re modification : 2/5/2008 9:13:03
+--      Date de derniere modification : 2/5/2008 9:13:03
 -- -----------------------------------------------------------------------------
 
 DROP TABLE EMPLOI_PRECEDENT CASCADE CONSTRAINTS;
@@ -532,7 +532,7 @@ ALTER TABLE UTILISATEUR ADD (
 ALTER TABLE SESSIONS ADD (
      CONSTRAINT FK_SESSIONS_PLAN_FORMATION
           FOREIGN KEY (ID_PLAN_FORMATION)
-               REFERENCES PLAN_FORMATION (ID))   ;
+               REFERENCES PLAN_FORMATION (ID) ON DELETE CASCADE)   ;
 
 ALTER TABLE SESSIONS ADD (
      CONSTRAINT FK_SESSIONS_FORMATION
@@ -617,7 +617,7 @@ ALTER TABLE INSCRIPTION ADD (
 ALTER TABLE INSCRIPTION ADD (
      CONSTRAINT FK_INSCRIPTION_SESSIONS
           FOREIGN KEY (ID_SESSION)
-               REFERENCES SESSIONS (ID))   ;
+               REFERENCES SESSIONS (ID) ON DELETE CASCADE)   ;
 
 ALTER TABLE NIVEAU_FORM ADD (
      CONSTRAINT FK_NIVEAU_FORM_COMPETENCE
@@ -744,7 +744,7 @@ insert into "IRH"."POSTE" values(1, 2, 'Responsable Comptabilite', 0);
 insert into "IRH"."POSTE" values(2, 1, 'Responsable Laboratoire d''agronomie', 1);
 insert into "IRH"."POSTE" values(3, 3, 'Responsable Projet IRH', 1);
 
-insert into "IRH"."EMPLOYE" values(1, 1, 3, 1, 'JARNOUX', 'Alex', '', '', '0674934995', '', '30/04/86', 'alex.jarnoux@gmail.com', '13 rue St Hermeland', '44200', 'Nantes', 'Personne tres agreable', null);
+insert into "IRH"."EMPLOYE" values(1, 1, 3, 1, 'JARNOUX', 'Alex', '', '', '0674934995', '', '30/04/86', 'alex.jarnoux@gmail.com', '13 rue St Hermeland', '44200', 'Nantes', 'Personne tres agreable, beau physique!', null);
 
 insert into "IRH"."ORGANISME" values(1, 'EPSI', '1 ecole, 6 site. Liens fort avec l''entreprise. Titre certifie au niveau 1 (Ingenieur). Encadrement et suivi des eleves. Remunerations elevees. Ouverture internationale.');
 
@@ -759,4 +759,4 @@ insert into "IRH"."NIVEAU_FORM" values(1, 1, 1);
 
 insert into "IRH"."SESSIONS" values(1, 1, 1, '02/04/08', '23/04/08');
 
-insert into "IRH"."EMPLOI_PRECEDENT" values(1, 3, 1, '01/06/07', '31/08/07', 'Propriétés-Privées', 'Ingénieur Web', 'Creation du site internet www.proprietes-privees.com')
+insert into "IRH"."INSCRIPTION" values(1, 1, 'En Attente', 0);

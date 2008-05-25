@@ -29,7 +29,7 @@ public class ListePlanFormationsDecorator extends TableDecorator {
     {
         PlanFormation plan= (PlanFormation)this.getCurrentRowObject();
         
-        return "<a href=\"liste_session_formations.htm?id=" + plan.getId() + "\">" +
+        return "<a href=\"liste_session_formations.htm?id_plan_formation=" + plan.getId() + "\">" +
         			"<img src=\"./images/calendar.png\" alt=\"Voir le planning\"/>" +
         			"</a>";
     }

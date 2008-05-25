@@ -13,7 +13,7 @@ public class ListeSessionFormationsDecorator extends TableDecorator {
     {
         SessionFormation session = (SessionFormation)this.getCurrentRowObject();
         
-        return "<a href=\"modif_session_formation.htm?id=" + session.getId() + "&id_plan_formation=" + session.getPlanFormation().getId() + "\">" +
+        return "<a href=\"modif_session_formation.htm?id_session_formation=" + session.getId() + "&id_plan_formation=" + session.getPlanFormation().getId() + "\">" +
         			"<img src=\"./images/edit.png\" alt=\"Modifier la session de formation\"/>" +
         			"</a>";
     }
@@ -22,7 +22,7 @@ public class ListeSessionFormationsDecorator extends TableDecorator {
     {
 		SessionFormation session = (SessionFormation)this.getCurrentRowObject();
         
-        return "<a href=\"suppr_session_formation.htm?id=" + session.getId() + "&id_plan_formation=" + session.getPlanFormation().getId() + "\" onclick=\"javascript: return confirm('Voulez-vous supprimer cette session de formation ?');\">" +
+        return "<a href=\"suppr_session_formation.htm?id_session_formation=" + session.getId() + "&id_plan_formation=" + session.getPlanFormation().getId() + "\" onclick=\"javascript: return confirm('Voulez-vous supprimer cette session de formation ?');\">" +
         			"<img src=\"./images/delete.png\" alt=\"Supprimer la session de formation\"/>" +
         			"</a>";
     }
@@ -31,7 +31,7 @@ public class ListeSessionFormationsDecorator extends TableDecorator {
 	{
 		SessionFormation session = (SessionFormation)this.getCurrentRowObject();
         
-        return "<a href=\"inscription_session_formation.htm?id=" + session.getId() + "\">" +
+        return "<a href=\"liste_inscriptions.htm?id_session_formation=" + session.getId() + "&id_plan_formation=" + session.getPlanFormation().getId() + "\">" +
 					"<img src=\"./images/add_user.png\" alt=\"Inscrire quelqu'un la session de formation\"/>" +
 					"</a>";
     }

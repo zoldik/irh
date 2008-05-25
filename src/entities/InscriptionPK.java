@@ -51,4 +51,10 @@ public class InscriptionPK implements Serializable {
 		return (((Integer)this.idEmploye).hashCode()
 			^ ((Integer)this.idSessionFormation).hashCode());
 	}
+
+	@Override
+	public String toString() {
+		
+		return "id_employe=" + String.valueOf(this.idEmploye) + "&id_session_formation=" + String.valueOf(this.idSessionFormation);
+	}
 }

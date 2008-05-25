@@ -165,52 +165,9 @@
 		<property name="sc" ref="serviceCivilite" />
 		<property name="ssf" ref="serviceSituationFamiliale" />
 		<property name="sd" ref="serviceDiplome" />
-		<property name="sep" ref="serviceEmploiPrecedent" />
 	</bean>
 	<bean name="/suppr_employe.htm" class="web.administration.SupprEmployeController">
 		<property name="se" ref="serviceEmploye" />
-	</bean>
-	<bean name="/add_diplome.htm" class="web.administration.AddDiplomeController">
-		<property name="commandClass" value="entities.Diplome" />
-		<property name="formView" value="add_modif_diplome" />
-		<property name="successView" value="modif_employe.htm" />
-		<property name="validator" ref="addModifDiplomeValidator" />
-		<property name="sd" ref="serviceDiplome" />
-		<property name="sne" ref="serviceNiveauEtude" />
-		<property name="se" ref="serviceEmploye" />
-	</bean>
-	<bean name="/modif_diplome.htm" class="web.administration.ModifDiplomeController">
-		<property name="commandClass" value="entities.Diplome" />
-		<property name="formView" value="add_modif_diplome" />
-		<property name="successView" value="modif_employe.htm" />
-		<property name="validator" ref="addModifDiplomeValidator" />
-		<property name="sd" ref="serviceDiplome" />
-		<property name="sne" ref="serviceNiveauEtude" />
-		<property name="se" ref="serviceEmploye" />
-	</bean>
-	<bean name="/suppr_diplome.htm" class="web.administration.SupprDiplomeController">
-		<property name="sd" ref="serviceDiplome" />
-	</bean>
-	<bean name="/add_emploi_precedent.htm" class="web.administration.AddEmploiPrecedentController">
-		<property name="commandClass" value="entities.EmploiPrecedent" />
-		<property name="formView" value="add_modif_emploi_precedent" />
-		<property name="successView" value="modif_employe.htm" />
-		<property name="validator" ref="addModifEmploiPrecedentValidator" />
-		<property name="sep" ref="serviceEmploiPrecedent" />
-		<property name="sc" ref="serviceContrat" />
-		<property name="se" ref="serviceEmploye" />
-	</bean>
-	<bean name="/modif_emploi_precedent.htm" class="web.administration.ModifEmploiPrecedentController">
-		<property name="commandClass" value="entities.EmploiPrecedent" />
-		<property name="formView" value="add_modif_emploi_precedent" />
-		<property name="successView" value="modif_employe.htm" />
-		<property name="validator" ref="addModifEmploiPrecedentValidator" />
-		<property name="sep" ref="serviceEmploiPrecedent" />
-		<property name="sc" ref="serviceContrat" />
-		<property name="se" ref="serviceEmploye" />
-	</bean>
-	<bean name="/suppr_emploi_precedent.htm" class="web.administration.SupprEmploiPrecedentController">
-		<property name="sep" ref="serviceEmploiPrecedent" />
 	</bean>
 	<bean name="/liste_formations.htm" class="web.formations.ListeFormationsController">
 		<property name="sf" ref="serviceFormation" />
@@ -275,6 +232,18 @@
 	<bean name="/suppr_session_formation.htm" class="web.formations.SupprSessionFormationController">
 		<property name="ssf" ref="serviceSessionFormation" />
 	</bean>
+	<bean name="/liste_inscriptions.htm" class="web.formations.ListeInscriptionsController">
+		<property name="si" ref="serviceInscription" />
+	</bean>
+	<bean name="/add_inscription.htm" class="web.formations.AddInscriptionController">
+		<property name="commandClass" value="entities.Inscription" />
+		<property name="formView" value="add_modif_inscription" />
+		<property name="successView" value="liste_inscriptions.htm" />
+		<property name="validator" ref="addModifInscriptionValidator" />
+		<property name="si" ref="serviceInscription" />
+		<property name="se" ref="serviceEmploye" />
+		<property name="ssf" ref="serviceSessionFormation" />
+	</bean>
 	
  	<!-- Validadors -->
  	<bean name="identificationValidator" class="web.consultation.IdentificationValidator">
@@ -292,8 +261,9 @@
  		<property name="spf" ref="servicePlanFormation" />
  	</bean>
  	<bean name="addModifSessionFormationValidator" class="web.formations.AddModifSessionFormationValidator" />
- 	<bean name="addModifDiplomeValidator" class="web.administration.AddModifDiplomeValidator" />
- 	<bean name="addModifEmploiPrecedentValidator" class="web.administration.AddModifEmploiPrecedentValidator" />
+ 	<bean name="addModifInscriptionValidator" class="web.formations.AddModifInscriptionValidator">
+ 		<property name="si" ref="serviceInscription" />
+ 	</bean>
  	
  	<!-- View Resolvers -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

@@ -23,7 +23,7 @@ public class ListeSessionFormationsController implements Controller {
 	{
 		// Recupere l'id du plan de formation
 		int idPlanFormation = -1;
-		try { idPlanFormation = Integer.parseInt(arg0.getParameter("id")); }
+		try { idPlanFormation = Integer.parseInt(arg0.getParameter("id_plan_formation")); }
     	catch (Exception e) { e.printStackTrace(); }
     	
     	// Recupere la liste et selectionne celle qui correspond au plan

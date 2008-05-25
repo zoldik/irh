@@ -22,10 +22,10 @@ public class SupprSessionFormationController implements Controller {
 		// Recupere l'id a supprimer
 		SessionFormation session = new SessionFormation();
 		
-		int id = -1;
-		try { id = Integer.parseInt(arg0.getParameter("id")); }
+		int idSessionFormation = -1;
+		try { idSessionFormation = Integer.parseInt(arg0.getParameter("id_session_formation")); }
 		catch (Exception e) { e.printStackTrace(); }
-		session.setId(id);
+		session.setId(idSessionFormation);
 		// Supprime
 		ssf.deleteSessionFormation(session);
 		// Redirige vers la liste des session de formation
@@ -37,7 +37,7 @@ public class SupprSessionFormationController implements Controller {
 		int idPlanFormation = -1;
 		try { idPlanFormation = Integer.parseInt(arg0.getParameter("id_plan_formation")); }
 		catch (Exception e) { e.printStackTrace(); }
-		arg1.sendRedirect("liste_session_formations.htm?id=" + idPlanFormation);
+		arg1.sendRedirect("liste_session_formations.htm?id_plan_formation=" + idPlanFormation);
 		
 		return null;
 	}
