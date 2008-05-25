@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<%@ include file="/WEB-INF/jsp/includes/header_menu.jsp" %>
+
 <fieldset>
 	<legend>Liste des th&egrave;mes</legend>
 	<a class="ajout" href="./add_theme.htm">

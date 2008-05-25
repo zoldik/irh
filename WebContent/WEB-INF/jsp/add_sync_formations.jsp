@@ -7,6 +7,8 @@
 </head>
 <body>
 
+<%@ include file="/WEB-INF/jsp/includes/header_menu.jsp" %>
+
 <form:form method="post" action="add_sync_formations.htm" enctype="multipart/form-data">
 <fieldset>
 <legend>Ajouter/Synchroniser des formations</legend>

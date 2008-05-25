@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<%@ include file="/WEB-INF/jsp/includes/header_menu.jsp" %>
+
 <fieldset>
 	<legend>Liste des cat&eacute;gories</legend>
 	<a class="ajout" href="./add_categorie.htm">

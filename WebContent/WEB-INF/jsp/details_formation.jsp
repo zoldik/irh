@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<%@ include file="/WEB-INF/jsp/includes/header_menu.jsp" %>
+
 <fieldset>
 	<legend>D&eacute;tails de la formation</legend>
 	<fieldset>

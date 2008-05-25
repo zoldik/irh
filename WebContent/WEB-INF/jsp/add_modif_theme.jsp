@@ -7,6 +7,8 @@
 </head>
 <body>
 
+<%@ include file="/WEB-INF/jsp/includes/header_menu.jsp" %>
+
 <form:form method="post">
 <fieldset>
 <legend>Th&egrave;me</legend>

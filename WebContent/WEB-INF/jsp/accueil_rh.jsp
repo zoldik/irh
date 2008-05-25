@@ -6,6 +6,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<%@ include file="/WEB-INF/jsp/includes/header_menu.jsp" %>
+
 Je suis la page d'accueil RH<br />
 <a href="identification.htm">identification</a>
 </body>

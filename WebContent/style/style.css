@@ -104,3 +104,60 @@ table.adminlist tfoot td, table.adminlist tfoot th {
 {
 	margin-top:			32px;
 }
+
+#bar {
+	font-family:		arial,sans-serif !important;
+	height:				20px;
+}
+
+.gbh {
+	position:			absolute;
+	top:				28px;
+	width:				100%;
+	border-top:			1px solid #C9D7F1;
+}
+
+#leftsidebar {
+	float:				left;
+	margin:				0px 1px 0px 0px;
+	padding-bottom:		15px;
+	padding-right:		15px;
+	width:				179px;
+}
+ul.menu {
+	border-bottom:		1px solid #DDDDDD;
+	border-left:		1px solid #DDDDDD;
+	border-right:		2px solid #DDDDDD;
+	list-style-image:	none;
+	list-style-position:outside;
+	list-style-type:	none;
+	margin:				9px 3px 0px 10px;
+	padding:			0pt;
+}
+
+ul.menu li.subhead a {
+	color:				#FFFFFF;
+	display:			block;
+	font-size:			13px;
+	font-weight:		bold;
+	height:				17px;
+	margin:				0px;
+	padding:			1px 5px 2px 0px;
+	text-align:			right;
+	text-decoration:	none;
+	vertical-align:		middle;
+}
+
+ul.menu li.subtitle a {
+	display:			block;
+	font-size:			12px;
+	height:				18px;
+	margin:				0px;
+	padding:			1px 7px 2px 0px;
+	text-align:			right;
+	text-decoration:	none;
+}
+
+ul.menu li.subtitle a:hover {
+	background:			white url(../images/progress_background.png) repeat scroll 0% 20%;
+}
