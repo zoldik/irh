@@ -58,5 +58,10 @@ public class Contrat implements Serializable {
 			Set<EmploiPrecedent> emploiPrecedentCollection) {
 		EmploiPrecedentCollection = emploiPrecedentCollection;
 	}
+	
+	@Override
+	public String toString() {
+		return this.libelle;
+	}
 
 }

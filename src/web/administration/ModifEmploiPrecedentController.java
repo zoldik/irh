@@ -1,27 +1,29 @@
 package web.administration;
 
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.SimpleFormController;
 import org.springframework.web.servlet.view.RedirectView;
 
-import services.IServiceDiplome;
+import services.IServiceContrat;
+import services.IServiceEmploiPrecedent;
 import services.IServiceEmploye;
-import services.IServiceNiveauEtude;
-import entities.Diplome;
+import entities.Contrat;
+import entities.EmploiPrecedent;
 import entities.Employe;
-import entities.NiveauEtude;
 
 
-public class ModifDiplomeController extends SimpleFormController {
+public class ModifEmploiPrecedentController extends SimpleFormController {
 	
-	private IServiceDiplome sd;
-	private IServiceNiveauEtude sne;
+	private IServiceEmploiPrecedent sep;
+	private IServiceContrat sc;
 	private IServiceEmploye se;
 	
 	/* (non-Javadoc)
@@ -30,10 +32,10 @@ public class ModifDiplomeController extends SimpleFormController {
 	@Override
 	protected Object formBackingObject(HttpServletRequest request)
 			throws Exception {
-		int diplomeId = Integer.parseInt(request.getParameter("id"));
-		Diplome diplome = sd.getDiplome(diplomeId);
+		int emploiPrecedentId = Integer.parseInt(request.getParameter("id"));
+		EmploiPrecedent emploiPrecedent = sep.getEmploiPrecedent(emploiPrecedentId);
 		
-		return diplome;		
+		return emploiPrecedent;		
 	}
 	
 	/* (non-Javadoc)
@@ -44,8 +46,8 @@ public class ModifDiplomeController extends SimpleFormController {
 	protected Map referenceData(HttpServletRequest request) throws Exception {
 		Map<Object, Object> dataMap = new HashMap<Object, Object>();
 		
-		// Ajoute la liste des niveaux d'etude dans la dataMap
-		dataMap.put("niveauxEtude", sne.listNiveauxEtude());
+		// Ajoute la liste des contrats dans la dataMap
+		dataMap.put("contrats", sc.listContrats());
 		
     	return dataMap;
 	}
@@ -57,10 +59,17 @@ public class ModifDiplomeController extends SimpleFormController {
 	protected void initBinder(HttpServletRequest request,
 			ServletRequestDataBinder binder) throws Exception {
 		
+		// format (dd/MM/yyyy) attendu pour les dates
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		// format strict
+		dateFormat.setLenient(false);
+		// on enregistre un éditeur de propriétés String (dd/MM/yyyy) -> Date
+		binder.registerCustomEditor(java.util.Date.class, new CustomDateEditor(dateFormat, false));
+		
 		// Champs a ne pas gerer par le binder
-		binder.setDisallowedFields(new String[] {"niveauEtude", "employe"});
+		binder.setDisallowedFields(new String[] {"contrat", "employe"});
 		 
-		Diplome diplome = (Diplome)binder.getTarget();
+		EmploiPrecedent emploiPrecedent = (EmploiPrecedent)binder.getTarget();
      	
 		// Gestion de l'employé
 		Integer employeId = null;
@@ -69,17 +78,17 @@ public class ModifDiplomeController extends SimpleFormController {
     	
     	if (employeId != null) {
 			Employe employe = se.getEmploye(employeId);
-			diplome.setEmploye(employe);
+			emploiPrecedent.setEmploye(employe);
 		}
 		
-    	// Gestion du niveau d'etude
-    	Integer niveauEtudeId = null;
-    	try { niveauEtudeId = Integer.parseInt(request.getParameter("niveauEtude")); }
+    	// Gestion du contrat
+    	Integer contratId = null;
+    	try { contratId = Integer.parseInt(request.getParameter("contrat")); }
     	catch (Exception e) {}
     	
-		if (niveauEtudeId != null) {
-			NiveauEtude niveauEtude = sne.getNiveauEtude(niveauEtudeId);
-			diplome.setNiveauEtude(niveauEtude);
+		if (contratId != null) {
+			Contrat contrat = sc.getContrat(contratId);
+			emploiPrecedent.setContrat(contrat);
 		}
 	}
 	
@@ -88,28 +97,28 @@ public class ModifDiplomeController extends SimpleFormController {
 	 */
 	@Override
 	protected ModelAndView onSubmit(Object command) throws Exception {
-		Diplome diplome = (Diplome)command;
+		EmploiPrecedent emploiPrecedent = (EmploiPrecedent)command;
 		
 		// Mise a jour du diplome
-		sd.updateDiplome(diplome);
+		sep.updateEmploiPrecedent(emploiPrecedent);
 		
-		return new ModelAndView(new RedirectView(this.getSuccessView() + "?id=" + diplome.getEmploye().getId()));
+		return new ModelAndView(new RedirectView(this.getSuccessView() + "?id=" + emploiPrecedent.getEmploye().getId()));
 	}
 
-	public IServiceDiplome getSd() {
-		return sd;
+	public IServiceEmploiPrecedent getSep() {
+		return sep;
 	}
 
-	public void setSd(IServiceDiplome sd) {
-		this.sd = sd;
+	public void setSep(IServiceEmploiPrecedent sep) {
+		this.sep = sep;
 	}
 
-	public IServiceNiveauEtude getSne() {
-		return sne;
+	public IServiceContrat getSc() {
+		return sc;
 	}
 
-	public void setSne(IServiceNiveauEtude sne) {
-		this.sne = sne;
+	public void setSc(IServiceContrat sc) {
+		this.sc = sc;
 	}
 
 	public IServiceEmploye getSe() {

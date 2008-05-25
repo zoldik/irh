@@ -82,41 +82,20 @@
     
     <fieldset>
         <legend>Emplois Précédents</legend>
-        <a class="ajout" href="./gestion_emplois_ajout.htm">
+        <a class="ajout" href="./add_emploi_precedent.htm?employe=${employe}">
             Ajouter un emploi
         </a>
-        <table class="adminlist">
-            <thead>
-                <tr>
-                    <th>Date début</th>
-                    <th>Date fin</th>
-                    <th>Poste</th>
-                    <th>Entreprise</th>
-                    <th>Contrat</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="row0">
-                    <td>10/10/2006</td>
-                    <td>20/11/2007</td>
-                    <td>Secretaire Administration</td>
-                    <td>Sigma Group</td>
-                    <td>CDD</td>
-                    <td align="center">
-                        <a href="./gestion_emplois_modif.htm?id=1">
-                            <img src="./images/edit.png" alt="Modifier l'utilisateur"/>
-                        </a>
-                    </td>
-                    <td align="center">
-                        <a href="./gestion_utilisateurs_suppr?id=1"  onclick="javascript: return confirm('Voulez-vous supprimer cet utilisateur?');">
-                            <img src="./images/delete.png" alt="Supprimer l'utilisateur"/>
-                        </a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <display:table name="emploiPrecedents" sort="list" class="adminlist" decorator="web.administration.ListeEmploiPrecedentsDecorator">
+			<display:setProperty name="css.tr.odd" value="row0" />
+			<display:setProperty name="css.tr.even" value="row1" />
+			<display:column property="dateDebut" title="Date de début" />
+			<display:column property="dateFin" title="Date de Fin" />
+			<display:column property="poste" title="Poste" />
+			<display:column property="entreprise" title="Entreprise" />
+			<display:column property="contrat" title="Contrat" />
+			<display:column property="editLink" title="&nbsp;" style="text-align:center" />
+			<display:column property="supprLink" title="&nbsp;" style="text-align:center" />
+		</display:table>
     </fieldset>
     
     <fieldset>

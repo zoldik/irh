@@ -3,7 +3,7 @@ package entities;
 import static javax.persistence.GenerationType.SEQUENCE;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,7 +21,7 @@ public class EmploiPrecedent implements Serializable {
 	@Column(name="ID")
 	@GeneratedValue(strategy=SEQUENCE, generator = "SEQ_EMPLOI_PRECEDENT")
 	@SequenceGenerator(name="SEQ_EMPLOI_PRECEDENT", sequenceName = "SEQ_EMPLOI_PRECEDENT")
-	private long id;
+	private int id;
 
 	@ManyToOne
 	@JoinColumn(name="ID_CONTRAT")
@@ -52,11 +52,11 @@ public class EmploiPrecedent implements Serializable {
 		super();
 	}
 
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

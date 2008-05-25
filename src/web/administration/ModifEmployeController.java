@@ -14,6 +14,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import services.IServiceCivilite;
 import services.IServiceDiplome;
+import services.IServiceEmploiPrecedent;
 import services.IServiceEmploye;
 import services.IServiceSituationFamiliale;
 import entities.Civilite;
@@ -27,6 +28,7 @@ public class ModifEmployeController extends SimpleFormController {
 	private IServiceCivilite sc;
 	private IServiceSituationFamiliale ssf;
 	private IServiceDiplome sd;
+	private IServiceEmploiPrecedent sep;
 	
 	/* (non-Javadoc)
 	 * @see org.springframework.web.servlet.mvc.AbstractFormController#formBackingObject(javax.servlet.http.HttpServletRequest)
@@ -39,7 +41,7 @@ public class ModifEmployeController extends SimpleFormController {
 		int employeId = Integer.parseInt(request.getParameter("id"));
 		Employe employe = se.getEmploye(employeId);
 
-		return employe;		
+		return employe;
 	}
 	
 	/* (non-Javadoc)
@@ -72,7 +74,8 @@ public class ModifEmployeController extends SimpleFormController {
 		// Liste des diplomes de l'employé
 		dataMap.put("diplomes", sd.listDiplomesEmploye(employe));
 		
-    	
+		// Liste des emplois précédents de l'employé
+		dataMap.put("emploiPrecedents", sep.listEmploiPrecedentsEmploye(employe));
 		
     	return dataMap;
 	}
@@ -159,5 +162,13 @@ public class ModifEmployeController extends SimpleFormController {
 
 	public void setSd(IServiceDiplome sd) {
 		this.sd = sd;
+	}
+
+	public IServiceEmploiPrecedent getSep() {
+		return sep;
+	}
+
+	public void setSep(IServiceEmploiPrecedent sep) {
+		this.sep = sep;
 	}
 }
