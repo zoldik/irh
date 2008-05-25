@@ -11,11 +11,15 @@ import org.springframework.web.servlet.mvc.Controller;
 
 import entities.Inscription;
 
+import services.IServiceEmploye;
 import services.IServiceInscription;
+import services.IServiceSessionFormation;
 
 public class ListeInscriptionsController implements Controller {
 
 	private IServiceInscription si;
+	private IServiceSessionFormation ssf;
+	private IServiceEmploye se;
 	
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest arg0,
@@ -37,7 +41,13 @@ public class ListeInscriptionsController implements Controller {
     	{	
 			for (Inscription inscription : si.listInscriptions()) {
 				if(inscription.getPk().getIdSessionFormation() == idSessionFormation)
+				{
+					inscription.setEmploye(se.getEmploye(inscription.getPk().getIdEmploye()));
+					inscription.setSessionFormation(ssf.getSessionFormation(inscription.getPk().getIdSessionFormation()));
+					
 					inscriptions.add(inscription);
+				}
+					
 			}
     	}
 		// Ajoute la liste au Model
@@ -55,5 +65,21 @@ public class ListeInscriptionsController implements Controller {
 
 	public void setSi(IServiceInscription si) {
 		this.si = si;
+	}
+
+	public IServiceSessionFormation getSsf() {
+		return ssf;
+	}
+
+	public void setSsf(IServiceSessionFormation ssf) {
+		this.ssf = ssf;
+	}
+
+	public IServiceEmploye getSe() {
+		return se;
+	}
+
+	public void setSe(IServiceEmploye se) {
+		this.se = se;
 	}
 }

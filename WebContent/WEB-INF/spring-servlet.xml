@@ -234,6 +234,8 @@
 	</bean>
 	<bean name="/liste_inscriptions.htm" class="web.formations.ListeInscriptionsController">
 		<property name="si" ref="serviceInscription" />
+		<property name="se" ref="serviceEmploye" />
+		<property name="ssf" ref="serviceSessionFormation" />
 	</bean>
 	<bean name="/add_inscription.htm" class="web.formations.AddInscriptionController">
 		<property name="commandClass" value="entities.Inscription" />
@@ -243,6 +245,17 @@
 		<property name="si" ref="serviceInscription" />
 		<property name="se" ref="serviceEmploye" />
 		<property name="ssf" ref="serviceSessionFormation" />
+	</bean>
+	<bean name="/modif_inscription.htm" class="web.formations.ModifInscriptionController">
+		<property name="commandClass" value="entities.Inscription" />
+		<property name="formView" value="add_modif_inscription" />
+		<property name="successView" value="liste_inscriptions.htm" />
+		<property name="si" ref="serviceInscription" />
+		<property name="se" ref="serviceEmploye" />
+		<property name="ssf" ref="serviceSessionFormation" />
+	</bean>
+	<bean name="/suppr_inscription.htm" class="web.formations.SupprInscriptionController">
+		<property name="si" ref="serviceInscription" />
 	</bean>
 	
  	<!-- Validadors -->

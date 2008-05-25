@@ -19,7 +19,7 @@
 		<display:column property="nomEmploye" title="Nom" sortable="true" />
 		<display:column property="prenomEmploye" title="Pr&eacute;nom" sortable="true" />
 		<display:column property="etat" title="Etat" sortable="true" />
-		<display:column property="presence" title="Pr&eacute;sence" sortable="true" />
+		<display:column property="presenceHumanReadable" title="Pr&eacute;sence" sortable="true" />
 		<display:column property="editLink" title="&nbsp;" style="text-align:center" />
 		<display:column property="supprLink" title="&nbsp;" style="text-align:center" />
 	</display:table>
