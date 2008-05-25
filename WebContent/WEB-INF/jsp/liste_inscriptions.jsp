@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<%@ include file="/WEB-INF/jsp/includes/header_menu.jsp" %>
+
 <fieldset>
 	<legend>Liste des inscriptions</legend>
 	<a class="ajout" href="./add_inscription.htm?id_session_formation=${id_session_formation}&id_plan_formation=${id_plan_formation}">
