@@ -1,5 +1,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
+<%@ include file="/WEB-INF/jsp/includes/role_formations.jsp" %>
+
 <html>
 <head>
     <title>Ajouter/Synchroniser des formations</title>

@@ -19,8 +19,8 @@ public class SupprEmployeController implements Controller {
 			HttpServletResponse arg1) throws Exception
 	{
 		// Recupere l'utilisateur a supprimer
-		Employe employe = new Employe();
-		employe.setId(Integer.parseInt(arg0.getParameter("id")));
+		Employe employe = se.getEmploye(Integer.parseInt(arg0.getParameter("id")));
+		
 		// Supprime l'utilisateur
 		se.deleteEmploye(employe);
 		

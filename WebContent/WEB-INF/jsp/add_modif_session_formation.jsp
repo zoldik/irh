@@ -1,9 +1,14 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
+<%@ include file="/WEB-INF/jsp/includes/role_formations.jsp" %>
+
 <html>
 <head>
     <title>Ajout ou modification d'une session de formation</title>
     <link href="style/style.css" rel="stylesheet" type="text/css" />
+    
+    <script type="text/javascript" src="./datepicker/js/datepicker.js"></script>
+    <link href="./datepicker/css/datepicker.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 
@@ -20,12 +25,12 @@
     </div> 
     <div class="ligne">
         <span class="label">D&eacute;but :</span>
-    	<form:input path="dateDebut" />
+    	<form:input path="dateDebut" cssClass="format-d-m-y" maxlength="10" size="10" />
 		<form:errors path="dateDebut" cssClass="error"/>
 	</div>
 	<div class="ligne">
         <span class="label">Fin :</span>
-    	<form:input path="dateFin" />
+    	<form:input path="dateFin" cssClass="format-d-m-y" maxlength="10" size="10" />
 		<form:errors path="dateFin" cssClass="error"/>
 	</div>
 	<div class="ligne">

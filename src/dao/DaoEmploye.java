@@ -22,7 +22,7 @@ public class DaoEmploye implements IDaoEmploye {
 	public void deleteOne(Employe employe) {
 		Employe e = em.find(Employe.class, employe.getId());
 		if (e != null)
-			em.remove(employe);
+			em.remove(em.getReference(Employe.class, employe.getId()));
 	}
 
 	@Override

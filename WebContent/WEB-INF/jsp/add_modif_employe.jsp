@@ -1,10 +1,15 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib uri="http://displaytag.sf.net" prefix="display" %>
 
+<%@ include file="/WEB-INF/jsp/includes/role_administration.jsp" %>
+
 <html>
 <head>
     <title>Ajout ou modification d'un employé</title>
     <link href="style/style.css" rel="stylesheet" type="text/css" />
+    
+    <script type="text/javascript" src="./datepicker/js/datepicker.js"></script>
+    <link href="./datepicker/css/datepicker.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 
@@ -34,7 +39,7 @@
             </div>
             <div class="ligne">
                 <span class="label">Date de naissance :</span>
-                <form:input path="dateNaissance" />
+                <form:input path="dateNaissance" cssClass="format-d-m-y" maxlength="10" size="10" />
 				<form:errors path="dateNaissance" cssClass="error"/>
             </div>
         </div>
@@ -90,8 +95,8 @@
         <display:table name="emploiPrecedents" sort="list" class="adminlist" decorator="web.administration.ListeEmploiPrecedentsDecorator">
 			<display:setProperty name="css.tr.odd" value="row0" />
 			<display:setProperty name="css.tr.even" value="row1" />
-			<display:column property="dateDebut" title="Date de début" />
-			<display:column property="dateFin" title="Date de Fin" />
+			<display:column property="dateDebutShortFormat" title="Date de début" />
+			<display:column property="dateFinShortFormat" title="Date de Fin" />
 			<display:column property="poste" title="Poste" />
 			<display:column property="entreprise" title="Entreprise" />
 			<display:column property="contrat" title="Contrat" />

@@ -1,5 +1,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
+<%@ include file="/WEB-INF/jsp/includes/role_administration.jsp" %>
+
 <html>
 <head>
     <title>Ajout ou modification d'un utilisateur</title>

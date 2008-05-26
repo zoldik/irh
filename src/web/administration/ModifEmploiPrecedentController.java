@@ -35,7 +35,7 @@ public class ModifEmploiPrecedentController extends SimpleFormController {
 		int emploiPrecedentId = Integer.parseInt(request.getParameter("id"));
 		EmploiPrecedent emploiPrecedent = sep.getEmploiPrecedent(emploiPrecedentId);
 		
-		return emploiPrecedent;		
+		return emploiPrecedent;
 	}
 	
 	/* (non-Javadoc)

@@ -1,5 +1,7 @@
 <%@ taglib uri="http://displaytag.sf.net" prefix="display" %>
 
+<%@ include file="/WEB-INF/jsp/includes/role_administration.jsp" %>
+
 <html>
 <head>
     <title>Liste des employes</title>

@@ -1,20 +1,31 @@
+<%@ taglib uri="http://jakarta.apache.org/taglibs/session-1.0" prefix="sess" %>
+
 <div class="gbh" style="right: 0pt;"></div>
 <div id="titre" align="left" style="float: left; font-size: 84%; font-family: arial,sans-serif !important;">
 	<nobr><b>Intranet Ressources Humaines</b></nobr>
 </div>
 <div id="bar" align="right" style="padding: 0pt 0pt 15px; font-size: 84%;">
 	<nobr>
-		<b>Bienvenue Alex</b>
+		<sess:existsAttribute name="nom">
+		<b>Bienvenue <sess:attribute name="nom" /></b>
 		|
-		<a href="">Accueil</a>
+		</sess:existsAttribute>
+		<a href="accueil.htm">Accueil</a>
 		|
-		<a href="">Déconnexion</a>
+		<sess:existsAttribute name="nom" value="false">
+		<a href="identification.htm">Connexion</a>
+		</sess:existsAttribute>
+		<sess:existsAttribute name="nom">
+		<a href="logout.htm">Déconnexion</a>
+		</sess:existsAttribute>
 	</nobr>
 </div>
 
 <div id="leftsidebar">
 	<ul class="menu">
-		<li class="subhead"><a href="" style="background-color: rgb(201, 215, 241); margin-bottom: 10px;">Accueil</a></li>
+		<li class="subhead"><a href="accueil.htm" style="background-color: rgb(201, 215, 241); margin-bottom: 10px;">Accueil</a></li>
+		
+		<li class="subhead"><a href="accueil_rh.htm" style="background-color: rgb(220, 200, 190); margin-bottom: 10px;">Accueil RH</a></li>
 		
 		<li class="subhead"><a href="" style="background-color: rgb(77, 127, 222);">Administration</a></li>
 			<li class="subtitle"><a href="liste_employes.htm" style="border-bottom: 1px solid rgb(77, 127, 222); color: rgb(77, 127, 222);">Gestion des employ&eacute;s</a></li>
