@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Column;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="SESSIONS")
@@ -37,6 +38,12 @@ public class SessionFormation implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="ID_PLAN_FORMATION")
 	private PlanFormation planFormation;
+	
+	@Transient
+	private int nbParticipants;
+	
+	@Transient
+	private double prixTotal;
 	
 	private static final long serialVersionUID = 1L;
 
@@ -89,5 +96,21 @@ public class SessionFormation implements Serializable {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		
 		return this.formation + " du " + dateFormat.format(this.dateDebut) + " au " + dateFormat.format(this.dateFin);
+	}
+
+	public int getNbParticipants() {
+		return nbParticipants;
+	}
+
+	public void setNbParticipants(int nbParticipants) {
+		this.nbParticipants = nbParticipants;
+	}
+
+	public double getPrixTotal() {
+		return prixTotal;
+	}
+
+	public void setPrixTotal(double prixTotal) {
+		this.prixTotal = prixTotal;
 	}
 }

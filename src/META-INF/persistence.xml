@@ -18,6 +18,8 @@
 		<class>
 		entities.Employe</class>
 		<class>
+		entities.Evaluation</class>
+		<class>
 		entities.Formation</class>
 		<class>
 		entities.Inscription</class>

@@ -8,8 +8,10 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 
+import org.springframework.validation.BindException;
 import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.SimpleFormController;
@@ -51,13 +53,13 @@ public class AddInscriptionController extends SimpleFormController {
 		// Ajoute l'id de la session de formation dans la dataMap
 		int idSessionFormation = -1;
 		try { idSessionFormation = Integer.parseInt(request.getParameter("id_session_formation")); }
-		catch (Exception e) { e.printStackTrace(); }
+		catch (Exception e) { }
 		dataMap.put("id_session_formation", idSessionFormation);
 		
 		// Ajoute l'id du plan de formation dans la dataMap
 		int idPlanFormation = -1;
 		try { idPlanFormation = Integer.parseInt(request.getParameter("id_plan_formation")); }
-		catch (Exception e) { e.printStackTrace(); }
+		catch (Exception e) { }
 		dataMap.put("id_plan_formation", idPlanFormation);
 		
 		// Ajoute la liste des sessions de formation
@@ -116,9 +118,16 @@ public class AddInscriptionController extends SimpleFormController {
 	 * @see org.springframework.web.servlet.mvc.SimpleFormController#onSubmit(java.lang.Object)
 	 */
 	@Override
-	protected ModelAndView onSubmit(Object command) throws Exception {
+	protected ModelAndView onSubmit(HttpServletRequest request,
+			HttpServletResponse response, Object command, BindException errors)
+	throws Exception {
 		
 		Inscription inscription = (Inscription)command;
+		
+		// Recuperation de l'id du plan de formation
+		int idPlanFormation = -1;
+		try { idPlanFormation = Integer.parseInt(request.getParameter("id_plan_formation")); }
+		catch (Exception e) { e.printStackTrace(); }
 		
 		// Ajout
 		InscriptionPK pk = new InscriptionPK();
@@ -128,7 +137,7 @@ public class AddInscriptionController extends SimpleFormController {
 		
 		si.addInscription(inscription);	
 		
-		return new ModelAndView(new RedirectView(this.getSuccessView() + "?id_session_formation=" + inscription.getPk().getIdSessionFormation()));
+		return new ModelAndView(new RedirectView(this.getSuccessView() + "?id_session_formation=" + inscription.getPk().getIdSessionFormation() + "&id_plan_formation=" + idPlanFormation));
 	}
 
 	public IServiceInscription getSi() {

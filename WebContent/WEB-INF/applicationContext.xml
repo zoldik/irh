@@ -86,6 +86,10 @@
 	<bean id="serviceEmploiPrecedent" class="services.ServiceEmploiPrecedent">
 		<property name="daoEmploiPrecedent" ref="daoEmploiPrecedent" />
 	</bean>
+	<bean id="daoEvaluation" class="dao.DaoEvaluation" />
+	<bean id="serviceEvaluation" class="services.ServiceEvaluation">
+		<property name="daoEvaluation" ref="daoEvaluation" />
+	</bean>
 
 	<!-- couche de persistance JPA -->
 	<bean id="entityManagerFactory"	class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">

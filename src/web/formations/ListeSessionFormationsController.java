@@ -9,13 +9,16 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
+import entities.Inscription;
 import entities.SessionFormation;
 
+import services.IServiceInscription;
 import services.IServiceSessionFormation;
 
 public class ListeSessionFormationsController implements Controller {
 
 	private IServiceSessionFormation ssf;
+	private IServiceInscription si;
 	
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest arg0,
@@ -32,7 +35,22 @@ public class ListeSessionFormationsController implements Controller {
     	{	
 			for (SessionFormation sessionFormation : ssf.listSessionFormations()) {
 				if(sessionFormation.getPlanFormation().getId() == idPlanFormation)
+				{
+					// Calcul le nombre de participants
+					int nbParticipants = 0;
+					for (Inscription i : si.listInscriptions()) {
+						if(i.getPk().getIdSessionFormation() == sessionFormation.getId())
+							nbParticipants++;
+					}
+					sessionFormation.setNbParticipants(nbParticipants);
+					
+					// Calcul le prix total
+					double prixTotal = 0;
+					prixTotal = sessionFormation.getFormation().getPrixParPersonne() * nbParticipants;
+					sessionFormation.setPrixTotal(prixTotal);
+					
 					session_formations.add(sessionFormation);
+				}
 			}
     	}
 		// Ajoute la liste au Model
@@ -49,5 +67,13 @@ public class ListeSessionFormationsController implements Controller {
 
 	public void setSsf(IServiceSessionFormation ssf) {
 		this.ssf = ssf;
+	}
+
+	public IServiceInscription getSi() {
+		return si;
+	}
+
+	public void setSi(IServiceInscription si) {
+		this.si = si;
 	}
 }

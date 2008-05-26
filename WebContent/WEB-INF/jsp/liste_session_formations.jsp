@@ -27,9 +27,10 @@
 		<display:column property="editLink" title="&nbsp;" style="text-align:center" />
 		<display:column property="supprLink" title="&nbsp;" style="text-align:center" />
 	</display:table>
+	<br />
+	<a href="liste_plan_formations.htm">Retour</a>
 </fieldset>
-<br />
-<a href="liste_plan_formations.htm">Retour</a>
+
 
 </body>
 </html>

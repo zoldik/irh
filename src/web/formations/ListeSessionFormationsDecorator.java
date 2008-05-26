@@ -36,21 +36,6 @@ public class ListeSessionFormationsDecorator extends TableDecorator {
 					"</a>";
     }
 	
-	public String getNbParticipants()
-	{
-		//SessionFormation session = (SessionFormation)this.getCurrentRowObject();
-		//TODO : Calculer le nombre de participant a la session
-		return "TODO";
-	}
-	
-	public String getprixTotal()
-	{
-		//SessionFormation session = (SessionFormation)this.getCurrentRowObject();
-		//TODO : Calculer le prix total de la session
-		
-		return "TODO";
-	}
-	
 	public String getDateDebutShortFormat()
 	{
 		SessionFormation session = (SessionFormation)this.getCurrentRowObject();

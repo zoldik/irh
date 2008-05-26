@@ -233,6 +233,7 @@
 	</bean>
 	<bean name="/liste_plan_formations.htm" class="web.formations.ListePlanFormationsController">
 		<property name="spf" ref="servicePlanFormation" />
+		<property name="si" ref="serviceInscription" />
 	</bean>
 	<bean name="/add_plan_formation.htm" class="web.formations.AddPlanFormationController">
 		<property name="commandClass" value="entities.PlanFormation" />
@@ -253,6 +254,7 @@
 	</bean>
 	<bean name="/liste_session_formations.htm" class="web.formations.ListeSessionFormationsController">
 		<property name="ssf" ref="serviceSessionFormation" />
+		<property name="si" ref="serviceInscription" />
 	</bean>
 	<bean name="/add_session_formation.htm" class="web.formations.AddSessionFormationController">
 		<property name="commandClass" value="entities.SessionFormation" />
@@ -300,6 +302,18 @@
 	<bean name="/suppr_inscription.htm" class="web.formations.SupprInscriptionController">
 		<property name="si" ref="serviceInscription" />
 	</bean>
+	<bean name="/liste_evaluations.htm" class="web.carrieres.ListeEvaluationsController">
+		<property name="se" ref="serviceEvaluation" />
+	</bean>
+	<bean name="/add_evaluation.htm" class="web.carrieres.AddEvaluationController">
+		<property name="commandClass" value="entities.Evaluation" />
+		<property name="formView" value="add_modif_evaluation" />
+		<property name="successView" value="liste_evaluations.htm" />
+		<property name="validator" ref="addModifEvaluationValidator" />
+		<property name="se" ref="serviceEvaluation" />
+		<property name="see" ref="serviceEmploye" />
+		<property name="sc" ref="serviceCompetence" />
+	</bean>
 	
  	<!-- Validadors -->
  	<bean name="identificationValidator" class="web.consultation.IdentificationValidator">
@@ -322,6 +336,7 @@
  	<bean name="addModifInscriptionValidator" class="web.formations.AddModifInscriptionValidator">
  		<property name="si" ref="serviceInscription" />
  	</bean>
+ 	<bean name="addModifEvaluationValidator" class="web.carrieres.AddModifEvaluationValidator" />
  	
  	<!-- View Resolvers -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

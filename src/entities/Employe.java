@@ -78,6 +78,9 @@ public class Employe implements Serializable {
 	@OneToMany(mappedBy="employe")
 	private Set<EmploiPrecedent> emploiPrecedentCollection;
 	
+	@OneToMany(mappedBy="employe")
+	private Set<Evaluation> evaluationCollection;
+	
 	// TODO : Implementer poste
 	//@Column(name="ID_POSTE")
 	//private BigDecimal idPoste;
@@ -236,6 +239,14 @@ public class Employe implements Serializable {
 	@Override
 	public String toString() {
 		return this.nom + " " + this.prenom;
+	}
+
+	public Set<Evaluation> getEvaluationCollection() {
+		return evaluationCollection;
+	}
+
+	public void setEvaluationCollection(Set<Evaluation> evaluationCollection) {
+		this.evaluationCollection = evaluationCollection;
 	}
 
 }

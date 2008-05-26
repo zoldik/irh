@@ -25,9 +25,9 @@
 		<display:column property="editLink" title="&nbsp;" style="text-align:center" />
 		<display:column property="supprLink" title="&nbsp;" style="text-align:center" />
 	</display:table>
-</fieldset>
-<br />
+	<br />
 <a href="liste_session_formations.htm?id_plan_formation=${id_plan_formation}">Retour</a>
+</fieldset>
 
 </body>
 </html>

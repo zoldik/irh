@@ -33,16 +33,4 @@ public class ListePlanFormationsDecorator extends TableDecorator {
         			"<img src=\"./images/calendar.png\" alt=\"Voir le planning\"/>" +
         			"</a>";
     }
-	
-	public String getVolumeHoraire()
-	{
-		// TODO : Calculer le volume horaire du plan de formation
-		return "TODO";
-	}
-	
-	public String getBudgetTotal()
-	{
-		// TODO : Calculer le budget total du plan de formation
-		return "TODO";
-	}
 }
