@@ -522,7 +522,7 @@ ALTER TABLE EMPLOI_PRECEDENT ADD (
 ALTER TABLE EMPLOI_PRECEDENT ADD (
      CONSTRAINT FK_EMPLOI_PRECEDENT_EMPLOYE
           FOREIGN KEY (ID_EMPLOYE)
-               REFERENCES EMPLOYE (ID))   ;
+               REFERENCES EMPLOYE (ID) ON DELETE CASCADE)  ;
 
 ALTER TABLE UTILISATEUR ADD (
      CONSTRAINT FK_UTILISATEUR_DROIT
@@ -557,17 +557,17 @@ ALTER TABLE POSTE ADD (
 ALTER TABLE DIPLOME ADD (
      CONSTRAINT FK_DIPLOME_NIVEAU_ETUDE
           FOREIGN KEY (ID_NIVEAU)
-               REFERENCES NIVEAU_ETUDE (ID))   ;
+               REFERENCES NIVEAU_ETUDE (ID))  ;
 
 ALTER TABLE DIPLOME ADD (
      CONSTRAINT FK_DIPLOME_EMPLOYE
           FOREIGN KEY (ID_EMPLOYE)
-               REFERENCES EMPLOYE (ID))   ;
+               REFERENCES EMPLOYE (ID) ON DELETE CASCADE)   ;
 
 ALTER TABLE EVALUATION ADD (
      CONSTRAINT FK_EVALUATION_EMPLOYE
           FOREIGN KEY (ID_EMPLOYE)
-               REFERENCES EMPLOYE (ID))   ;
+               REFERENCES EMPLOYE (ID) ON DELETE CASCADE)   ;
 
 ALTER TABLE CATEGORIE ADD (
      CONSTRAINT FK_CATEGORIE_THEME
@@ -612,7 +612,7 @@ ALTER TABLE NIVEAU_EVAL ADD (
 ALTER TABLE INSCRIPTION ADD (
      CONSTRAINT FK_INSCRIPTION_EMPLOYE
           FOREIGN KEY (ID_EMPLOYE)
-               REFERENCES EMPLOYE (ID))   ;
+               REFERENCES EMPLOYE (ID) ON DELETE CASCADE)   ;
 
 ALTER TABLE INSCRIPTION ADD (
      CONSTRAINT FK_INSCRIPTION_SESSIONS
@@ -748,7 +748,8 @@ insert into "IRH"."POSTE" values(1, 2, 'Responsable Comptabilite', 0);
 insert into "IRH"."POSTE" values(2, 1, 'Responsable Laboratoire d''agronomie', 1);
 insert into "IRH"."POSTE" values(3, 3, 'Responsable Projet IRH', 1);
 
-insert into "IRH"."EMPLOYE" values(1, 1, 3, 1, 'JARNOUX', 'Alex', '', '', '0674934995', '', '30/04/86', 'alex.jarnoux@gmail.com', '13 rue St Hermeland', '44200', 'Nantes', 'Personne tres agreable, beau physique!', null);
+insert into "IRH"."EMPLOYE" values(1, 1, 3, 1, 'JARNOUX', 'Alex', '', '', '0674934995', '', '30/04/86', 'alex.jarnoux@gmail.com', '13 rue St Hermeland', '44200', 'Nantes', '', null);
+insert into "IRH"."EMPLOYE" values(2, 1, 3, null, 'COJEAN', 'François', '', '', '0645679834', '', '27/07/84', 'francois.cojean@gmail.com', '19 bis Rue de la bauche', '44830', 'BRAINS', '', null);
 
 insert into "IRH"."ORGANISME" values(1, 'EPSI', '1 ecole, 6 site. Liens fort avec l''entreprise. Titre certifie au niveau 1 (Ingenieur). Encadrement et suivi des eleves. Remunerations elevees. Ouverture internationale.');
 
@@ -766,3 +767,5 @@ insert into "IRH"."SESSIONS" values(1, 1, 1, '02/04/08', '23/04/08');
 insert into "IRH"."INSCRIPTION" values(1, 1, 'En Attente', 0);
 
 insert into "IRH"."EVALUATION" values(1, 1, '10/10/08', 'Bonne repartie');
+
+commit;

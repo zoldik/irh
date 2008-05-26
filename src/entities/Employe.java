@@ -1,4 +1,5 @@
 package entities;
+import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.GenerationType.SEQUENCE;
 
 import java.io.Serializable;
@@ -72,10 +73,10 @@ public class Employe implements Serializable {
 	@JoinColumn(name="ID_SITUATION_FAMILIALE")
 	private SituationFamiliale situationFamiliale;
 	
-	@OneToMany(mappedBy="employe")
+	@OneToMany(mappedBy="employe", fetch = EAGER)
 	private Set<Diplome> diplomeCollection;
 	
-	@OneToMany(mappedBy="employe")
+	@OneToMany(mappedBy="employe", fetch = EAGER)
 	private Set<EmploiPrecedent> emploiPrecedentCollection;
 	
 	@OneToMany(mappedBy="employe")
