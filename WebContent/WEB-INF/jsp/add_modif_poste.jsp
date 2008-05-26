@@ -16,7 +16,7 @@
 <legend>Poste</legend>
     <div class="ligne">
         <span class="label">Libell&eacute; :</span>
-        <form:input path="libelle" />
+        <form:input path="libelle" maxlength="128" />
         <form:errors path="libelle" cssClass="error"/>
     </div>
     <div class="ligne">
@@ -24,7 +24,7 @@
         <form:select path="metier">
         	<form:options items="${metiers}" itemValue="id" />
         </form:select>
-        <a href="add_metier.htm" target="_blank">Ajouter</a>
+        <a href="add_metier.htm">Ajouter</a>
         <a href="liste_metiers.htm" target="_blank">Gestion des m&eacute;tiers</a>
     </div>
     <div class="ligne">

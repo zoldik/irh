@@ -32,7 +32,8 @@
 
 <form:form method="post">
 <fieldset>
-<legend>Evaluation</legend> 
+<legend>Evaluation</legend>
+	<span>Page en construction :(</span>
     <div class="ligne">
         <span class="label">Date :</span>
     	<form:input path="dateEvaluation" />

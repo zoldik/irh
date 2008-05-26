@@ -51,7 +51,7 @@
 		${organisme.description}
 	</fieldset>
 	<br />
-	<a href="liste_formations.htm">Retour</a>
+	<a href="javascript:history.back()">Retour</a>
 </fieldset>
 
 </body>

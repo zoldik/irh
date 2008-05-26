@@ -16,7 +16,7 @@
 <legend>Plan de formation</legend>
     <div class="ligne">
         <span class="label">Ann&eacute;e :</span>
-        <form:input path="annee" />
+        <form:input path="annee" maxlength="4" />
         <form:errors path="annee" cssClass="error"/>
     </div>
     <div class="ligne">

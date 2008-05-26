@@ -31,7 +31,6 @@ public class AddDiplomeController extends SimpleFormController {
 	protected Object formBackingObject(HttpServletRequest request)
 			throws Exception {
 
-		System.out.println("### formBackingObject");
 		return super.formBackingObject(request);
 	}
 	
@@ -41,8 +40,6 @@ public class AddDiplomeController extends SimpleFormController {
 	@Override
 	protected Map<Object, Object> referenceData(HttpServletRequest request) throws Exception {
 		Map<Object, Object> dataMap = new HashMap<Object, Object>();
-		
-		System.out.println("### referenceData");
 		
 		// Recupère l'employé passé en paramètre GET
 		Integer employeId = Integer.parseInt(request.getParameter("employe"));
@@ -63,8 +60,6 @@ public class AddDiplomeController extends SimpleFormController {
 	@Override
 	protected void initBinder(HttpServletRequest request,
 			ServletRequestDataBinder binder) throws Exception {
-		
-		System.out.println("### initBinder");
 		
 		// Champs a ne pas gerer par le binder
 		binder.setDisallowedFields(new String[] {"niveauEtude", "employe"});
@@ -90,8 +85,6 @@ public class AddDiplomeController extends SimpleFormController {
 			NiveauEtude niveauEtude = sne.getNiveauEtude(niveauEtudeId);
 			diplome.setNiveauEtude(niveauEtude);
 		}
-		
-		System.out.println("### /initBinder");
 	}
 	
 	/* (non-Javadoc)
@@ -99,7 +92,6 @@ public class AddDiplomeController extends SimpleFormController {
 	 */
 	@Override
 	protected ModelAndView onSubmit(Object command) throws Exception {
-		System.out.println("### onSubmit");
 		Diplome diplome = (Diplome)command;
 		
 		// Ajout du diplome

@@ -161,3 +161,25 @@ ul.menu li.subtitle a {
 ul.menu li.subtitle a:hover {
 	background:			white url(../images/progress_background.png) repeat scroll 0% 20%;
 }
+
+div.icon {
+	background-color:#FFFFFF;
+	text-align:center;
+}
+
+div.icon a {
+	border:1px solid #DDDDDD;
+	color:#666666;
+	display:block;
+	height:85px;
+	text-decoration:none;
+	width:105px;
+}
+
+div.icon {
+	text-align:center;
+}
+
+#cpanel img {
+	padding:2px 0pt;
+}

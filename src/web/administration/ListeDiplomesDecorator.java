@@ -11,7 +11,7 @@ public class ListeDiplomesDecorator extends TableDecorator {
     {
         Diplome diplome = (Diplome)this.getCurrentRowObject();
         
-        return "<a href=\"modif_diplome.htm?id=" + diplome.getId() + "\">" +
+        return "<a href=\"modif_diplome.htm?id=" + diplome.getId() + "&employe=" + diplome.getEmploye().getId() + "\">" +
         			"<img src=\"./images/edit.png\" alt=\"Modifier le diplôme\"/>" +
         			"</a>";
     }

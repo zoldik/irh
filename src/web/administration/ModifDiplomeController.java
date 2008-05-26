@@ -44,6 +44,13 @@ public class ModifDiplomeController extends SimpleFormController {
 	protected Map referenceData(HttpServletRequest request) throws Exception {
 		Map<Object, Object> dataMap = new HashMap<Object, Object>();
 		
+		// Recupère l'employé passé en paramètre GET
+		Integer employeId = Integer.parseInt(request.getParameter("employe"));
+    	// Ajoute l'id de l'employé à la dataMap
+    	if (employeId != null) {
+    		dataMap.put("employeId", employeId);
+    	}
+		
 		// Ajoute la liste des niveaux d'etude dans la dataMap
 		dataMap.put("niveauxEtude", sne.listNiveauxEtude());
 		

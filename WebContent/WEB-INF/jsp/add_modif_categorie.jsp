@@ -16,7 +16,7 @@
 <legend>Cat&eacute;gorie</legend>
     <div class="ligne">
         <span class="label">Libell&eacute; :</span>
-        <form:input path="libelle" />
+        <form:input path="libelle" maxlength="128" />
         <form:errors path="libelle" cssClass="error"/>
     </div>
     <div class="ligne">
@@ -24,7 +24,7 @@
         <form:select path="theme">
         	<form:options items="${themes}" itemLabel="libelle" itemValue="id" />
         </form:select>
-        <a href="add_theme.htm" target="_blank">Ajouter</a>
+        <a href="add_theme.htm">Ajouter</a>
         <a href="liste_themes.htm" target="_blank">Gestion des th&egrave;mes</a>
     </div>
     <div class="ligne">

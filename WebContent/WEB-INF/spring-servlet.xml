@@ -150,7 +150,7 @@
 	</bean>
 	<bean name="/add_employe.htm" class="web.administration.AddEmployeController">
 		<property name="commandClass" value="entities.Employe" />
-		<property name="formView" value="add_modif_employe" />
+		<property name="formView" value="add_employe" />
 		<property name="successView" value="liste_employes.htm" />
 		<property name="validator" ref="addModifEmployeValidator" />
 		<property name="se" ref="serviceEmploye" />
@@ -159,7 +159,7 @@
 	</bean>
 	<bean name="/modif_employe.htm" class="web.administration.ModifEmployeController">
 		<property name="commandClass" value="entities.Employe" />
-		<property name="formView" value="add_modif_employe" />
+		<property name="formView" value="modif_employe" />
 		<property name="successView" value="liste_employes.htm" />
 		<property name="validator" ref="addModifEmployeValidator" />
 		<property name="se" ref="serviceEmploye" />
@@ -214,6 +214,9 @@
 		<property name="sep" ref="serviceEmploiPrecedent" />
 	</bean>
 	<bean name="/liste_formations.htm" class="web.formations.ListeFormationsController">
+		<property name="sf" ref="serviceFormation" />
+	</bean>
+	<bean name="/consult_formations.htm" class="web.consultation.ConsultFormationsController">
 		<property name="sf" ref="serviceFormation" />
 	</bean>
 	<bean name="/add_sync_formations.htm" class="web.formations.AddSyncFormationsController">

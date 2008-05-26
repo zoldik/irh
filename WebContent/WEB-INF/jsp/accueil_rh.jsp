@@ -8,7 +8,9 @@
 
 <%@ include file="/WEB-INF/jsp/includes/header_menu.jsp" %>
 
-Je suis la page d'accueil RH.
-
+<center>
+<span><b>Accueil RH<br/><br/></b></span>
+<span>Veuillez utiliser le menu de gauche<br />pour naviguer dans les rubriques.</span>
+</center>
 </body>
 </html>

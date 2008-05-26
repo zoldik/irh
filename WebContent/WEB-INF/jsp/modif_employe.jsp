@@ -29,12 +29,12 @@
             </div>
             <div class="ligne">
                 <span class="label">Nom :</span>
-				<form:input path="nom" />
+				<form:input path="nom" maxlength="128" />
 				<form:errors path="nom" cssClass="error"/>
             </div>
             <div class="ligne">
                 <span class="label">Prénom :</span>
-                <form:input path="prenom" />
+                <form:input path="prenom" maxlength="128" />
 				<form:errors path="prenom" cssClass="error"/>
             </div>
             <div class="ligne">
@@ -46,42 +46,42 @@
         <div id="bloc_mail_tel">
             <div class="ligne">
                 <span class="label">Email :</span>
-                <form:input path="email" />
+                <form:input path="email" maxlength="128" />
 				<form:errors path="email" cssClass="error"/>
             </div>
             <div class="ligne">
                 <span class="label">Tél. pro :</span>
-                <form:input path="telephonePro" />
+                <form:input path="telephonePro" maxlength="20" />
 				<form:errors path="telephonePro" cssClass="error"/>
             </div>
             <div class="ligne">
                 <span class="label">Tél. perso :</span>
-                <form:input path="telephonePerso" />
+                <form:input path="telephonePerso" maxlength="20" />
 				<form:errors path="telephonePerso" cssClass="error"/>
             </div>
             <div class="ligne">
                 <span class="label">Tél. mobile :</span>
-                <form:input path="telephoneMobile" />
+                <form:input path="telephoneMobile" maxlength="20" />
 				<form:errors path="telephoneMobile" cssClass="error"/>
             </div>
             <div class="ligne">
                 <span class="label">Fax :</span>
-                <form:input path="fax" />
+                <form:input path="fax" maxlength="20" />
 				<form:errors path="fax" cssClass="error"/>
             </div>
             <div class="ligne">
                 <span class="label">Rue :</span>
-                <form:input path="adrRue" />
+                <form:input path="adrRue" maxlength="255" />
 				<form:errors path="adrRue" cssClass="error"/>
             </div>
             <div class="ligne">
                 <span class="label">CP :</span>
-                <form:input path="adrCp" />
+                <form:input path="adrCp" maxlength="10" />
 				<form:errors path="adrCp" cssClass="error"/>
             </div>
             <div class="ligne">
                 <span class="label">Ville :</span>
-                <form:input path="adrVille" />
+                <form:input path="adrVille" maxlength="128" />
 				<form:errors path="adrVille" cssClass="error"/>
             </div>
         </div>
@@ -108,7 +108,7 @@
     <fieldset>
         <legend>Diplomes</legend>
         <a class="ajout" href="./add_diplome.htm?employe=${employe}">
-            Ajouter un dimplome
+            Ajouter un diplome
         </a>
         <display:table name="diplomes" sort="list" class="adminlist" decorator="web.administration.ListeDiplomesDecorator">
 			<display:setProperty name="css.tr.odd" value="row0" />

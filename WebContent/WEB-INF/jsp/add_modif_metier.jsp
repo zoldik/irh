@@ -16,7 +16,7 @@
 <legend>M&eacute;tier</legend>
     <div class="ligne">
         <span class="label">Libell&eacute; :</span>
-        <form:input path="libelle" />
+        <form:input path="libelle" maxlength="128" />
         <form:errors path="libelle" cssClass="error"/>
     </div>
     <div class="ligne">
@@ -24,8 +24,8 @@
         <form:select path="categorie">
         	<form:options items="${categories}" itemValue="id" />
         </form:select>
-        <a href="add_categorie.htm" target="_blank">Ajouter</a>
-        <a href="liste_categories.htm" target="_blank">Gestion des cat&eacute;gories</a>
+        <a href="add_categorie.htm">Ajouter</a>
+        <a href="liste_categories.htm">Gestion des cat&eacute;gories</a>
     </div>
     <div class="ligne">
         <span class="label">&nbsp;</span>

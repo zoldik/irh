@@ -18,12 +18,12 @@
 	<form:errors path="employe" cssClass="error"/>
     <div class="ligne">
         <span class="label">D&eacute;nomination :</span>
-        <form:input path="denomination" />
+        <form:input path="denomination" maxlength="128" />
         <form:errors path="denomination" cssClass="error"/>
     </div>
     <div class="ligne">
         <span class="label">Etablissement :</span>
-        <form:input path="etablissement" />
+        <form:input path="etablissement" maxlength="128" />
         <form:errors path="etablissement" cssClass="error"/>
     </div>
     <div class="ligne">
@@ -40,7 +40,7 @@
     
     <div class="ligne">
         <span class="label">&nbsp;</span>
-        <a href="./modif_employe.htm">Retour</a>&nbsp;-&nbsp;<input type="submit" value="Valider" />
+        <a href="./modif_employe.htm?id=${employeId}">Retour</a>&nbsp;-&nbsp;<input type="submit" value="Valider" />
     </div>
 </fieldset>
 </form:form>

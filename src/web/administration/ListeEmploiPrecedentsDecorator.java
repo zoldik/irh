@@ -29,7 +29,7 @@ public class ListeEmploiPrecedentsDecorator extends TableDecorator {
     {
 		EmploiPrecedent emploiPrecedent = (EmploiPrecedent)this.getCurrentRowObject();
         
-        return "<a href=\"modif_emploi_precedent.htm?id=" + emploiPrecedent.getId() + "\">" +
+        return "<a href=\"modif_emploi_precedent.htm?id=" + emploiPrecedent.getId() + "&employe=" + emploiPrecedent.getEmploye().getId() + "\">" +
         			"<img src=\"./images/edit.png\" alt=\"Modifier l'emploi\"/>" +
         			"</a>";
     }

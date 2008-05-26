@@ -31,12 +31,12 @@
     </div>
     <div class="ligne">
         <span class="label">Entreprise :</span>
-        <form:input path="entreprise" />
+        <form:input path="entreprise" maxlength="128" />
         <form:errors path="entreprise" cssClass="error"/>
     </div>
     <div class="ligne">
         <span class="label">Poste :</span>
-        <form:input path="poste" />
+        <form:input path="poste" maxlength="128" />
         <form:errors path="poste" cssClass="error"/>
     </div>
     <div class="ligne">
@@ -53,7 +53,7 @@
     
     <div class="ligne">
         <span class="label">&nbsp;</span>
-        <a href="./modif_employe.htm">Retour</a>&nbsp;-&nbsp;<input type="submit" value="Valider" />
+        <a href="./modif_employe.htm?id=${employeId}">Retour</a>&nbsp;-&nbsp;<input type="submit" value="Valider" />
     </div>
 </fieldset>
 </form:form>

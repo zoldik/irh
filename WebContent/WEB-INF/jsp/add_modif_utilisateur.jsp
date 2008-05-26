@@ -16,12 +16,12 @@
 <legend>Utilisateur</legend>
     <div class="ligne">
         <span class="label">Login :</span>
-        <form:input path="login" />
+        <form:input path="login" maxlength="128" />
         <form:errors path="login" cssClass="error"/>
     </div>
     <div class="ligne">
         <span class="label">Nom :</span>
-        <form:input path="nom" />
+        <form:input path="nom" maxlength="128" />
         <form:errors path="nom" cssClass="error"/>
     </div>
     <div class="ligne">
@@ -32,12 +32,12 @@
     </div>
     <div class="ligne">
         <span class="label">Password :</span>
-        <form:password path="pass" showPassword="true"/>
+        <form:password path="pass" showPassword="true" maxlength="32" />
         <form:errors path="pass" cssClass="error"/>
     </div>
     <div class="ligne">
         <span class="label">Confirmation :</span>
-        <form:password path="confirmation" showPassword="true"/>
+        <form:password path="confirmation" showPassword="true" maxlength="32" />
         <form:errors path="confirmation" cssClass="error"/>
     </div>
     <div class="ligne">

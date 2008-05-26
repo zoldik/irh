@@ -16,7 +16,7 @@
 <legend>Th&egrave;me</legend>
     <div class="ligne">
         <span class="label">Libell&eacute; :</span>
-        <form:input path="libelle" />
+        <form:input path="libelle" maxlength="128" />
         <form:errors path="libelle" cssClass="error"/>
     </div>
     <div class="ligne">
