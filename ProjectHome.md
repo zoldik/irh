@@ -1,0 +1,1 @@
+Intranet de ressources humaines développé en Java EE + framework Spring, dans un but de projet éducatif.
